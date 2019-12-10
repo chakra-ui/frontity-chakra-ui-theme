@@ -1,1 +1,0 @@
-# frontity-chakra-ui-theme

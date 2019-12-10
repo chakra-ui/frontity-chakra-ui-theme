@@ -1,13 +1,18 @@
 {
-  "name": "@chakra-ui/frontity-theme",
-  "version": "0.0.1",
-  "description": "A frontity theme made with Chakra UI",
+  "name": "my-frontity-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontity project",
   "keywords": [
-    "wordpress",
-    "frontity",
-    "frontity-theme",
-    "frontity-amp"
+    "frontity"
   ],
+  "scripts": {
+    "dev": "frontity dev",
+    "build": "frontity build",
+    "serve": "frontity serve",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chakra-ui/frontity-chakra-ui-theme.git"
@@ -18,14 +23,21 @@
     "url": "https://github.com/chakra-ui/frontity-chakra-ui-theme/issues"
   },
   "homepage": "https://github.com/chakra-ui/frontity-chakra-ui-theme#readme",
-  "publishConfig": {
-    "access": "public"
-  },
+  "prettier": {},
   "dependencies": {
-    "@frontity/components": "^1.1.14",
-    "@frontity/hooks": "1.1.13",
-    "@frontity/html2react": "^1.1.14",
     "frontity": "^1.4.2",
-    "react-spinners": "^0.5.4"
+    "@frontity/core": "^1.4.0",
+    "@frontity/wp-source": "^1.4.2",
+    "@frontity/tiny-router": "^1.0.17",
+    "@frontity/html2react": "^1.1.14",
+    "chakra-theme": "./packages/chakra-theme"
+  },
+  "devDependencies": {
+    "@babel/core": "7.7.5",
+    "@storybook/addon-actions": "5.2.8",
+    "@storybook/addon-links": "5.2.8",
+    "@storybook/addons": "5.2.8",
+    "@storybook/react": "5.2.8",
+    "babel-loader": "8.0.6"
   }
 }

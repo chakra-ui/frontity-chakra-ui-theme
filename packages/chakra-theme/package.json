@@ -28,6 +28,7 @@
     "@frontity/html2react": "^1.1.14",
     "emotion-theming": "10.0.19",
     "frontity": "^1.4.2",
+    "react-icons": "3.8.0",
     "react-spinners": "^0.5.4"
   }
 }

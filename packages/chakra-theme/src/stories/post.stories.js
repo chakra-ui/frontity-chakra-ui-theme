@@ -28,5 +28,13 @@ export const postHeader = () => (
     categories={data.categories}
     heading={data.heading}
     description={data.description}
+    maxWidth="700px"
+    mx="auto"
+    publishDate="August 2019"
+    noOfComments={3}
+    author={{
+      name: "Theresa Black",
+      imageUrl: "https://uinames.com/api/photos/female/3.jpg"
+    }}
   />
 );

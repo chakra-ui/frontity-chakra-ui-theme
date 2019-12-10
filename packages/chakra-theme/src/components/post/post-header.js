@@ -1,25 +1,53 @@
+import { Avatar, Box, Flex, Heading, Stack, Text } from "@chakra-ui/core";
 import React from "react";
-import { Heading, Text, Flex } from "@chakra-ui/core";
+import { IoIosCalendar, IoMdChatboxes } from "react-icons/io";
 import PostCategories from "./post-categories";
 
-function PostHeader({ heading, categories, description, author, ...props }) {
+const PostMeta = ({ icon, children, ...rest }) => (
+  <Stack isInline align="center" color="gray.600" {...rest}>
+    <Box as={icon} size={4} />
+    <Text textTransform="capitalize" fontSize="sm">
+      {children}
+    </Text>
+  </Stack>
+);
+
+const AvatarMeta = ({ src, children, ...rest }) => (
+  <Stack isInline align="center" color="gray.600" {...rest}>
+    <Avatar size="sm" src={src} />
+    <Text textTransform="capitalize" fontSize="sm">
+      {children}
+    </Text>
+  </Stack>
+);
+
+function PostHeader({
+  heading,
+  categories,
+  description,
+  author,
+  noOfComments,
+  publishDate,
+  ...props
+}) {
   return (
     <Flex direction="column" justify="center" textAlign="center" {...props}>
       <PostCategories categories={categories} />
-      <Heading fontWeight="light" mt={2}>
+      <Heading fontWeight="semibold" mt={2}>
         {heading}
       </Heading>
       {description && <Text mt={4}>{description}</Text>}
-      {author && (
-        <Text
-          mt={4}
-          textTransform="uppercase"
-          fontSize="sm"
-          fontWeight="semibold"
-        >
-          By {author}
-        </Text>
-      )}
+      <Stack mt={5} spacing={10} justify="center" isInline>
+        {author && (
+          <AvatarMeta src={author.imageUrl}> by {author.name}</AvatarMeta>
+        )}
+        {publishDate && <PostMeta icon={IoIosCalendar}>{publishDate}</PostMeta>}
+        {noOfComments && (
+          <PostMeta icon={IoMdChatboxes}>
+            {noOfComments} {noOfComments > 1 ? "Comments" : "Comment"}
+          </PostMeta>
+        )}
+      </Stack>
     </Flex>
   );
 }

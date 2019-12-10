@@ -1,12 +1,9 @@
-import React from "react";
-import { connect, styled } from "frontity";
+import { Box } from "@chakra-ui/core";
 import Image from "@frontity/components/image";
+import { connect } from "frontity";
+import React from "react";
 
-const FeaturedMedia = ({ state, id }) => {
-  const media = state.source.attachment[id];
-
-  if (!media) return null;
-
+function getSrcSet(media) {
   const srcset =
     Object.values(media.media_details.sizes)
       // Get the url and width of each size.
@@ -19,28 +16,26 @@ const FeaturedMedia = ({ state, id }) => {
           ),
         ""
       ) || null;
+  return srcset;
+}
+
+const FeaturedMedia = ({ state, id }) => {
+  const media = state.source.attachment[id];
+  if (!media) return null;
+  const srcSet = getSrcSet(media);
 
   return (
-    <Container>
-      <StyledImage
+    <Box mt={4} height="300px">
+      <Box
+        as={Image}
+        size="100%"
+        objectFit="cover"
         alt={media.title.rendered}
         src={media.source_url}
-        srcSet={srcset}
+        srcSet={srcSet}
       />
-    </Container>
+    </Box>
   );
 };
 
 export default connect(FeaturedMedia);
-
-const Container = styled.div`
-  margin-top: 16px;
-  height: 300px;
-`;
-
-const StyledImage = styled(Image)`
-  display: block;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-`;

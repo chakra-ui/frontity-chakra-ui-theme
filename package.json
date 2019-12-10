@@ -38,6 +38,8 @@
     "@storybook/addon-links": "5.2.8",
     "@storybook/addons": "5.2.8",
     "@storybook/react": "5.2.8",
-    "babel-loader": "8.0.6"
+    "babel-loader": "8.0.6",
+    "eslint": "6.7.2",
+    "eslint-plugin-react": "7.17.0"
   }
 }

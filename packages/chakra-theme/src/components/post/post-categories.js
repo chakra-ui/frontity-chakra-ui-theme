@@ -5,10 +5,11 @@ import Link from "../link";
 const Category = props => (
   <PseudoBox
     textTransform="uppercase"
+    fontFamily="body"
     transition="all 0.2s"
-    fontWeight="semibold"
+    fontWeight="medium"
     letterSpacing="wide"
-    _hover={{ color: "blue.300", textDecoration: "underline" }}
+    _hover={{ textDecoration: "underline" }}
     fontSize="sm"
     {...props}
   />

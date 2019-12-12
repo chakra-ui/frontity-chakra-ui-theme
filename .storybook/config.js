@@ -1,9 +1,14 @@
 import React from "react";
 import { configure, addDecorator } from "@storybook/react";
-import { ThemeProvider, CSSReset } from "@chakra-ui/core";
+import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
 
 addDecorator(story => (
-  <ThemeProvider>
+  <ThemeProvider
+    theme={{
+      ...theme,
+      fonts: { ...theme.fonts, body: "Inter", heading: "Inter" }
+    }}
+  >
     <CSSReset />
     {story()}
   </ThemeProvider>

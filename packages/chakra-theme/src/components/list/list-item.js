@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
-import FeaturedMedia from "../featured-media";
+import FeaturedMedia from "../post/featured-media";
 
 const Item = ({ state, item }) => {
   const author = state.source.author[item.author];

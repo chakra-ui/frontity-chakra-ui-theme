@@ -16,13 +16,29 @@ const chakraTheme = {
       featured: {
         showOnList: false,
         showOnPost: false
-      }
+      },
+      isSearchModalOpen: false,
+      isMobileMenuOpen: false,
+      autoPreFetch: "all"
     }
   },
   // Actions are functions that modify the state or deal with other parts of
   // Frontity like libraries.
   actions: {
-    theme: {}
+    theme: {
+      openMobileMenu: ({ state }) => {
+        state.theme.isMobileMenuOpen = true;
+      },
+      closeMobileMenu: ({ state }) => {
+        state.theme.isMobileMenuOpen = false;
+      },
+      openSearchModal: ({ state }) => {
+        state.theme.isSearchModalOpen = true;
+      },
+      closeSearchModal: ({ state }) => {
+        state.theme.isSearchModalOpen = false;
+      }
+    }
   },
   libraries: {
     html2react: {

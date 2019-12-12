@@ -1,21 +1,26 @@
+import { CSSReset, ThemeProvider } from "@chakra-ui/core";
+import { connect, Head, styled } from "frontity";
 import React from "react";
-import { Global, css, connect, styled, Head } from "frontity";
 import Header from "./header";
 import List from "./list";
-import Post from "./post";
-import Page404 from "./page404.js";
 import Loading from "./loading";
+import Page404 from "./page404.js";
+import Post from "./post";
 import Title from "./title";
-import { ThemeProvider } from "@chakra-ui/core";
+import { SearchResults } from "./search/";
 
 // Theme is the root React component of our theme. The one we will export
 // in roots.
-const Theme = ({ state }) => {
+const Theme = ({ state, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
+  const parse = libraries.source.parse(state.router.link);
+  // Check if the url is a search type
+  const isSearch = Boolean(parse.query["s"]);
 
   return (
     <ThemeProvider>
+      <CSSReset />
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
@@ -23,19 +28,14 @@ const Theme = ({ state }) => {
         <html lang="en" />
       </Head>
 
-      {/* Add some global styles for the whole site, like body or a's. 
-      Not classes here because we use CSS-in-JS. Only global HTML tags. */}
-      <Global styles={globalStyles} />
-
       {/* Add the header of the site. */}
-      <HeadContainer>
-        <Header />
-      </HeadContainer>
+      <Header />
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <Main>
         {(data.isFetching && <Loading />) ||
+          (isSearch && <SearchResults />) ||
           (data.isArchive && <List />) ||
           (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
@@ -45,26 +45,6 @@ const Theme = ({ state }) => {
 };
 
 export default connect(Theme);
-
-const globalStyles = css`
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  a,
-  a:visited {
-    color: inherit;
-    text-decoration: none;
-  }
-`;
-
-const HeadContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #1f38c5;
-`;
 
 const Main = styled.div`
   display: flex;

@@ -1,8 +1,7 @@
-import { PseudoBox, Stack, useDisclosure } from "@chakra-ui/core";
+import { Flex, PseudoBox } from "@chakra-ui/core";
 import React from "react";
-import { SearchButton, SearchModal, SearchForm } from "./search";
 
-const NavLink = props => (
+export const NavItem = props => (
   <PseudoBox
     fontWeight="medium"
     fontFamily="body"
@@ -17,30 +16,21 @@ const NavLink = props => (
 );
 
 const Nav = props => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Stack
-      direction="row"
-      align="center"
+    <Flex
       as="nav"
-      py={3}
-      px={6}
-      width="full"
-      justify="center"
       role="navigation"
-      spacing={16}
+      py={3}
+      // px={3}
+      width="full"
+      align="center"
+      justify="space-between"
+      maxWidth={{ sm: "100%", md: "640px" }}
+      mx="auto"
       {...props}
     >
-      <NavLink>Home</NavLink>
-      <NavLink>About</NavLink>
-      <NavLink>Contact</NavLink>
-      <NavLink>Welcome</NavLink>
-
-      <SearchButton onClick={onOpen} />
-      <SearchModal isOpen={isOpen} onClose={onClose}>
-        <SearchForm />
-      </SearchModal>
-    </Stack>
+      {props.children}
+    </Flex>
   );
 };
 

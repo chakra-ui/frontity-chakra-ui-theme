@@ -11,6 +11,14 @@ const Link = ({
   "aria-current": ariaCurrent,
   onClick: onClickProp
 }) => {
+  // If we're not in a frontity environment, let's just render the children
+  if (state == null)
+    return (
+      <a className={className} href={link || "dummy"}>
+        {children}
+      </a>
+    );
+
   // Check if the link is an external or internal link
   const isExternal = link.startsWith("http");
 

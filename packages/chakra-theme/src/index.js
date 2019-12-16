@@ -14,8 +14,8 @@ const chakraTheme = {
     theme: {
       menu: [],
       featured: {
-        showOnList: false,
-        showOnPost: false
+        showOnArchive: false,
+        showOnPost: true
       },
       isSearchModalOpen: false,
       isMobileMenuOpen: false,

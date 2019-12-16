@@ -19,9 +19,14 @@ const settings = {
             ["Japan", "/tag/japan/"],
             ["About Us", "/about-us/"]
           ],
+          socialLinks: [
+            ["pinterest", "https://www.instagram.com/territory.supply/"],
+            ["facebook", "https://www.instagram.com/territory.supply/"],
+            ["twitter", "https://www.pinterest.com/territorysupplyco/"]
+          ],
           featured: {
-            showOnList: false,
-            showOnPost: false
+            showOnArchive: true,
+            showOnPost: true
           }
         }
       }

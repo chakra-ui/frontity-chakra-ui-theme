@@ -5,7 +5,7 @@ import Header from "./header";
 import List from "./list";
 import Loading from "./loading";
 import Page404 from "./page404.js";
-import Post from "./post";
+import Post from "./post/post";
 import Title from "./title";
 import { SearchResults } from "./search/";
 
@@ -33,25 +33,15 @@ const Theme = ({ state, libraries }) => {
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
-      <Main>
+      <main>
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||
           (data.isArchive && <List />) ||
           (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
-      </Main>
+      </main>
     </ThemeProvider>
   );
 };
 
 export default connect(Theme);
-
-const Main = styled.div`
-  display: flex;
-  justify-content: center;
-  background-image: linear-gradient(
-    180deg,
-    rgba(66, 174, 228, 0.1),
-    rgba(66, 174, 228, 0)
-  );
-`;

@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
-import Link from "./link";
-import List from "./list";
-import FeaturedMedia from "./post/featured-media";
+import Link from "../link";
+import List from "../list";
+import FeaturedMedia from "./featured-media";
+import { Heading, Box } from "@chakra-ui/core";
+import PostHeader from "./post-header";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -17,6 +19,10 @@ const Post = ({ state, actions, libraries }) => {
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
+  const allCategories = state.source.category;
+  const categories =
+    post.categories && post.categories.map(catId => allCategories[catId]);
+
   // Once the post has loaded in the DOM, prefetch both the
   // home posts and the list component so if the user visits
   // the home page, everything is ready and it loads instantly.
@@ -27,27 +33,15 @@ const Post = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <Container>
-      <div>
-        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-
-        {/* Only display author and date on posts */}
-        {data.isPost && (
-          <div>
-            {author && (
-              <StyledLink link={author.link}>
-                <Author>
-                  By <b>{author.name}</b>
-                </Author>
-              </StyledLink>
-            )}
-            <Fecha>
-              {" "}
-              on <b>{date.toDateString()}</b>
-            </Fecha>
-          </div>
-        )}
-      </div>
+    <Box px={6} maxW="800px" mx="auto">
+      <PostHeader
+        mt="4rem"
+        mb={10}
+        categories={categories}
+        heading={post.title.rendered}
+        publishDate={date.toDateString()}
+        author={author}
+      />
 
       {/* Look at the settings to see if we should include the featured image */}
       {state.theme.featured.showOnPost && (
@@ -59,40 +53,11 @@ const Post = ({ state, actions, libraries }) => {
       <Content>
         <Html2React html={post.content.rendered} />
       </Content>
-    </Container>
+    </Box>
   ) : null;
 };
 
 export default connect(Post);
-
-const Container = styled.div`
-  width: 800px;
-  margin: 0;
-  padding: 24px;
-`;
-
-const Title = styled.h1`
-  margin: 0;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  color: rgba(12, 17, 43);
-`;
-
-const StyledLink = styled(Link)`
-  padding: 15px 0;
-`;
-
-const Author = styled.p`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-  display: inline;
-`;
-
-const Fecha = styled.p`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-  display: inline;
-`;
 
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.

@@ -2,6 +2,7 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
 import FeaturedMedia from "../post/featured-media";
+import { Heading } from "@chakra-ui/core";
 
 const Item = ({ state, item }) => {
   const author = state.source.author[item.author];
@@ -10,7 +11,7 @@ const Item = ({ state, item }) => {
   return (
     <article>
       <Link link={item.link}>
-        <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+        <Heading dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
       </Link>
       <div>
         {author && (
@@ -25,7 +26,7 @@ const Item = ({ state, item }) => {
           on <b>{date.toDateString()}</b>
         </Fecha>
       </div>
-      {state.theme.featured.showOnList && (
+      {state.theme.featured.showOnArchive && (
         <FeaturedMedia id={item.featured_media} />
       )}
       {item.excerpt && (
@@ -36,15 +37,6 @@ const Item = ({ state, item }) => {
 };
 
 export default connect(Item);
-
-const Title = styled.h1`
-  font-size: 2rem;
-  color: rgba(12, 17, 43);
-  margin: 0;
-  padding-top: 24px;
-  padding-bottom: 8px;
-  box-sizing: border-box;
-`;
 
 const Author = styled.span`
   color: rgba(12, 17, 43, 0.9);

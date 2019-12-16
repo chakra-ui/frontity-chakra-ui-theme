@@ -15,17 +15,17 @@ const Category = props => (
   />
 );
 
-const PostCategories = ({ categories }) => {
+const PostCategories = ({ categories, ...rest }) => {
   // Remove empty or undefined categories
   const postCategories = categories.filter(Boolean);
 
   if (postCategories.length === 0) return null;
 
   return (
-    <Box>
+    <Box {...rest}>
       <VisuallyHidden>Categories</VisuallyHidden>
 
-      <Stack spacing={5} isInline justify="center">
+      <Stack spacing={5} isInline>
         {postCategories.map(category => (
           <Category key={category.id}>
             <Link link={category.link}>{category.name}</Link>

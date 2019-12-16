@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, Heading, Stack, Text } from "@chakra-ui/core";
+import { Avatar, Box, Heading, Stack, Text } from "@chakra-ui/core";
 import React from "react";
 import { IoIosCalendar, IoMdChatboxes } from "react-icons/io";
 import PostCategories from "./post-categories";
@@ -14,7 +14,7 @@ const PostMeta = ({ icon, children, ...rest }) => (
 
 const AvatarMeta = ({ src, children, ...rest }) => (
   <Stack isInline align="center" color="gray.600" {...rest}>
-    <Avatar size="sm" src={src} />
+    <Avatar size="xs" src={src} />
     <Text textTransform="capitalize" fontSize="sm">
       {children}
     </Text>
@@ -31,13 +31,17 @@ function PostHeader({
   ...props
 }) {
   return (
-    <Flex direction="column" justify="center" textAlign="center" {...props}>
-      <PostCategories categories={categories} />
-      <Heading fontWeight="semibold" mt={2}>
-        {heading}
-      </Heading>
+    <Box {...props}>
+      {categories && <PostCategories categories={categories} />}
+      <Heading
+        fontWeight="medium"
+        size="2xl"
+        mt={6}
+        mb={2}
+        dangerouslySetInnerHTML={{ __html: heading }}
+      />
       {description && <Text mt={4}>{description}</Text>}
-      <Stack mt={5} spacing={10} justify="center" isInline>
+      <Stack mt={5} spacing={10} isInline>
         {author && (
           <AvatarMeta src={author.imageUrl}> by {author.name}</AvatarMeta>
         )}
@@ -48,7 +52,7 @@ function PostHeader({
           </PostMeta>
         )}
       </Stack>
-    </Flex>
+    </Box>
   );
 }
 

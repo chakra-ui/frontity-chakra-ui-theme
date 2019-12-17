@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
-import List from "../list";
+import List from "../archive";
 import FeaturedMedia from "./featured-media";
 import { Heading, Box } from "@chakra-ui/core";
 import PostHeader from "./post-header";

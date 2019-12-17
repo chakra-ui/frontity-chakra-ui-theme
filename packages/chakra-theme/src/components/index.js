@@ -2,7 +2,7 @@ import { CSSReset, ThemeProvider, theme } from "@chakra-ui/core";
 import { connect, Head } from "frontity";
 import React from "react";
 import Header from "./header";
-import List from "./list";
+import List from "./archive";
 import Loading from "./loading";
 import Page404 from "./page404.js";
 import Post from "./post/post";

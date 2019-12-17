@@ -99,7 +99,7 @@ const PostOverlay = props => (
   />
 );
 
-const FeaturedPostCategory = props => (
+const PostCategory = props => (
   <PseudoBox
     transition="background-color ease 0.25s"
     color="white"
@@ -107,7 +107,7 @@ const FeaturedPostCategory = props => (
     border="2px solid #eca419"
     fontFamily="heading"
     textTransform="uppercase"
-    fontWeight="semibold"
+    fontWeight="medium"
     display="inline-block"
     _hover={{
       bg: "#eca419"
@@ -119,9 +119,9 @@ const FeaturedPostCategory = props => (
 const PostCategories = ({ categories, ...props }) => (
   <Stack direction="row" justify="center" mt="20px" {...props}>
     {categories.map(([name, link]) => (
-      <FeaturedPostCategory key={name}>
+      <PostCategory key={name}>
         <Link link={link}>{name}</Link>
-      </FeaturedPostCategory>
+      </PostCategory>
     ))}
   </Stack>
 );

@@ -14,7 +14,7 @@ const Link = ({
   // If we're not in a frontity environment, let's just render the children
   if (state == null)
     return (
-      <a className={className} href={link || "dummy"}>
+      <a className={className} href={"#"}>
         {children}
       </a>
     );

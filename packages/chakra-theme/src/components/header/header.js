@@ -1,7 +1,6 @@
 import { Box, Flex, PseudoBox } from "@chakra-ui/core";
 import React from "react";
 import Link from "../link";
-import Logo from "./logo";
 import { IoIosMenu } from "react-icons/io";
 
 const SiteHeader = props => (
@@ -32,7 +31,11 @@ const SiteHeaderInner = props => (
 const SiteLogo = props => (
   <Box display="block" flexShrink="0" width="100px" {...props}>
     <Link link="/">
-      <Logo />
+      <Box
+        as="img"
+        src="https://uploads-ssl.webflow.com/5be00771820599586e6bd032/5be0223588110a6dbcac2d05_image.svg"
+        width="120px"
+      />
     </Link>
   </Box>
 );

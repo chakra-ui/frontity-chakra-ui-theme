@@ -6,7 +6,7 @@ addDecorator(story => (
   <ThemeProvider
     theme={{
       ...theme,
-      fonts: { ...theme.fonts, body: "Inter", heading: "Inter" }
+      fonts: { ...theme.fonts, body: "Inter", heading: "Kelson" }
     }}
   >
     <CSSReset />

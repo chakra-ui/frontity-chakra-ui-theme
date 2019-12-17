@@ -1,5 +1,5 @@
-import { CSSReset, ThemeProvider } from "@chakra-ui/core";
-import { connect, Head, styled } from "frontity";
+import { CSSReset, ThemeProvider, theme } from "@chakra-ui/core";
+import { connect, Head } from "frontity";
 import React from "react";
 import Header from "./header";
 import List from "./list";
@@ -19,7 +19,9 @@ const Theme = ({ state, libraries }) => {
   const isSearch = Boolean(parse.query["s"]);
 
   return (
-    <ThemeProvider>
+    <ThemeProvider
+      theme={{ ...theme, fonts: { ...theme.fonts, heading: "Kelson" } }}
+    >
       <CSSReset />
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />

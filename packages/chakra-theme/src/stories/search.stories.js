@@ -1,7 +1,8 @@
 import React from "react";
 import { SearchResults } from "../components/search/search-results";
 import PostPreview from "../components/post/post-preview";
-import { SimpleGrid } from "@chakra-ui/core";
+import { SimpleGrid, Stack } from "@chakra-ui/core";
+import { PrevLink, NextLink } from "../components/archive/pagination";
 
 export default {
   title: "Search"
@@ -49,4 +50,11 @@ export const postGrid = () => (
     <PostPreview {...data} />
     <PostPreview {...data} />
   </SimpleGrid>
+);
+
+export const pagination = () => (
+  <Stack direction="row">
+    <PrevLink isDisabled />
+    <NextLink />
+  </Stack>
 );

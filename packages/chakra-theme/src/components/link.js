@@ -8,14 +8,17 @@ const Link = ({
   className,
   children,
   rel,
-  role,
   "aria-current": ariaCurrent,
-  onClick: onClickProp
+  ...props
 }) => {
   // If we're not in a frontity environment, let's just render the children
   if (state == null)
     return (
-      <a className={className} href={"#"}>
+      <a
+        className={className}
+        href={props["aria-disabled"] ? undefined : "#"}
+        {...props}
+      >
         {children}
       </a>
     );
@@ -46,8 +49,8 @@ const Link = ({
       actions.theme.closeMobileMenu();
     }
 
-    if (onClickProp) {
-      onClickProp(event);
+    if (props.onClick) {
+      props.onClick(event);
     }
   };
 
@@ -58,11 +61,12 @@ const Link = ({
       className={className}
       aria-current={ariaCurrent}
       rel={isExternal ? "noopener noreferrer" : rel}
-      role={role}
-      onMouseEnter={() => {
+      onMouseEnter={event => {
         // Prefetch the link's content when the user hovers on the link
         if (state.theme.autoPreFetch === "hover") actions.source.fetch(link);
+        if (props.onMouseEnter) props.onMouseEnter(event);
       }}
+      {...props}
     >
       {children}
     </a>

@@ -1,53 +1,76 @@
-import { connect } from "frontity";
+import { Box, Heading, Text } from "@chakra-ui/core";
 import React from "react";
+import { PatternBox, PatternBoxInner } from "../newsletter";
 
-const SearchResults = ({ state, libraries }) => {
-  // Get the current path or link
-  const currentPath = state.router.link;
+export const SearchResultTitle = ({ resultCount, query }) => (
+  <Box>
+    <Heading
+      size="md"
+      as="h6"
+      fontWeight="medium"
+      textTransform="uppercase"
+      color="#eca419"
+    >
+      {resultCount} {resultCount === 1 ? "result" : "results"} for
+    </Heading>
+    <Heading
+      mt={4}
+      fontWeight="medium"
+      as="h1"
+      textTransform="uppercase"
+      fontSize="3.5rem"
+      color="white"
+    >
+      ‘{query}’
+    </Heading>
+  </Box>
+);
 
-  // Get the total pages that match the current path/url
-  const { total } = state.source.data[currentPath];
-  const isEmpty = total === 0;
+export const NoResultTitle = ({ query }) => (
+  <Box>
+    <Heading
+      as="h6"
+      fontWeight="medium"
+      textTransform="uppercase"
+      color="#eca419"
+    >
+      No results for:{" "}
+      <Box as="b" color="white">
+        ‘{query}’
+      </Box>
+    </Heading>
+    <Text mt={4} fontSize="xl" color="white">
+      We could not find any results for your search. You can give it another try
+      through the search form below.
+    </Text>
+  </Box>
+);
 
-  // Parse to current url to get the search query
-  const parse = libraries.source.parse(state.router.link);
+export const SearchResults = ({ isEmpty, resultCount, query }) => (
+  <>
+    <PatternBox pb="60px">
+      <PatternBoxInner>
+        {isEmpty ? (
+          <NoResultTitle query={query} />
+        ) : (
+          <SearchResultTitle query={query} resultCount={resultCount} />
+        )}
+      </PatternBoxInner>
+    </PatternBox>
+    <ArchivePosts>Search results here</ArchivePosts>
+  </>
+);
 
-  // Parse returns an object whose query string is stored in "s"
-  const searchQuery = parse.query["s"];
-
-  // Since we formatted the query string in the search modal, let's reverse the formatting
-  const reverseFormat = query => query.replace("+", " ");
-
-  return (
-    <>
-      <h1>
-        <span>{`“${reverseFormat(searchQuery)}”`}</span>
-        <div>
-          {isEmpty ? (
-            <p>
-              We could not find any results for your search. You can give it
-              another try through the search form below.
-            </p>
-          ) : (
-            <p>
-              We found {total} {total === 1 ? "result" : "results"} for your
-              search.
-            </p>
-          )}
-        </div>
-      </h1>
-
-      {isEmpty ? (
-        <div>
-          <div>Show search form here</div>
-        </div>
-      ) : (
-        <div showExcerpt={true} showMedia={false}>
-          result goes here
-        </div>
-      )}
-    </>
-  );
-};
-
-export default connect(SearchResults);
+const ArchivePosts = props => (
+  <Box
+    p="80px"
+    pb="0"
+    maxW="1400px"
+    position="relative"
+    mx="auto"
+    mt="-60px"
+    bg="white"
+    width="92%"
+    {...props}
+  />
+);

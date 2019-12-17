@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Heading, Text, PseudoBox, Flex } from "@chakra-ui/core";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
-export const Newsletter = props => (
+export const PatternBox = props => (
   <Box
     as="section"
     bgImage={`url("https://www.territorysupply.com/wp-content/themes/territory-supply/assets/img/graphics/pattern-tile-green.svg")`}
@@ -11,7 +11,25 @@ export const Newsletter = props => (
     bgPos="top center"
     borderTop="10px solid #eca419"
     {...props}
-  >
+  />
+);
+
+export const PatternBoxInner = props => (
+  <Box
+    py="80px"
+    position="relative"
+    zIndex="1"
+    overflow="hidden"
+    textAlign="center"
+    maxW="640px"
+    mx="auto"
+    px={6}
+    {...props}
+  />
+);
+
+export const Newsletter = props => (
+  <PatternBox {...props}>
     <Box
       py="80px"
       position="relative"
@@ -31,7 +49,7 @@ export const Newsletter = props => (
       </Text>
       <SubscribeForm />
     </Box>
-  </Box>
+  </PatternBox>
 );
 
 const SubscribeInput = props => (
@@ -61,7 +79,10 @@ const SubscribeButton = props => (
     color="#eca419"
     flexShrink="0"
     height="60px"
-    minWidth="48px"
+    minWidth="60px"
+    display="flex"
+    alignItems="center"
+    justifyContent="center"
     _hover={{
       bg: "#eca419",
       color: "white"

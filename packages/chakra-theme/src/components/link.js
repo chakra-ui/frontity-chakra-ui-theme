@@ -8,6 +8,7 @@ const Link = ({
   className,
   children,
   rel,
+  role,
   "aria-current": ariaCurrent,
   onClick: onClickProp
 }) => {
@@ -57,6 +58,7 @@ const Link = ({
       className={className}
       aria-current={ariaCurrent}
       rel={isExternal ? "noopener noreferrer" : rel}
+      role={role}
       onMouseEnter={() => {
         // Prefetch the link's content when the user hovers on the link
         if (state.theme.autoPreFetch === "hover") actions.source.fetch(link);

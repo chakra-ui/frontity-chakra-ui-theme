@@ -1,4 +1,4 @@
-import { Box, Heading, PseudoBox, Stack } from "@chakra-ui/core";
+import { Box, Heading, PseudoBox } from "@chakra-ui/core";
 import { styled } from "frontity";
 import React from "react";
 import Link from "../link";
@@ -55,31 +55,18 @@ export const PostOverlay = props => (
   />
 );
 
-export const PostCategory = props => (
-  <PseudoBox
-    transition="background-color ease 0.25s"
-    color="white"
-    px="5px"
-    border="2px solid #eca419"
-    fontFamily="heading"
-    textTransform="uppercase"
-    fontWeight="medium"
-    display="inline-block"
-    _hover={{
-      bg: "#eca419"
-    }}
+export const PostImageWithOverlay = ({ src, alt, srcSet, ...props }) => (
+  <Box
+    role="group"
+    cursor="pointer"
+    height="260px"
+    width="100%"
+    pos="relative"
     {...props}
-  />
-);
-
-export const PostCategories = ({ categories, ...props }) => (
-  <Stack direction="row" justify="center" mt="20px" {...props}>
-    {categories.map(([name, link]) => (
-      <PostCategory key={name}>
-        <Link link={link}>{name}</Link>
-      </PostCategory>
-    ))}
-  </Stack>
+  >
+    <PostOverlay />
+    <PostImage src={src} alt={alt} srcSet={srcSet} />
+  </Box>
 );
 
 export const PrimaryPostArticle = props => (

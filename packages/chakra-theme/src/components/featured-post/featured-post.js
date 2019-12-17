@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  PostCategories,
   PostContent,
   PostImage,
   PostLink,
@@ -11,6 +10,7 @@ import {
 } from "./components";
 import generateGradient from "./genarate-gradient";
 import { Flex, Box } from "@chakra-ui/core";
+import PostCategories from "../post/post-categories";
 
 export const PrimaryPostPreview = ({
   title = "Where to Find utah's most relaxing hot springs",

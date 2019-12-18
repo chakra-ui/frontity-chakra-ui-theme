@@ -19,14 +19,24 @@ export const PostCategory = props => (
   />
 );
 
-export const PostCategories = ({ categories, color = "white", ...props }) => (
-  <Stack direction="row" justify="center" mt="20px" {...props}>
-    {categories.map(category => (
-      <PostCategory color={color} key={category.id}>
-        <Link link={category.link}>{category.name}</Link>
-      </PostCategory>
-    ))}
-  </Stack>
-);
+export const PostCategories = ({
+  categories,
+  limit = 3,
+  color = "white",
+  ...props
+}) => {
+  const limitCategories =
+    categories.length > limit ? categories.filter((_, idx) => idx < limit) : categories;
+
+  return (
+    <Stack direction="row" justify="center" mt="20px" {...props}>
+      {limitCategories.map(category => (
+        <PostCategory color={color} key={category.id}>
+          <Link link={category.link}>{category.name}</Link>
+        </PostCategory>
+      ))}
+    </Stack>
+  );
+};
 
 export default PostCategories;

@@ -54,8 +54,8 @@ const sampleData = [
   {
     title: "Where to Find utah's most relaxing hot springs",
     categories: [
-      ["Chilling", "./cat-1"],
-      ["Tourism", "./cat-2"]
+      { name: "Chilling", link: "./cat-1" },
+      { name: "Tourism", link: "./cat-2" }
     ],
     link: "/link-to-post-2",
     image:
@@ -64,8 +64,8 @@ const sampleData = [
   {
     title: "Crown Jewels: 14 Majestic Hikes in Glacier National Park",
     categories: [
-      ["Hiking", "./cat-1"],
-      ["Parks", "./cat-2"]
+      { name: "Hiking", link: "./cat-1" },
+      { name: "Parks", link: "./cat-2" }
     ],
     link: "/link-to-post-2",
     image:
@@ -73,7 +73,7 @@ const sampleData = [
   },
   {
     title: "The Upper Peninsula’s Coolest Cabin and Cottage Rentals",
-    categories: [["Michigan", "./cat-1"]],
+    categories: [{ name: "Michigan", link: "./cat-1" }],
     link: "/link-to-post-2",
     image:
       "https://www.territorysupply.com/wp-content/uploads/2019/11/michigan-upper-peninsula-cabin-rentals-900x550.jpg"

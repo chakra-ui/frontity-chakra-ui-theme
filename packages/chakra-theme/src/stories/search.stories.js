@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchResults } from "../components/search/search-results";
-import PostPreview from "../components/post/post-preview";
+import PostPreview from "../components/archive/post-preview";
 import { SimpleGrid, Stack } from "@chakra-ui/core";
 import { PrevLink, NextLink } from "../components/archive/pagination";
 

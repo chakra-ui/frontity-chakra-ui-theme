@@ -103,7 +103,7 @@ const SubscribeButton = props => (
 );
 
 const SubscribeForm = props => (
-  <Flex as="form" mb="80px" mt="40px" {...props}>
+  <Flex as="form" mt="40px" {...props}>
     <SubscribeInput />
     <SubscribeButton />
   </Flex>

@@ -11,14 +11,11 @@ const Link = ({
   "aria-current": ariaCurrent,
   ...props
 }) => {
+  const isDisabled = props["aria-disabled"];
   // If we're not in a frontity environment, let's just render the children
   if (state == null)
     return (
-      <a
-        className={className}
-        href={props["aria-disabled"] ? undefined : "#"}
-        {...props}
-      >
+      <a className={className} href={isDisabled ? undefined : "#"} {...props}>
         {children}
       </a>
     );
@@ -35,7 +32,7 @@ const Link = ({
 
   const onClick = event => {
     // Do nothing if it's an external link
-    if (isExternal) return;
+    if (isExternal || isDisabled) return;
 
     event.preventDefault();
     // Set the router to the new url.
@@ -56,7 +53,7 @@ const Link = ({
 
   return (
     <a
-      href={link}
+      href={isDisabled ? undefined : link}
       onClick={onClick}
       className={className}
       aria-current={ariaCurrent}

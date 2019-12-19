@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
-import { Box } from "@chakra-ui/core";
+import { Box, Stack } from "@chakra-ui/core";
 
 const PaginationLink = styled(Link)`
   width: 100%;
@@ -32,31 +32,33 @@ const PaginationLink = styled(Link)`
 
 export const PrevLink = ({
   isDisabled,
-  label = "See previous posts",
+  label = "See older posts",
+  link,
   ...props
 }) => (
   <Box width="100%" {...props}>
-    <PaginationLink aria-label={label} aria-disabled={isDisabled}>
+    <PaginationLink link={link} aria-label={label} aria-disabled={isDisabled}>
       <Box width="40px" height="auto" as={IoIosArrowRoundBack} />
-      <span>Previous</span>
+      <span>Older posts</span>
     </PaginationLink>
   </Box>
 );
 
 export const NextLink = ({
   isDisabled,
-  label = "See next posts",
+  label = "See newer posts",
+  link,
   ...props
 }) => (
   <Box width="100%" {...props}>
-    <PaginationLink aria-label={label} aria-disabled={isDisabled}>
-      <span>Next</span>
+    <PaginationLink link={link} aria-label={label} aria-disabled={isDisabled}>
+      <span>Newer posts</span>
       <Box width="40px" height="auto" as={IoIosArrowRoundForward} />
     </PaginationLink>
   </Box>
 );
 
-const Pagination = ({ state, actions, libraries }) => {
+const Pagination = ({ state, actions, libraries, ...props }) => {
   const { totalPages } = state.source.get(state.router.link);
   const { path, page, query } = libraries.source.parse(state.router.link);
 
@@ -81,25 +83,11 @@ const Pagination = ({ state, actions, libraries }) => {
   }, []);
 
   return (
-    <div>
-      {isThereNextPage && (
-        <Link link={nextPageLink}>
-          <Text>← Older posts</Text>
-        </Link>
-      )}
-      {isTherePreviousPage && isThereNextPage && " - "}
-      {isTherePreviousPage && (
-        <Link link={prevPageLink}>
-          <Text>Newer posts →</Text>
-        </Link>
-      )}
-    </div>
+    <Stack direction="row" spacing="40px" {...props}>
+      <PrevLink link={nextPageLink} isDisabled={isTherePreviousPage} />
+      <NextLink link={prevPageLink} isDisabled={isThereNextPage} />
+    </Stack>
   );
 };
 
 export default connect(Pagination);
-
-const Text = styled.em`
-  display: inline-block;
-  margin-top: 16px;
-`;

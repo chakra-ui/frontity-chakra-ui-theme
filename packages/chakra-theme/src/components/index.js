@@ -1,4 +1,4 @@
-import { CSSReset, ThemeProvider, theme } from "@chakra-ui/core";
+import { CSSReset, ThemeProvider, theme, Box } from "@chakra-ui/core";
 import { connect, Head } from "frontity";
 import React from "react";
 import Header from "./header";
@@ -35,13 +35,13 @@ const Theme = ({ state, libraries }) => {
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
-      <main>
+      <Box as="main" mt="70px">
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||
           (data.isArchive && <List />) ||
           (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
-      </main>
+      </Box>
     </ThemeProvider>
   );
 };

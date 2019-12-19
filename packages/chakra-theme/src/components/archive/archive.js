@@ -16,7 +16,7 @@ const Archive = ({ state }) => {
 
   if (isHomePage) {
     return (
-      <Box bg="#dfd7c7" as="section" mt="70px">
+      <Box bg="#dfd7c7" as="section">
         <FeaturedPostSection
           data={firstThreePosts.map(post => formatPostData(state, post))}
         />
@@ -29,12 +29,15 @@ const Archive = ({ state }) => {
           >
             Latest Posts
           </Heading>
+
           <SimpleGrid mt="80px" columns={{ base: 1, md: 2 }} spacing="40px">
             {othersPosts.map(({ type, id }) => {
               const item = state.source[type][id];
               return <ArchiveItem key={item.id} item={item} />;
             })}
           </SimpleGrid>
+
+          <Pagination mt="40px" />
         </Box>
         <Newsletter />
       </Box>
@@ -42,7 +45,7 @@ const Archive = ({ state }) => {
   }
 
   return (
-    <Box bg="#dfd7c7" as="section" mt="70px" pt="70px">
+    <Box bg="#dfd7c7" as="section" pt="70px">
       <Box padding="40px" bg="white" width="80%" maxWidth="1200px" mx="auto">
         {/* If the list is a taxonomy, we render a title. */}
         {data.isTaxonomy && (

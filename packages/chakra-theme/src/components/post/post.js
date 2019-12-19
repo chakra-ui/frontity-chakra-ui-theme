@@ -3,8 +3,9 @@ import { connect, styled } from "frontity";
 import Link from "../link";
 import List from "../archive";
 import FeaturedMedia from "./featured-media";
-import { Heading, Box } from "@chakra-ui/core";
+import { Heading, Box, PseudoBox } from "@chakra-ui/core";
 import PostHeader from "./post-header";
+import Section from "../styles/section";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -33,27 +34,48 @@ const Post = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <Box px={6} maxW="800px" mx="auto">
-      <PostHeader
-        mt="4rem"
-        mb={10}
-        categories={categories}
-        heading={post.title.rendered}
-        publishDate={date.toDateString()}
-        author={author}
-      />
+    <PseudoBox
+      bg="#ede4d3"
+      pt="40px"
+      pos="relative"
+      zIndex={0}
+      _before={{
+        content: `""`,
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        zIndex: -1,
+        display: "block",
+        opacity: 0.4,
+        bgSize: "1018px",
+        bgPos: "top center",
+        bgImage: `url(https://www.territorysupply.com/wp-content/themes/territory-supply/assets/img/graphics/pattern-tile-light-fade.svg)`
+      }}
+    >
+      <Section pb={{ base: 0, lg: "50px" }}>
+        <PostHeader
+          mt="4rem"
+          mb={10}
+          categories={categories}
+          heading={post.title.rendered}
+          publishDate={date.toDateString()}
+          author={author}
+        />
+      </Section>
 
       {/* Look at the settings to see if we should include the featured image */}
-      {state.theme.featured.showOnPost && (
+      <Section bg="white" size="lg">
         <FeaturedMedia id={post.featured_media} />
-      )}
 
-      {/* Render the content using the Html2React component so the HTML is processed
+        {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-      <Content>
-        <Html2React html={post.content.rendered} />
-      </Content>
-    </Box>
+        <Content>
+          <Html2React html={post.content.rendered} />
+        </Content>
+      </Section>
+    </PseudoBox>
   ) : null;
 };
 

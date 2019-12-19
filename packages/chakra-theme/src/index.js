@@ -1,5 +1,9 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
+import processors, {
+  blockquote,
+  paragraph
+} from "./components/styles/processors";
 
 const chakraTheme = {
   name: "chakra-theme",
@@ -26,6 +30,11 @@ const chakraTheme = {
   // Frontity like libraries.
   actions: {
     theme: {
+      init: ({ libraries }) => {
+        processors.forEach(processor => {
+          libraries.html2react.processors.push(processor);
+        });
+      },
       openMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = true;
       },

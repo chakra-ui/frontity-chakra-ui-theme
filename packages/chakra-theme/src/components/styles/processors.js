@@ -1,26 +1,88 @@
-export const image = {
-  // We can add a name to identify it later.
-  name: "image",
+//eslint-disable-next-line
+import React from "react";
+import { Callout, Text, Box, Heading, PseudoBox } from "@chakra-ui/core";
+import Link from "../link";
 
-  // We can add a priority so it executes before or after other processors.
-  priority: 10,
+/**
+ *
+ * @param {React.ElementType} tag
+ * @param {{props: (nodeProps: Object) => Object, component: React.ComponentType<any>}} options
+ */
+function makeProcessor(tag, options) {
+  return {
+    name: tag,
+    test: node => node.component === tag,
+    process: node => {
+      node.component = options.component;
+      node.props = options.props(node);
+      return node;
+    }
+  };
+}
 
-  // Only process the node it if it's an image.
-  test: node => node.component === "img",
+const blockquote = makeProcessor("blockquote", {
+  props: () => ({
+    variant: "left-accent",
+    status: "warning",
+    marginY: "20px"
+  }),
+  component: Callout
+});
 
-  process: node => {
-    // If the image is inside a <noscript> tag, we don't want to process it.
-    if (node.parent.component === "noscript") return null;
+const paragraph = makeProcessor("p", {
+  props: node => {
+    // we don't want to add marginTop if the paragraph is nested in another component
+    const hasParent = Boolean(node.parent);
+    return {
+      marginTop: hasParent ? "0" : "10px",
+      fontSize: "lg",
+      lineHeight: "tall"
+    };
+  },
+  component: Text
+});
 
-    // Many WP lazy load plugins move the real "src" to "data-src", so we move it back.
-    if (node.props["data-src"]) node.props.src = node.props["data-src"];
-    if (node.props["data-srcset"])
-      node.props.srcSet = node.props["data-srcset"];
+const figcaption = makeProcessor("figcaption", {
+  props: () => ({
+    as: "figcaption",
+    fontSize: "1rem",
+    marginTop: "20px",
+    textAlign: "center",
+    opacity: 0.8,
+    marginBottom: "40px"
+  }),
+  component: Box
+});
 
-    // We tell Html2React that it should use the <Image /> component
-    // from @frontity/components, which includes lazy loading support.
-    node.component = Image;
+const h3 = makeProcessor("h3", {
+  props: () => ({
+    marginTop: "40px",
+    size: "xl",
+    textTransform: "uppercase"
+  }),
+  component: Heading
+});
 
-    return node;
-  }
-};
+const PostLink = ({ children, href, rel, ...props }) => (
+  <PseudoBox
+    as="span"
+    fontWeight="medium"
+    color="#eca419"
+    _hover={{
+      textDecoration: "underline"
+    }}
+    {...props}
+  >
+    <Link rel={rel} link={href}>
+      {children}
+    </Link>
+  </PseudoBox>
+);
+
+const a = makeProcessor("a", {
+  props: node => node.props,
+  component: PostLink
+});
+
+const processors = [blockquote, paragraph, figcaption, h3, a];
+export default processors;

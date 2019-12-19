@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "frontity";
+import { omitConnectProps } from "./helpers";
 
 const Link = ({
   state,
@@ -58,12 +59,13 @@ const Link = ({
       className={className}
       aria-current={ariaCurrent}
       rel={isExternal ? "noopener noreferrer" : rel}
+      target={isExternal ? "_blank" : undefined}
       onMouseEnter={event => {
         // Prefetch the link's content when the user hovers on the link
         if (state.theme.autoPreFetch === "hover") actions.source.fetch(link);
         if (props.onMouseEnter) props.onMouseEnter(event);
       }}
-      {...props}
+      {...omitConnectProps(props)}
     >
       {children}
     </a>

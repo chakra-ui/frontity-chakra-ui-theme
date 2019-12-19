@@ -16,12 +16,14 @@ function PostHeader({ heading, categories, description, author, ...props }) {
         dangerouslySetInnerHTML={{ __html: heading }}
       />
       {description && <Text mt={4}>{description}</Text>}
-      <Text>
-        by{" "}
-        <Box as="b" color="#eca419">
-          <Link link={author.link}>{author.name}</Link>
-        </Box>
-      </Text>
+      {author && (
+        <Text>
+          by{" "}
+          <Box as="b" color="#eca419">
+            <Link link={author.link}>{author.name}</Link>
+          </Box>
+        </Text>
+      )}
     </Box>
   );
 }

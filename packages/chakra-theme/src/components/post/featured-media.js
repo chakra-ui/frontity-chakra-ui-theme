@@ -8,7 +8,7 @@ import { getMediaAttributes } from "../helpers";
 const FeaturedMedia = ({ state, actions, libraries, id, ...props }) => {
   const imgProps = getMediaAttributes(state, id);
   return (
-    <Box as="figure" mt={4} height="300px" {...props}>
+    <Box as="figure" mt={4} height="500px" {...props}>
       <Box as={Image} size="100%" objectFit="cover" {...imgProps} />
     </Box>
   );

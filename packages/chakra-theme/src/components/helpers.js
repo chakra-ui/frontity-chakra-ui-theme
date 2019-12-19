@@ -75,3 +75,21 @@ export function splitPosts(state, routeData) {
 
   return [firstThreePosts, otherPosts];
 }
+
+export function omitConnectProps(props) {
+  const out = {};
+  const propsToOmit = [
+    "state",
+    "actions",
+    "roots",
+    "fills",
+    "libraries",
+    "getSnapshot"
+  ];
+  for (const prop in props) {
+    if (!propsToOmit.includes(prop)) {
+      out[prop] = props;
+    }
+  }
+  return out;
+}

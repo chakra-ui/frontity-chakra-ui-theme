@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import { Box, Progress, PseudoBox } from "@chakra-ui/core";
 import { connect, styled } from "frontity";
-import Link from "../link";
+import React, { useEffect } from "react";
 import List from "../archive";
-import FeaturedMedia from "./featured-media";
-import { Heading, Box, PseudoBox } from "@chakra-ui/core";
-import PostHeader from "./post-header";
+import useScrollPosition from "../hooks/useScrollPosition";
 import Section from "../styles/section";
+import FeaturedMedia from "./featured-media";
+import PostHeader from "./post-header";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -32,9 +32,19 @@ const Post = ({ state, actions, libraries }) => {
     List.preload();
   }, []);
 
+  const ref = React.useRef(null);
+  const [scroll, setScroll] = React.useState(0);
+
+  useScrollPosition(data => {
+    const { currPos } = data;
+    const percent = (currPos.y / ref.current.scrollHeight) * 100;
+    setScroll(percent);
+  }, ref.current);
+
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <PseudoBox
+      ref={ref}
       bg="#ede4d3"
       pt="40px"
       pos="relative"
@@ -54,24 +64,40 @@ const Post = ({ state, actions, libraries }) => {
         bgImage: `url(https://www.territorysupply.com/wp-content/themes/territory-supply/assets/img/graphics/pattern-tile-light-fade.svg)`
       }}
     >
-      <Section pb={{ base: 0, lg: "50px" }}>
+      <Box pb={{ base: 0, lg: "50px" }}>
         <PostHeader
           mt="4rem"
-          mb={10}
           categories={categories}
           heading={post.title.rendered}
-          publishDate={date.toDateString()}
           author={author}
         />
-      </Section>
+      </Box>
+
+      <Progress
+        pos="fixed"
+        color="orange"
+        top="70px"
+        height="6px"
+        zIndex={2}
+        width="100%"
+        value={scroll}
+        min={0}
+        max={70}
+        bg="transparent"
+        css={{
+          div: {
+            backgroundColor: "#eca419"
+          }
+        }}
+      />
 
       {/* Look at the settings to see if we should include the featured image */}
-      <Section bg="white" size="lg">
+      <Section bg="white" pb="80px" size="lg">
         <FeaturedMedia id={post.featured_media} />
 
         {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-        <Content>
+        <Content as={Section} size="md" pt="50px">
           <Html2React html={post.content.rendered} />
         </Content>
       </Section>
@@ -91,10 +117,6 @@ const Content = styled.div`
     max-width: 100%;
   }
 
-  p {
-    line-height: 1.6em;
-  }
-
   img {
     width: 100%;
     object-fit: cover;
@@ -105,27 +127,11 @@ const Content = styled.div`
     margin: 24px auto;
     /* next line overrides an inline style of the figure element. */
     width: 100% !important;
-
-    figcaption {
-      font-size: 0.7em;
-    }
   }
 
   iframe {
     display: block;
     margin: auto;
-  }
-
-  blockquote {
-    margin: 16px 0;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-left: 4px solid rgba(12, 17, 43);
-    padding: 4px 16px;
-  }
-
-  a {
-    color: rgb(31, 56, 197);
-    text-decoration: underline;
   }
 
   /* Input fields styles */

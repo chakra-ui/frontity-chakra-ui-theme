@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import { PseudoBox } from "@chakra-ui/core";
 import { connect } from "frontity";
+import React, { useEffect } from "react";
 import { omitConnectProps } from "./helpers";
 
 const Link = ({
@@ -53,7 +54,8 @@ const Link = ({
   };
 
   return (
-    <a
+    <PseudoBox
+      as="a"
       href={isDisabled ? undefined : link}
       onClick={onClick}
       className={className}
@@ -68,7 +70,7 @@ const Link = ({
       {...omitConnectProps(props)}
     >
       {children}
-    </a>
+    </PseudoBox>
   );
 };
 

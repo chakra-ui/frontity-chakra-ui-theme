@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/core";
+import { Box, PseudoBox } from "@chakra-ui/core";
 import React from "react";
 import Section from "./section";
 
@@ -32,3 +32,28 @@ export const PatternBoxInner = props => (
     {...props}
   />
 );
+
+export const LightPatternBox = React.forwardRef((props, ref) => (
+  <PseudoBox
+    ref={ref}
+    bg="#ede4d3"
+    pt="40px"
+    pos="relative"
+    zIndex={0}
+    _before={{
+      content: `""`,
+      width: "100%",
+      height: "100%",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      zIndex: -1,
+      display: "block",
+      opacity: 0.4,
+      bgSize: "1018px",
+      bgPos: "top center",
+      bgImage: `url(https://www.territorysupply.com/wp-content/themes/territory-supply/assets/img/graphics/pattern-tile-light-fade.svg)`
+    }}
+    {...props}
+  />
+));

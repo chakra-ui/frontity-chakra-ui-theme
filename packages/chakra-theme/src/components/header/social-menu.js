@@ -9,8 +9,15 @@ import {
 } from "react-icons/io";
 import Link from "../link";
 
-const SocialMenu = props => (
-  <SiteMenu spacing="30px" ml="24px" position={{ sm: "relative" }} {...props} />
+export const SocialMenu = ({ menu, ...props }) => (
+  <SiteMenu spacing="30px" ml="24px" position={{ sm: "relative" }} {...props}>
+    {menu.map(([name, link]) => {
+      const SocialIcon = icons[name];
+      return (
+        <SocialMenuItem key={name} label={name} link={link} icon={SocialIcon} />
+      );
+    })}
+  </SiteMenu>
 );
 
 const SocialMenuItem = ({ icon, label, link, ...props }) => (
@@ -39,19 +46,7 @@ const icons = {
 
 const SocialNav = ({ menu, ...props }) => (
   <Box ml="auto" as="nav" display={{ base: "none", lg: "block" }} {...props}>
-    <SocialMenu>
-      {menu.map(([name, link]) => {
-        const SocialIcon = icons[name];
-        return (
-          <SocialMenuItem
-            key={name}
-            label={name}
-            link={link}
-            icon={SocialIcon}
-          />
-        );
-      })}
-    </SocialMenu>
+    <SocialMenu menu={menu} />
   </Box>
 );
 

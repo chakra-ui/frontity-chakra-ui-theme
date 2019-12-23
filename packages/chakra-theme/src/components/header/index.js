@@ -8,6 +8,7 @@ import SocialNav from "./social-menu";
 
 export const SearchButton = props => (
   <PseudoBox
+    aria-label="Search this site"
     as="button"
     display="flex"
     alignItems="center"

@@ -8,6 +8,7 @@ import Page404 from "./page404.js";
 import Post from "./post/post";
 import Title from "./title";
 import { SearchResults } from "./search/";
+import Footer from "./footer";
 
 // Theme is the root React component of our theme. The one we will export
 // in roots.
@@ -42,6 +43,8 @@ const Theme = ({ state, libraries }) => {
           (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
       </Box>
+
+      <Footer />
     </ThemeProvider>
   );
 };

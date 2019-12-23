@@ -1,6 +1,7 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useEffect } from "react";
 
 const isBrowser = typeof window !== `undefined`;
+const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
 
 function getScrollPosition({ element, useWindow }) {
   if (!isBrowser) return { x: 0, y: 0 };
@@ -24,7 +25,7 @@ function useScrollPosition(
 
   let throttleTimeout = null;
 
-  useLayoutEffect(() => {
+  useEnhancedEffect(() => {
     callBack();
   }, []);
 
@@ -35,7 +36,7 @@ function useScrollPosition(
     throttleTimeout = null;
   };
 
-  useLayoutEffect(() => {
+  useEnhancedEffect(() => {
     const handleScroll = () => {
       if (wait) {
         if (throttleTimeout === null) {

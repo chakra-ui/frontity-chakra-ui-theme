@@ -1,21 +1,27 @@
-import { Box, Progress, PseudoBox } from "@chakra-ui/core";
+import { Box, Divider } from "@chakra-ui/core";
 import { connect, styled } from "frontity";
 import React, { useEffect } from "react";
 import List from "../archive";
 import useScrollPosition from "../hooks/useScrollPosition";
+import { LightPatternBox } from "../styles/pattern-box";
 import Section from "../styles/section";
+import AuthorBio from "./author-bio";
 import FeaturedMedia from "./featured-media";
 import PostHeader from "./post-header";
+import PostProgressBar from "./post-progressbar";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
+
   // Get the data of the post.
   const post = state.source[data.type][data.id];
+
   // Get the data of the author.
   const author = state.source.author[post.author];
+
   // Get a human readable date.
-  const date = new Date(post.date);
+  // const date = new Date(post.date);
 
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
@@ -42,54 +48,20 @@ const Post = ({ state, actions, libraries }) => {
   }, ref.current);
 
   // Load the post, but only if the data is ready.
-  return data.isReady ? (
-    <PseudoBox
-      ref={ref}
-      bg="#ede4d3"
-      pt="40px"
-      pos="relative"
-      zIndex={0}
-      _before={{
-        content: `""`,
-        width: "100%",
-        height: "100%",
-        position: "absolute",
-        top: 0,
-        left: 0,
-        zIndex: -1,
-        display: "block",
-        opacity: 0.4,
-        bgSize: "1018px",
-        bgPos: "top center",
-        bgImage: `url(https://www.territorysupply.com/wp-content/themes/territory-supply/assets/img/graphics/pattern-tile-light-fade.svg)`
-      }}
-    >
-      <Box pb={{ base: 0, lg: "50px" }}>
+  if (!data.isReady) return null;
+
+  return (
+    <LightPatternBox ref={ref}>
+      <Box pb={{ base: "2rem", lg: "50px" }}>
         <PostHeader
-          mt="4rem"
+          mt={{ base: "20px", lg: "4rem" }}
           categories={categories}
           heading={post.title.rendered}
           author={author}
         />
       </Box>
 
-      <Progress
-        pos="fixed"
-        color="orange"
-        top="70px"
-        height="6px"
-        zIndex={2}
-        width="100%"
-        value={scroll}
-        min={0}
-        max={70}
-        bg="transparent"
-        css={{
-          div: {
-            backgroundColor: "#eca419"
-          }
-        }}
-      />
+      <PostProgressBar value={scroll} />
 
       {/* Look at the settings to see if we should include the featured image */}
       <Section bg="white" pb="80px" size="lg">
@@ -100,9 +72,20 @@ const Post = ({ state, actions, libraries }) => {
         <Content as={Section} size="md" pt="50px">
           <Html2React html={post.content.rendered} />
         </Content>
+
+        <Divider borderBottom="2px solid" my="80px" borderColor="#ede4d3" />
+
+        <Section>
+          <AuthorBio
+            image={author.avatar_urls["96"]}
+            name={author.name}
+            description={author.description}
+            link={author.link}
+          />
+        </Section>
       </Section>
-    </PseudoBox>
-  ) : null;
+    </LightPatternBox>
+  );
 };
 
 export default connect(Post);

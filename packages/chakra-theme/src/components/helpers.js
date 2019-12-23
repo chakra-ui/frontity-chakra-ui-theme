@@ -86,10 +86,13 @@ export function omitConnectProps(props) {
     "libraries",
     "getSnapshot"
   ];
+  const isGetSnapshot = prop =>
+    typeof prop === "function" && prop.name === "getSnapshot";
+
   for (const prop in props) {
-    if (!propsToOmit.includes(prop)) {
-      out[prop] = props;
-    }
+    if (propsToOmit.indexOf(prop) > -1 || isGetSnapshot(prop)) continue;
+    out[prop] = props[prop];
   }
+
   return out;
 }

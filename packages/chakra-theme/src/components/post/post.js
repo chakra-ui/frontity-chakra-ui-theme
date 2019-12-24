@@ -65,7 +65,7 @@ const Post = ({ state, actions, libraries }) => {
 
       {/* Look at the settings to see if we should include the featured image */}
       <Section bg="white" pb="80px" size="lg">
-        <FeaturedMedia id={post.featured_media} />
+        {post.featured_media && <FeaturedMedia id={post.featured_media} />}
 
         {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}

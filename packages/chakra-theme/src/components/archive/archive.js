@@ -1,12 +1,12 @@
+import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/core";
+import { connect } from "frontity";
 import React from "react";
-import { connect, styled } from "frontity";
-import ArchiveItem from "./archive-item";
-import Pagination from "./pagination";
-import { SimpleGrid, Box, Heading, Text } from "@chakra-ui/core";
-import { splitPosts, formatPostData } from "../helpers";
 import { FeaturedPostSection } from "../featured-post/featured-post";
+import { formatPostData, splitPosts } from "../helpers";
 import { Newsletter } from "../newsletter";
 import { PatternBox, PatternBoxInner } from "../styles/pattern-box";
+import ArchiveItem from "./archive-item";
+import Pagination from "./pagination";
 
 const HomepageArchive = connect(({ state }) => {
   // Get the data of the current list.
@@ -48,7 +48,12 @@ const ArchiveHeader = ({ taxonomy, title, ...props }) => (
       <Text textTransform="uppercase" color="#fff" fontWeight="bold">
         {taxonomy}
       </Text>
-      <Heading mt="8px" textTransform="uppercase" size="2xl" color="#eca419">
+      <Heading
+        mt="8px"
+        textTransform="uppercase"
+        fontSize="6xl"
+        color="#eca419"
+      >
         {title}
       </Heading>
     </PatternBoxInner>
@@ -71,6 +76,7 @@ const Archive = ({ state }) => {
           title={state.source[data.taxonomy][data.id].name}
         />
       )}
+
       {/* If the list is an author, we render a title. */}
       {data.isAuthor && (
         <ArchiveHeader
@@ -79,7 +85,13 @@ const Archive = ({ state }) => {
         />
       )}
 
-      <Box padding="40px" bg="white" width="80%" maxWidth="1200px" mx="auto">
+      <Box
+        padding="40px"
+        bgImage="linear-gradient(180deg, white 0%, white 23%, transparent 100%)"
+        width="80%"
+        maxWidth="1200px"
+        mx="auto"
+      >
         {/* Iterate over the items of the list. */}
         <SimpleGrid columns={2} spacing="40px">
           {data.items.map(({ type, id }) => {
@@ -87,7 +99,8 @@ const Archive = ({ state }) => {
             return <ArchiveItem key={item.id} item={item} />;
           })}
         </SimpleGrid>
-        <Pagination />
+
+        <Pagination mt="56px" />
       </Box>
     </Box>
   );

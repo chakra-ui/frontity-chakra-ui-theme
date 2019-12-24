@@ -7,8 +7,8 @@ import Loading from "./loading";
 import Page404 from "./page404.js";
 import Post from "./post/post";
 import Title from "./title";
-import { SearchResults } from "./search/";
 import Footer from "./footer";
+import SearchResults from "./search";
 
 // Theme is the root React component of our theme. The one we will export
 // in roots.

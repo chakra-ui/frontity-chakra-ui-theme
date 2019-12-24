@@ -2,7 +2,7 @@ import { CSSReset, ThemeProvider, theme, Box } from "@chakra-ui/core";
 import { connect, Head } from "frontity";
 import React from "react";
 import Header from "./header";
-import List from "./archive";
+import Archive from "./archive";
 import Loading from "./loading";
 import Page404 from "./page404.js";
 import Post from "./post/post";
@@ -39,7 +39,7 @@ const Theme = ({ state, libraries }) => {
       <Box as="main" mt="70px">
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||
-          (data.isArchive && <List />) ||
+          (data.isArchive && <Archive />) ||
           (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
       </Box>

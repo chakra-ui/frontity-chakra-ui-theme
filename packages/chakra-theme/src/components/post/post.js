@@ -50,6 +50,8 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   if (!data.isReady) return null;
 
+  console.log(state.source.author);
+
   return (
     <LightPatternBox ref={ref}>
       <Box pb={{ base: "2rem", lg: "50px" }}>

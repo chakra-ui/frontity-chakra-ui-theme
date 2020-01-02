@@ -75,13 +75,9 @@ export const SearchResults = ({ state, libraries }) => {
       <PatternBox pb="60px" mb="-60px">
         <PatternBoxInner>
           {isEmpty ? (
-            <>
-              <NoResultTitle query={reverseFormat(searchQuery)} />
-            </>
+            <NoResultTitle query={reverseFormat(searchQuery)} />
           ) : (
-            <>
-              <SearchResultTitle query={searchQuery} resultCount={total} />
-            </>
+            <SearchResultTitle query={searchQuery} resultCount={total} />
           )}
         </PatternBoxInner>
       </PatternBox>

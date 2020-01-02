@@ -1,20 +1,23 @@
 import { Box, PseudoBox } from "@chakra-ui/core";
 import React from "react";
-import { MdSearch } from "react-icons/md";
+import { IoIosSearch } from "react-icons/io";
 
 const SearchButton = props => (
   <PseudoBox
+    aria-label="Search this site"
     as="button"
-    aria-label="Search this blog"
-    color="inherit"
-    fontSize="24px"
-    size="32px"
     display="flex"
     alignItems="center"
     justifyContent="center"
+    transition="background-color ease 0.25s"
+    _hover={{ bg: "white" }}
+    flexShrink="0"
+    size="46px"
+    bg="#eca419"
+    ml={{ base: "auto", lg: "3rem" }}
     {...props}
   >
-    <Box as={MdSearch} fontSize="1em" color="currentColor" />
+    <Box size={6} color="#333a35" as={IoIosSearch} />
   </PseudoBox>
 );
 

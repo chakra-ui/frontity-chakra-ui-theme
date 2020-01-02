@@ -11,6 +11,7 @@ import {
 import generateGradient from "./genarate-gradient";
 import { Flex, Box } from "@chakra-ui/core";
 import PostCategories from "../post/post-categories";
+import Link from "../link";
 
 export const PrimaryPostPreview = ({ data, ...props }) => {
   const {
@@ -56,17 +57,23 @@ export const SecondaryPostPreview = ({ data, ...props }) => {
   } = data;
 
   return (
-    <SecondaryPostArticle bgImage={generateGradient()} role="group" {...props}>
-      <PostOverlay />
-      <PostLink link={link} />
-      <PostImage {...featured_media} />
-      <PostContent padding="40px" textAlign="left" mt="0">
-        <PostCategories justify="flex-start" categories={categories} />
-        <PostTitle as="h2" mt="auto" pt="40px" fontSize="1.65rem">
-          {title}
-        </PostTitle>
-      </PostContent>
-    </SecondaryPostArticle>
+    <Link link={link} display="block" flex="1" {...props}>
+      <SecondaryPostArticle
+        bgImage={generateGradient()}
+        role="group"
+        // {...props}
+      >
+        <PostOverlay />
+        {/* <PostLink link={link} /> */}
+        <PostImage {...featured_media} />
+        <PostContent padding="40px" textAlign="left" mt="0">
+          <PostCategories justify="flex-start" categories={categories} />
+          <PostTitle as="h2" mt="auto" pt="40px" fontSize="1.65rem">
+            {title}
+          </PostTitle>
+        </PostContent>
+      </SecondaryPostArticle>
+    </Link>
   );
 };
 

@@ -30,7 +30,7 @@ const FooterSectionItem = props => (
 );
 
 const Footer = ({ state }) => (
-  <FooterSection>
+  <FooterSection alignSelf="flex-end">
     <FooterSectionGroup>
       <FooterSectionItem
         fontWeight="bold"

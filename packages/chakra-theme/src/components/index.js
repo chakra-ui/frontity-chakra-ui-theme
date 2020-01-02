@@ -1,14 +1,14 @@
-import { CSSReset, ThemeProvider, theme, Box } from "@chakra-ui/core";
+import { Box, CSSReset, theme, ThemeProvider } from "@chakra-ui/core";
 import { connect, Head } from "frontity";
 import React from "react";
-import Header from "./header";
 import Archive from "./archive";
+import Footer from "./footer";
+import Header from "./header";
 import Loading from "./loading";
 import Page404 from "./page404.js";
 import Post from "./post/post";
-import Title from "./title";
-import Footer from "./footer";
 import SearchResults from "./search";
+import Title from "./title";
 
 // Theme is the root React component of our theme. The one we will export
 // in roots.
@@ -36,7 +36,7 @@ const Theme = ({ state, libraries }) => {
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
-      <Box as="main" mt="70px">
+      <Box as="main" mt="70px" minH="calc(100vh - 370px)">
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||
           (data.isArchive && <Archive />) ||

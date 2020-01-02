@@ -1,64 +1,10 @@
-import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/core";
+import { Box, SimpleGrid } from "@chakra-ui/core";
 import { connect } from "frontity";
 import React from "react";
-import { FeaturedPostSection } from "../featured-post/featured-post";
-import { formatPostData, splitPosts } from "../helpers";
-import { Newsletter } from "../newsletter";
-import { PatternBox, PatternBoxInner } from "../styles/pattern-box";
+import ArchiveHeader from "./archive-header";
 import ArchiveItem from "./archive-item";
+import HomepageArchive from "./homepage-archive";
 import Pagination from "./pagination";
-
-const HomepageArchive = connect(({ state }) => {
-  // Get the data of the current list.
-  const data = state.source.get(state.router.link);
-  const [firstThreePosts, othersPosts] = splitPosts(state, data.items);
-
-  return (
-    <Box bg="#dfd7c7" as="section">
-      <FeaturedPostSection
-        data={firstThreePosts.map(post => formatPostData(state, post))}
-      />
-      <Box py="80px" px="40px" width="80%" maxWidth="1200px" mx="auto">
-        <Heading
-          textTransform="uppercase"
-          textAlign="center"
-          fontSize="6xl"
-          color="#eca419"
-        >
-          Latest Posts
-        </Heading>
-
-        <SimpleGrid mt="80px" columns={{ base: 1, md: 2 }} spacing="40px">
-          {othersPosts.map(({ type, id }) => {
-            const item = state.source[type][id];
-            return <ArchiveItem key={item.id} item={item} />;
-          })}
-        </SimpleGrid>
-
-        <Pagination mt="40px" />
-      </Box>
-      <Newsletter />
-    </Box>
-  );
-});
-
-const ArchiveHeader = ({ taxonomy, title, ...props }) => (
-  <PatternBox pb="80px" mb="-80px" {...props}>
-    <PatternBoxInner>
-      <Text textTransform="uppercase" color="#fff" fontWeight="bold">
-        {taxonomy}
-      </Text>
-      <Heading
-        mt="8px"
-        textTransform="uppercase"
-        fontSize="6xl"
-        color="#eca419"
-      >
-        {title}
-      </Heading>
-    </PatternBoxInner>
-  </PatternBox>
-);
 
 const Archive = ({ state }) => {
   // Get the data of the current list.
@@ -86,14 +32,14 @@ const Archive = ({ state }) => {
       )}
 
       <Box
-        padding="40px"
+        padding={{ base: "24px", lg: "40px" }}
         bgImage="linear-gradient(180deg, white 0%, white 23%, transparent 100%)"
-        width="80%"
+        width={{ lg: "80%" }}
         maxWidth="1200px"
         mx="auto"
       >
         {/* Iterate over the items of the list. */}
-        <SimpleGrid columns={2} spacing="40px">
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing="40px">
           {data.items.map(({ type, id }) => {
             const item = state.source[type][id];
             return <ArchiveItem key={item.id} item={item} />;

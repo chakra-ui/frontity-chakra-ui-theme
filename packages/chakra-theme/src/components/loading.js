@@ -1,16 +1,24 @@
-import { Box, Spinner } from "@chakra-ui/core";
-import React from "react";
+/**@jsx jsx */
+import { Box, CircularProgress } from "@chakra-ui/core";
+import { jsx } from "@emotion/core";
 
 const Loading = () => (
   <Box
-    width="800px"
     mx="auto"
     p="24px"
     display="flex"
     alignItems="center"
     justifyContent="center"
+    minH="inherit"
   >
-    <Spinner size="xl" color="#eca419" />
+    <CircularProgress
+      css={{
+        "[data-progress-indicator]": {
+          color: "#eca419"
+        }
+      }}
+      isIndeterminate
+    />
   </Box>
 );
 

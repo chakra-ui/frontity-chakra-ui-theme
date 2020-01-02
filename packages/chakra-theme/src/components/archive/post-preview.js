@@ -16,7 +16,9 @@ const PostPreview = ({ data, ...rest }) => {
       shadow="md"
       {...rest}
     >
-      <PostImageWithOverlay {...featured_media} />
+      <Link link={link}>
+        <PostImageWithOverlay {...featured_media} />
+      </Link>
 
       <Flex p="40px" flexGrow="1" direction="column">
         <Heading fontSize="2xl" as="h4" textTransform="uppercase">

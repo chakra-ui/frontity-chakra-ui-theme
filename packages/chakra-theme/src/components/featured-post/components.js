@@ -76,7 +76,7 @@ export const PrimaryPostArticle = props => (
     display="flex"
     direction="column"
     alignItems="flex-end"
-    minHeight={{ base: "unset", md: "calc(80vh)" }}
+    minHeight={{ base: "unset", md: "400px" }}
     height={{ base: "auto", md: "100%" }}
     paddingTop={{ base: "80px", md: "0" }}
     cursor="pointer"
@@ -92,6 +92,7 @@ export const SecondaryPostArticle = props => (
     direction="column"
     flexGrow="1"
     cursor="pointer"
+    height="100%"
     minHeight={{ base: "unset", lg: "240px" }}
     {...props}
   />
@@ -102,7 +103,6 @@ export const PostImage = props => (
     as="img"
     width="900"
     height="550"
-    alt="utah hot springs"
     position="absolute"
     size="100%"
     objectFit="cover"

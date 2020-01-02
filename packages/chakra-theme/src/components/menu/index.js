@@ -1,10 +1,10 @@
-import { Stack } from "@chakra-ui/core";
+import { Stack, Box } from "@chakra-ui/core";
 import { connect } from "frontity";
 import React, { useRef } from "react";
-import Link from "../link";
 import MenuButton from "./menu-button";
 import MenuDrawer from "./menu-drawer";
 import MenuItem from "./menu-item";
+import { SocialMenu } from "../header/social-menu";
 
 const Menu = ({ state, actions }) => {
   const { isMobileMenuOpen } = state.theme;
@@ -19,13 +19,26 @@ const Menu = ({ state, actions }) => {
         isOpen={isMobileMenuOpen}
         onClose={closeMobileMenu}
       >
-        <Stack mt="20%" spacing="3.2rem" direction="column" as="ul" ml="0">
+        <Stack mt="20%" spacing={6} direction="column" as="ul" ml="0">
           {state.theme.menu.map(([name, link], index) => (
-            <MenuItem index={`0${index + 1}`} key={name}>
-              <Link link={link}>{name}</Link>
+            <MenuItem link={link} key={name} index={`0${index + 1}`}>
+              {name}
             </MenuItem>
           ))}
         </Stack>
+
+        <Box
+          marginTop={10}
+          paddingY={5}
+          // borderX={{ base: 0, md: "2px solid #eca419" }}
+          // borderY={{ base: "2px solid #eca419", md: 0 }}
+        >
+          <SocialMenu
+            // justifyContent="center"
+            ml="0"
+            menu={state.theme.socialLinks}
+          />
+        </Box>
       </MenuDrawer>
     </>
   );

@@ -8,9 +8,9 @@ import React from "react";
 
 function MenuDrawer({ children, ...props }) {
   return (
-    <Drawer preserveScrollBarGap size="sm" placement="right" {...props}>
+    <Drawer preserveScrollBarGap size="sm" placement="left" {...props}>
       <DrawerOverlay />
-      <DrawerContent bg="teal.600" px={8} max="auto">
+      <DrawerContent bg="#333a35" px={8} max="auto">
         <DrawerCloseButton color="white" />
         {children}
       </DrawerContent>

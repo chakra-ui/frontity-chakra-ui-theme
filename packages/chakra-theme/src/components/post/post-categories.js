@@ -26,12 +26,20 @@ export const PostCategories = ({
   ...props
 }) => {
   const limitCategories =
-    categories.length > limit ? categories.filter((_, idx) => idx < limit) : categories;
+    categories.length > limit
+      ? categories.filter((_, idx) => idx < limit)
+      : categories;
 
   return (
-    <Stack direction="row" justify="center" mt="20px" {...props}>
+    <Stack
+      direction="row"
+      justify="center"
+      mt="12px"
+      flexWrap="wrap"
+      {...props}
+    >
       {limitCategories.map(category => (
-        <PostCategory color={color} key={category.id}>
+        <PostCategory marginTop="8px" color={color} key={category.id}>
           <Link link={category.link}>{category.name}</Link>
         </PostCategory>
       ))}

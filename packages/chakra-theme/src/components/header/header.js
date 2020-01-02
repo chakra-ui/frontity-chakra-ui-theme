@@ -1,7 +1,7 @@
-import { Box, Flex, PseudoBox } from "@chakra-ui/core";
+import { Box, Flex } from "@chakra-ui/core";
 import React from "react";
 import Link from "../link";
-import { IoIosMenu } from "react-icons/io";
+import Menu from "../menu";
 
 const SiteHeader = props => (
   <Box
@@ -40,24 +40,10 @@ const SiteLogo = props => (
   </Box>
 );
 
-const MenuButton = props => (
-  <PseudoBox
-    as="button"
-    display={{ base: "flex", lg: "none" }}
-    alignItems="center"
-    justifyContent="center"
-    flexShrink="0"
-    mr={{ base: "auto", lg: "0" }}
-    {...props}
-  >
-    <Box size={10} color="#eca419" as={IoIosMenu} />
-  </PseudoBox>
-);
-
 const Header = ({ children, ...props }) => (
   <SiteHeader {...props}>
     <SiteHeaderInner>
-      <MenuButton />
+      <Menu />
       <SiteLogo />
       {children}
     </SiteHeaderInner>

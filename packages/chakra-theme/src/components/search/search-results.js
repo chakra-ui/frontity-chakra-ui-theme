@@ -1,8 +1,9 @@
-import { Box, Heading } from "@chakra-ui/core";
+import { Box, Button, Heading, Input, Text, Stack } from "@chakra-ui/core";
 import { connect } from "frontity";
 import React from "react";
 import Archive from "../archive";
 import { PatternBox, PatternBoxInner } from "../newsletter";
+import useSearch from "../hooks/useSearch";
 
 const SearchHeader = ({ label, title, ...props }) => (
   <Box {...props}>
@@ -40,7 +41,7 @@ const NoResultTitle = ({ query }) => (
   <SearchHeader label={`0 result for`} title={`‘${query}’`} />
 );
 
-const ArchivePosts = props => (
+const NoResultContent = props => (
   <Box
     p="80px"
     pb="0"
@@ -53,6 +54,23 @@ const ArchivePosts = props => (
     {...props}
   />
 );
+
+const SearchForm = connect(props => {
+  const { form, input } = useSearch(props);
+  return (
+    <Stack mt="40px" as="form" direction="row" align="stretch" {...form}>
+      <Input
+        focusBorderColor="brand.400"
+        placeholder="Search..."
+        size="lg"
+        {...input}
+      />
+      <Button type="submit" variantColor="brand" size="lg">
+        Search
+      </Button>
+    </Stack>
+  );
+});
 
 export const SearchResults = ({ state, libraries }) => {
   const currentPath = state.router.link;
@@ -82,7 +100,19 @@ export const SearchResults = ({ state, libraries }) => {
         </PatternBoxInner>
       </PatternBox>
 
-      {isEmpty ? <ArchivePosts>Show the form here</ArchivePosts> : <Archive />}
+      {isEmpty ? (
+        <NoResultContent>
+          <Box maxW="600px" mx="auto">
+            <Text fontSize="xl" textAlign="center">
+              We could not find any results for your search. You can give it
+              another try through the search form below.
+            </Text>
+            <SearchForm />
+          </Box>
+        </NoResultContent>
+      ) : (
+        <Archive />
+      )}
     </Box>
   );
 };

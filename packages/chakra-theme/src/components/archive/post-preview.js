@@ -16,9 +16,11 @@ const PostPreview = ({ data, ...rest }) => {
       shadow="md"
       {...rest}
     >
-      <Link link={link}>
-        <PostImageWithOverlay {...featured_media} />
-      </Link>
+      {featured_media && featured_media.src && (
+        <Link link={link}>
+          <PostImageWithOverlay {...featured_media} />
+        </Link>
+      )}
 
       <Flex p="40px" flexGrow="1" direction="column">
         <Heading fontSize="2xl" as="h4" textTransform="uppercase">
@@ -27,11 +29,11 @@ const PostPreview = ({ data, ...rest }) => {
         <Box
           my="20px"
           flex="1"
-          color="#595753"
+          color="primary.700"
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />
         <PostCategories
-          color="#000"
+          color="black"
           justify="flex-start"
           categories={categories}
         />

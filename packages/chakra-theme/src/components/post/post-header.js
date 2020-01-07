@@ -5,7 +5,7 @@ import PostCategories from "./post-categories";
 
 const PostHeader = ({ heading, categories, description, author, ...props }) => (
   <Box textAlign="center" {...props}>
-    {categories && <PostCategories color="#000" categories={categories} />}
+    {categories && <PostCategories color="black" categories={categories} />}
     <Heading
       fontWeight="bold"
       size="2xl"
@@ -18,7 +18,7 @@ const PostHeader = ({ heading, categories, description, author, ...props }) => (
     {author && (
       <Text>
         by{" "}
-        <Link fontWeight="bold" color="#eca419" link={author.link}>
+        <Link fontWeight="bold" color="accent.400" link={author.link}>
           {author.name}
         </Link>
       </Text>

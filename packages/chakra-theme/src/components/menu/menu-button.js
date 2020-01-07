@@ -13,7 +13,7 @@ const MenuButton = forwardRef((props, ref) => (
     mr={{ base: "auto", lg: "0" }}
     {...props}
   >
-    <Box size={10} color="#eca419" as={IoIosMenu} />
+    <Box size={10} color="accent.400" as={IoIosMenu} />
   </PseudoBox>
 ));
 

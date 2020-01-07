@@ -11,7 +11,7 @@ const SiteHeader = props => (
     pos="fixed"
     top="0"
     left="0"
-    bg="#333a35"
+    bg="primary.700"
     zIndex="90"
     {...props}
   />

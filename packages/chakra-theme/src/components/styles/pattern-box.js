@@ -9,10 +9,11 @@ export const PatternBox = props => (
   <Box
     as="section"
     bgImage={`url("https://www.territorysupply.com/wp-content/themes/territory-supply/assets/img/graphics/pattern-tile-green.svg")`}
-    bg="#333a35"
+    bg="primary.700"
     bgSize="1018px"
     bgPos="top center"
-    borderTop="10px solid #eca419"
+    borderTop="10px solid"
+    borderColor="accent.400"
     {...props}
   />
 );
@@ -36,7 +37,7 @@ export const PatternBoxInner = props => (
 export const LightPatternBox = React.forwardRef((props, ref) => (
   <PseudoBox
     ref={ref}
-    bg="#ede4d3"
+    bg="accent.50"
     pt="40px"
     pos="relative"
     zIndex={0}

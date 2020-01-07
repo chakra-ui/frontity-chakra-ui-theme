@@ -50,7 +50,7 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   if (!data.isReady) return null;
 
-  console.log(state.source.author);
+  console.log(post.content.rendered);
 
   return (
     <LightPatternBox ref={ref}>
@@ -75,7 +75,7 @@ const Post = ({ state, actions, libraries }) => {
           <Html2React html={post.content.rendered} />
         </Content>
 
-        <Divider borderBottom="2px solid" my="80px" borderColor="#ede4d3" />
+        <Divider borderBottom="2px solid" my="80px" borderColor="accent.400" />
 
         <Section>
           <AuthorBio

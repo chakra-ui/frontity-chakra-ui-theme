@@ -6,7 +6,13 @@ import { Box } from "@chakra-ui/core";
  * @param {React.ComponentProps<typeof Box>} props
  */
 const BorderBox = props => (
-  <Box p="40px" bg="#ede4d3" borderTop="4px solid #eca419" {...props} />
+  <Box
+    p="40px"
+    bg="accent.50"
+    borderTop="4px solid"
+    borderColor="accent.400"
+    {...props}
+  />
 );
 
 export default BorderBox;

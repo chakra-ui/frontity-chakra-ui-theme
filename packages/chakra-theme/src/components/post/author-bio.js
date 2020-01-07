@@ -11,7 +11,7 @@ const AuthorBio = ({ image, description, name, link }) => (
         <Link
           link={link}
           fontWeight="bold"
-          color="#eca419"
+          color="accent.400"
           _hover={{ textDecoration: "underline" }}
         >
           {name}

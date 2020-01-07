@@ -10,6 +10,21 @@ import Post from "./post/post";
 import SearchResults from "./search";
 import Title from "./title";
 
+const themeColors = {
+  accent: {
+    50: "#fff6dc",
+    100: "#fbe3b2",
+    200: "#f6d086",
+    300: "#f1be58",
+    400: "#edab2b",
+    500: "#d49212",
+    600: "#a5710b",
+    700: "#775105",
+    800: "#483100",
+    900: "#1d0f00"
+  }
+};
+
 // Theme is the root React component of our theme. The one we will export
 // in roots.
 const Theme = ({ state, libraries }) => {
@@ -26,7 +41,19 @@ const Theme = ({ state, libraries }) => {
         fonts: { ...theme.fonts, heading: "Kelson" },
         colors: {
           ...theme.colors,
-          brand: {
+          primary: {
+            50: "#e9f5f2",
+            100: "#d4dcd9",
+            200: "#bbc3be",
+            300: "#a1aba5",
+            400: "#87938b",
+            500: "#6d7972",
+            600: "#555f58",
+            700: "#3c443e",
+            800: "#232924",
+            900: "#061007"
+          },
+          accent: {
             50: "#fff6dc",
             100: "#fbe3b2",
             200: "#f6d086",

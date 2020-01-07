@@ -12,7 +12,7 @@ const SearchHeader = ({ label, title, ...props }) => (
       as="h6"
       fontWeight="medium"
       textTransform="uppercase"
-      color="#eca419"
+      color="accent.400"
     >
       {label}
     </Heading>
@@ -89,7 +89,7 @@ export const SearchResults = ({ state, libraries }) => {
   const reverseFormat = query => query.replace("+", " ");
 
   return (
-    <Box bg="#dfd7c7">
+    <Box bg="primary.100">
       <PatternBox pb="60px" mb="-60px">
         <PatternBoxInner>
           {isEmpty ? (

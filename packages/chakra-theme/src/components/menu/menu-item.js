@@ -15,13 +15,13 @@ function MenuItem({ index, children, mb, link, ...rest }) {
         borderColor="#ffffff14"
         _hover={{
           bg: "rgba(236, 164, 25, 0.14)",
-          borderColor: "#eca419",
-          color: "#eca419"
+          borderColor: "accent.400",
+          color: "accent.400"
         }}
         _focus={{
           bg: "rgba(236, 164, 25, 0.14)",
-          borderColor: "#eca419",
-          color: "#eca419"
+          borderColor: "accent.400",
+          color: "accent.400"
         }}
         transition="all 0.3s"
         padding="12px"

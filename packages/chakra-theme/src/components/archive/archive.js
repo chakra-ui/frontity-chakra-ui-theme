@@ -14,7 +14,7 @@ const Archive = ({ state }) => {
   if (isHomePage) return <HomepageArchive />;
 
   return (
-    <Box bg="#dfd7c7" as="section">
+    <Box bg="primary.200" as="section">
       {/* If the list is a taxonomy, we render a title. */}
       {data.isTaxonomy && (
         <ArchiveHeader

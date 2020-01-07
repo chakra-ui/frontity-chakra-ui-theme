@@ -22,7 +22,7 @@ export const SocialMenu = ({ menu, ...props }) => (
 
 const SocialMenuItem = ({ icon, label, link, ...props }) => (
   <PseudoBox
-    color="#eca419"
+    color="accent.400"
     transition="all 0.3s"
     _hover={{ color: "white" }}
     as="li"

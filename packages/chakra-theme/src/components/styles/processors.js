@@ -67,7 +67,7 @@ const PostLink = ({ children, href, rel, ...props }) => (
   <PseudoBox
     as="span"
     fontWeight="medium"
-    color="#eca419"
+    color="accent.400"
     _hover={{
       textDecoration: "underline"
     }}

@@ -7,7 +7,7 @@ const FooterSection = props => (
   <Box
     as="footer"
     pos="relative"
-    bg="#272727"
+    bg="gray.800"
     py={{ base: "32px", lg: "80px" }}
     {...props}
   />
@@ -20,7 +20,7 @@ const FooterSectionGroup = props => (
     mx="auto"
     width="90%"
     border="2px solid"
-    borderColor="#eca419"
+    borderColor="accent.400"
     {...props}
   />
 );
@@ -41,8 +41,9 @@ const Footer = ({ state }) => (
       </FooterSectionItem>
 
       <FooterSectionItem
-        borderX={{ base: 0, md: "2px solid #eca419" }}
-        borderY={{ base: "2px solid #eca419", md: 0 }}
+        borderX={{ base: 0, md: "2px solid" }}
+        borderY={{ base: "2px solid", md: 0 }}
+        borderColor="accent.400"
       >
         <SocialMenu
           ml="0"

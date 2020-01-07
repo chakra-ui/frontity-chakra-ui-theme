@@ -13,7 +13,7 @@ const HomepageArchive = ({ state }) => {
   const [firstThreePosts, othersPosts] = splitPosts(state, data.items);
 
   return (
-    <Box bg="#dfd7c7" as="section">
+    <Box bg="primary.100" as="section">
       <FeaturedPostSection
         data={firstThreePosts.map(post => formatPostData(state, post))}
       />
@@ -28,7 +28,7 @@ const HomepageArchive = ({ state }) => {
           textTransform="uppercase"
           textAlign="center"
           fontSize={{ base: "4xl", md: "6xl" }}
-          color="#eca419"
+          color="accent.400"
         >
           Latest Posts
         </Heading>

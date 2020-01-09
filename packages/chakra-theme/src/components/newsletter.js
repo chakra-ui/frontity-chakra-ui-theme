@@ -1,12 +1,13 @@
 import React from "react";
 import { Box, Heading, Text, PseudoBox, Flex } from "@chakra-ui/core";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import tile from "../assets/pattern-tile-green.svg";
 
 export const PatternBox = props => (
   <Box
     as="section"
-    bgImage={`url("https://www.territorysupply.com/wp-content/themes/territory-supply/assets/img/graphics/pattern-tile-green.svg")`}
     bg="primary.700"
+    bgImage={`url(${tile})`}
     bgSize="1018px"
     bgPos="top center"
     borderTop="10px solid"

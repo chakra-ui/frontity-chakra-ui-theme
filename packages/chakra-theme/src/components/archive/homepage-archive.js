@@ -13,7 +13,7 @@ const HomepageArchive = ({ state }) => {
   const [firstThreePosts, othersPosts] = splitPosts(state, data.items);
 
   return (
-    <Box bg="primary.100" as="section">
+    <Box bg="accent.50" as="section">
       <FeaturedPostSection
         data={firstThreePosts.map(post => formatPostData(state, post))}
       />

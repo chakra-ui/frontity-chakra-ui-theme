@@ -14,20 +14,7 @@ import PostCategories from "../post/post-categories";
 import Link from "../link";
 
 export const PrimaryPostPreview = ({ data, ...props }) => {
-  const {
-    title = "Where to Find utah's most relaxing hot springs",
-    categories = [
-      ["Category 1", "./cat-1"],
-      ["Category 2", "./cat-2"]
-    ],
-    link = "/link-to-post",
-    featured_media = {
-      alt: "anything",
-      src:
-        "https://www.territorysupply.com/wp-content/uploads/2019/11/utah-hot-springs-900x550.jpg"
-    }
-  } = data;
-
+  const { title, categories, link, featured_media } = data;
   return (
     <PrimaryPostArticle bgImage={generateGradient()} role="group" {...props}>
       <PostOverlay />
@@ -42,29 +29,12 @@ export const PrimaryPostPreview = ({ data, ...props }) => {
 };
 
 export const SecondaryPostPreview = ({ data, ...props }) => {
-  const {
-    title = "Where to Find utah's most relaxing hot springs",
-    categories = [
-      ["Category 1", "./cat-1"],
-      ["Category 2", "./cat-2"]
-    ],
-    link = "/link-to-post",
-    featured_media = {
-      alt: "anything",
-      src:
-        "https://www.territorysupply.com/wp-content/uploads/2019/11/utah-hot-springs-900x550.jpg"
-    }
-  } = data;
+  const { title, categories, link, featured_media } = data;
 
   return (
     <Link link={link} display="block" flex="1" {...props}>
-      <SecondaryPostArticle
-        bgImage={generateGradient()}
-        role="group"
-        // {...props}
-      >
+      <SecondaryPostArticle bgImage={generateGradient()} role="group">
         <PostOverlay />
-        {/* <PostLink link={link} /> */}
         <PostImage {...featured_media} />
         <PostContent padding="40px" textAlign="left" mt="0">
           <PostCategories justify="flex-start" categories={categories} />

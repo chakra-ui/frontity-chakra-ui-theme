@@ -4,7 +4,7 @@ import { Progress } from "@chakra-ui/core";
 const PostProgressBar = props => (
   <Progress
     pos="fixed"
-    color="orange"
+    color="accent"
     top="70px"
     height="6px"
     zIndex={2}
@@ -12,11 +12,11 @@ const PostProgressBar = props => (
     min={0}
     max={70}
     bg="transparent"
-    css={{
+    css={theme => ({
       div: {
-        backgroundColor: "#eca419"
+        backgroundColor: theme.colors.accent[400]
       }
-    }}
+    })}
     {...props}
   />
 );

@@ -1,6 +1,8 @@
 import { Box, PseudoBox } from "@chakra-ui/core";
 import React from "react";
 import Section from "./section";
+import tileGreen from "../../assets/pattern-tile-green.svg";
+import tileLight from "../../assets/pattern-tile-light-fade.svg";
 
 /**
  * @param {React.ComponentProps<typeof Box>} props
@@ -8,7 +10,7 @@ import Section from "./section";
 export const PatternBox = props => (
   <Box
     as="section"
-    bgImage={`url("https://www.territorysupply.com/wp-content/themes/territory-supply/assets/img/graphics/pattern-tile-green.svg")`}
+    bgImage={`url({${tileGreen}})`}
     bg="primary.700"
     bgSize="1018px"
     bgPos="top center"
@@ -53,7 +55,7 @@ export const LightPatternBox = React.forwardRef((props, ref) => (
       opacity: 0.4,
       bgSize: "1018px",
       bgPos: "top center",
-      bgImage: `url(https://www.territorysupply.com/wp-content/themes/territory-supply/assets/img/graphics/pattern-tile-light-fade.svg)`
+      bgImage: `url(${tileLight})`
     }}
     {...props}
   />

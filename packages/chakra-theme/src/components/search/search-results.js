@@ -60,12 +60,12 @@ const SearchForm = connect(props => {
   return (
     <Stack mt="40px" as="form" direction="row" align="stretch" {...form}>
       <Input
-        focusBorderColor="brand.400"
+        focusBorderColor="accent.400"
         placeholder="Search..."
         size="lg"
         {...input}
       />
-      <Button type="submit" variantColor="brand" size="lg">
+      <Button type="submit" variantColor="accent" size="lg">
         Search
       </Button>
     </Stack>

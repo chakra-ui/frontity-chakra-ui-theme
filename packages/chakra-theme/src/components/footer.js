@@ -7,8 +7,8 @@ const FooterSection = props => (
   <Box
     as="footer"
     pos="relative"
-    bg="gray.800"
-    py={{ base: "32px", lg: "80px" }}
+    bg="primary.900"
+    py={{ base: "32px", lg: "40px" }}
     {...props}
   />
 );
@@ -19,8 +19,6 @@ const FooterSectionGroup = props => (
     maxWidth="1150px"
     mx="auto"
     width="90%"
-    border="2px solid"
-    borderColor="accent.400"
     {...props}
   />
 );
@@ -40,11 +38,7 @@ const Footer = ({ state }) => (
         © 2019 Frontity
       </FooterSectionItem>
 
-      <FooterSectionItem
-        borderX={{ base: 0, md: "2px solid" }}
-        borderY={{ base: "2px solid", md: 0 }}
-        borderColor="accent.400"
-      >
+      <FooterSectionItem borderColor="accent.400">
         <SocialMenu
           ml="0"
           justifyContent="center"

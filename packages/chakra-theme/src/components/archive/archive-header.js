@@ -12,7 +12,7 @@ const ArchiveHeader = ({ taxonomy, title, ...props }) => (
         mt="8px"
         textTransform="uppercase"
         fontSize="6xl"
-        color="brand.400"
+        color="accent.400"
       >
         {title}
       </Heading>

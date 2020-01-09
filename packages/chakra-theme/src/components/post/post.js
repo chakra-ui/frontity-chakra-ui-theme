@@ -48,6 +48,7 @@ const Post = ({ state, actions, libraries }) => {
       <Box pb={{ base: "2rem", lg: "50px" }}>
         <PostHeader
           mt={{ base: "20px", lg: "4rem" }}
+          px={{ base: "32px", md: "0" }}
           categories={categories}
           heading={post.title.rendered}
           author={author}
@@ -64,13 +65,18 @@ const Post = ({ state, actions, libraries }) => {
 
         {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-        <Content as={Section} size="md" pt="50px">
+        <Content
+          as={Section}
+          px={{ base: "32px", md: "0" }}
+          size="md"
+          pt="50px"
+        >
           <Html2React html={post.content.rendered} />
         </Content>
 
         <Divider borderBottom="1px solid" my="80px" />
 
-        <Section>
+        <Section px={{ base: "32px", md: "0" }}>
           <AuthorBio
             image={author.avatar_urls["96"]}
             name={author.name}

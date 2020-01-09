@@ -44,7 +44,6 @@ const NoResultTitle = ({ query }) => (
 const NoResultContent = props => (
   <Box
     p="80px"
-    pb="0"
     maxW="1400px"
     position="relative"
     mx="auto"
@@ -63,9 +62,10 @@ const SearchForm = connect(props => {
         focusBorderColor="accent.400"
         placeholder="Search..."
         size="lg"
+        rounded="0"
         {...input}
       />
-      <Button type="submit" variantColor="accent" size="lg">
+      <Button type="submit" rounded="0" variantColor="accent" size="lg">
         Search
       </Button>
     </Stack>

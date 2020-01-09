@@ -20,18 +20,18 @@ const chakraTheme = {
         showOnPost: true
       },
       colors: {
-        // primary: {
-        //   50: "#e9f5f2",
-        //   100: "#d4dcd9",
-        //   200: "#bbc3be",
-        //   300: "#a1aba5",
-        //   400: "#87938b",
-        //   500: "#6d7972",
-        //   600: "#555f58",
-        //   700: "#323c34",
-        //   800: "#232924",
-        //   900: "#272727"
-        // },
+        primary: {
+          50: "#e9f5f2",
+          100: "#d4dcd9",
+          200: "#bbc3be",
+          300: "#a1aba5",
+          400: "#87938b",
+          500: "#6d7972",
+          600: "#555f58",
+          700: "#323c34",
+          800: "#232924",
+          900: "#272727"
+        },
         accent: {
           50: "#ede4d3",
           100: "#fbe3b2",
@@ -44,7 +44,7 @@ const chakraTheme = {
           800: "#483100",
           900: "#1d0f00"
         },
-        primary: theme.colors.pink,
+        // primary: theme.colors.pink,
       },
       isSearchModalOpen: false,
       isMobileMenuOpen: false,

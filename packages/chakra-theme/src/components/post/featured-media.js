@@ -7,6 +7,12 @@ import { getMediaAttributes } from "../helpers";
 // eslint-disable-next-line
 const FeaturedMedia = ({ state, actions, libraries, id, ...props }) => {
   const imgProps = getMediaAttributes(state, id);
+
+  // is empty if the id doesn't exist in state.source anymore
+  const noImgProps = Object.keys(imgProps).length === 0;
+
+  if (noImgProps) return null;
+
   return (
     <Box as="figure" mt={4} height="500px" {...props}>
       <Box as={Image} size="100%" objectFit="cover" {...imgProps} />

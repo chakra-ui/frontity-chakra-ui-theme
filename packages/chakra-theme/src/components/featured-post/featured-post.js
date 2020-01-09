@@ -15,6 +15,7 @@ import Link from "../link";
 
 export const PrimaryPostPreview = ({ data, ...props }) => {
   const { title, categories, link, featured_media } = data;
+
   return (
     <PrimaryPostArticle bgImage={generateGradient()} role="group" {...props}>
       <PostOverlay />

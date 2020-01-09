@@ -2,7 +2,7 @@ import { Box, Divider } from "@chakra-ui/core";
 import { connect, styled } from "frontity";
 import React, { useEffect } from "react";
 import List from "../archive";
-import useScrollPosition from "../hooks/useScrollPosition";
+import useScrollProgress from "../hooks/useScrollProgress";
 import { LightPatternBox } from "../styles/pattern-box";
 import Section from "../styles/section";
 import AuthorBio from "./author-bio";
@@ -38,19 +38,10 @@ const Post = ({ state, actions, libraries }) => {
     List.preload();
   }, []);
 
-  const ref = React.useRef(null);
-  const [scroll, setScroll] = React.useState(0);
-
-  useScrollPosition(data => {
-    const { currPos } = data;
-    const percent = (currPos.y / ref.current.scrollHeight) * 100;
-    setScroll(percent);
-  }, ref.current);
+  const [ref, scroll] = useScrollProgress();
 
   // Load the post, but only if the data is ready.
   if (!data.isReady) return null;
-
-  console.log(post.content.rendered);
 
   return (
     <LightPatternBox ref={ref}>
@@ -67,7 +58,9 @@ const Post = ({ state, actions, libraries }) => {
 
       {/* Look at the settings to see if we should include the featured image */}
       <Section bg="white" pb="80px" size="lg">
-        {post.featured_media && <FeaturedMedia id={post.featured_media} />}
+        {post.featured_media != null && (
+          <FeaturedMedia id={post.featured_media} />
+        )}
 
         {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
@@ -75,7 +68,7 @@ const Post = ({ state, actions, libraries }) => {
           <Html2React html={post.content.rendered} />
         </Content>
 
-        <Divider borderBottom="2px solid" my="80px" borderColor="accent.400" />
+        <Divider borderBottom="1px solid" my="80px" />
 
         <Section>
           <AuthorBio
@@ -100,6 +93,10 @@ const Content = styled.div`
 
   * {
     max-width: 100%;
+  }
+
+  ul {
+    padding: 1rem;
   }
 
   img {

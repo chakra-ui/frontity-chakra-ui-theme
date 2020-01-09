@@ -14,7 +14,7 @@ const Archive = ({ state }) => {
   if (isHomePage) return <HomepageArchive />;
 
   return (
-    <Box bg="primary.200" as="section">
+    <Box bg="accent.50" as="section">
       {/* If the list is a taxonomy, we render a title. */}
       {data.isTaxonomy && (
         <ArchiveHeader
@@ -33,7 +33,7 @@ const Archive = ({ state }) => {
 
       <Box
         padding={{ base: "24px", lg: "40px" }}
-        bgImage="linear-gradient(180deg, white 0%, white 23%, transparent 100%)"
+        bg="white"
         width={{ lg: "80%" }}
         maxWidth="1200px"
         mx="auto"

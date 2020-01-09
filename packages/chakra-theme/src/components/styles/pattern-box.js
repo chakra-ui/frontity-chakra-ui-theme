@@ -10,7 +10,7 @@ import tileLight from "../../assets/pattern-tile-light-fade.svg";
 export const PatternBox = props => (
   <Box
     as="section"
-    bgImage={`url({${tileGreen}})`}
+    bgImage={`url(${tileGreen})`}
     bg="primary.700"
     bgSize="1018px"
     bgPos="top center"

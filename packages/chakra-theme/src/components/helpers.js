@@ -44,10 +44,6 @@ export function getPostTags(state, post) {
   return tags.filter(Boolean);
 }
 
-export function getPostImageProps(state, post) {
-  return getMediaAttributes(state, post.featured_media);
-}
-
 export function formatPostData(state, post) {
   return {
     id: post.id,
@@ -57,7 +53,7 @@ export function formatPostData(state, post) {
     categories: getPostCategories(state, post),
     tags: getPostTags(state, post),
     link: post.link,
-    featured_media: getPostImageProps(state, post),
+    featured_media: getMediaAttributes(state, post.featured_media),
     content: post.content.rendered,
     excerpt: post.excerpt.rendered
   };
@@ -90,7 +86,7 @@ export function omitConnectProps(props) {
     typeof prop === "function" && prop.name === "getSnapshot";
 
   for (const prop in props) {
-    if (propsToOmit.indexOf(prop) > -1 || isGetSnapshot(prop)) continue;
+    if (propsToOmit.includes(prop) || isGetSnapshot(prop)) continue;
     out[prop] = props[prop];
   }
 

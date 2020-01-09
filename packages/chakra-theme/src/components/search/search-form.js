@@ -23,7 +23,7 @@ const SearchForm = props => {
         size="lg"
         fontSize="32px"
         height="auto"
-        focusBorderColor="teal.500"
+        focusBorderColor="primary.400"
         py={3}
         {...input}
       />

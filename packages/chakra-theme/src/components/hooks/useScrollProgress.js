@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, useEffect } from "react";
+import { useRef, useLayoutEffect, useEffect, useState } from "react";
 
 const isBrowser = typeof window !== `undefined`;
 const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
@@ -53,4 +53,17 @@ function useScrollPosition(
   }, deps);
 }
 
-export default useScrollPosition;
+function useScrollProgress() {
+  const ref = useRef(null);
+  const [progress, setProgress] = useState(0);
+
+  useScrollPosition(data => {
+    const { currPos } = data;
+    const percent = (currPos.y / ref.current.scrollHeight) * 100;
+    setProgress(percent);
+  }, ref.current);
+
+  return [ref, progress];
+}
+
+export default useScrollProgress;

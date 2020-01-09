@@ -10,13 +10,13 @@ const PostHeader = ({ heading, categories, description, author, ...props }) => (
       fontWeight="bold"
       size="2xl"
       mt="30px"
-      mb={{ base: "20px", lg: "40px" }}
+      mb={{ base: "20px", lg: "32px" }}
       textTransform="uppercase"
       dangerouslySetInnerHTML={{ __html: heading }}
     />
     {description && <Text mt={4}>{description}</Text>}
     {author && (
-      <Text>
+      <Text fontSize="lg">
         by{" "}
         <Link fontWeight="bold" color="accent.400" link={author.link}>
           {author.name}

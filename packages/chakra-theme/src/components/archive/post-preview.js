@@ -29,7 +29,7 @@ const PostPreview = ({ data, ...rest }) => {
         <Box
           my="20px"
           flex="1"
-          color="primary.700"
+          color="gray.700"
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />
         <PostCategories

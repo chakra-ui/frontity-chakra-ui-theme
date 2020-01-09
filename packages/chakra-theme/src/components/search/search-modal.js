@@ -8,7 +8,8 @@ const SearchModal = props => (
       my="0"
       maxWidth="100%"
       height="100vh"
-      bg="rgba(251,251,251,0.95)"
+      bg="rgba(251,251,251,0.98)"
+      css={{ backdropFilter: "blur(1px)" }}
     >
       {props.children}
       <ModalCloseButton size="lg" rounded="full" />

@@ -22,7 +22,7 @@ const Link = styled(FrontityLink)`
   &:hover {
     &:after {
       bottom: -5px;
-      background-color: #eca419;
+      background-color: ${p=>p.theme.colors.accent[400]};
     }
   }
 `;

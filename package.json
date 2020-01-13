@@ -33,13 +33,7 @@
     "chakra-theme": "./packages/chakra-theme"
   },
   "devDependencies": {
-    "@babel/core": "7.7.5",
     "@changesets/cli": "2.4.1",
-    "@storybook/addon-actions": "5.2.8",
-    "@storybook/addon-links": "5.2.8",
-    "@storybook/addons": "5.2.8",
-    "@storybook/react": "5.2.8",
-    "babel-loader": "8.0.6",
     "eslint": "6.7.2",
     "eslint-plugin-react": "7.17.0"
   }

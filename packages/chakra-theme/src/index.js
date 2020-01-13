@@ -1,7 +1,7 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 import processors from "./components/styles/processors";
-import { theme } from "@chakra-ui/core";
+// import { theme } from "@chakra-ui/core";
 
 const chakraTheme = {
   name: "chakra-theme",
@@ -43,8 +43,7 @@ const chakraTheme = {
           700: "#775105",
           800: "#483100",
           900: "#1d0f00"
-        },
-        // primary: theme.colors.pink,
+        }
       },
       isSearchModalOpen: false,
       isMobileMenuOpen: false,

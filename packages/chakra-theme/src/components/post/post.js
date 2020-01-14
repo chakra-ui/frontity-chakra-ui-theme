@@ -52,10 +52,12 @@ const Post = ({ state, actions, libraries }) => {
           categories={categories}
           heading={post.title.rendered}
           author={author}
+          date={post.date}
+          isPage={data.isPage}
         />
       </Box>
 
-      <PostProgressBar value={scroll} />
+      {!data.isPage && <PostProgressBar value={scroll} />}
 
       {/* Look at the settings to see if we should include the featured image */}
       <Section bg="white" pb="80px" size="lg">

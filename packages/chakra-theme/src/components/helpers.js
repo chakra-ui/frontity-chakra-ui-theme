@@ -92,3 +92,35 @@ export function omitConnectProps(props) {
 
   return out;
 }
+
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "Novemeber",
+  "December"
+];
+
+const formatDay = day => {
+  const lastLetter = day[day.length - 1];
+  if (lastLetter) return `${day}nd`;
+  if (lastLetter) return `${day}st`;
+  if (lastLetter) return `${day}rd`;
+  return `${day}th`;
+};
+
+export function formatDate(date) {
+  const jsDate = new Date(date);
+  const day = jsDate.getDate();
+  const month = jsDate.getMonth() + 1;
+  const year = jsDate.getFullYear();
+
+  return `${formatDay(day)} ${monthNames[month]}, ${year}`;
+}

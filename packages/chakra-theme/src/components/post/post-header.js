@@ -2,8 +2,17 @@ import { Box, Heading, Text } from "@chakra-ui/core";
 import React from "react";
 import Link from "../link";
 import PostCategories from "./post-categories";
+import { formatDate } from "../helpers";
 
-const PostHeader = ({ heading, categories, description, author, ...props }) => (
+const PostHeader = ({
+  heading,
+  categories,
+  description,
+  author,
+  date,
+  isPage,
+  ...props
+}) => (
   <Box textAlign="center" {...props}>
     {categories && <PostCategories color="black" categories={categories} />}
     <Heading
@@ -15,7 +24,8 @@ const PostHeader = ({ heading, categories, description, author, ...props }) => (
       dangerouslySetInnerHTML={{ __html: heading }}
     />
     {description && <Text mt={4}>{description}</Text>}
-    {author && (
+    {/* Don't show the author if we're on a page type */}
+    {!isPage && author && (
       <Text fontSize="lg">
         by{" "}
         <Link fontWeight="bold" color="accent.400" link={author.link}>
@@ -23,6 +33,8 @@ const PostHeader = ({ heading, categories, description, author, ...props }) => (
         </Link>
       </Text>
     )}
+    {/* Don't show the date if we're on a page type */}
+    {!isPage && date && <Text fontSize="lg">{formatDate(date)}</Text>}
   </Box>
 );
 

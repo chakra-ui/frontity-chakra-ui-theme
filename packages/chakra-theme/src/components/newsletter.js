@@ -3,15 +3,17 @@ import { Box, Heading, Text, PseudoBox, Flex } from "@chakra-ui/core";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import tile from "../assets/pattern-tile-green.svg";
 
-export const PatternBox = props => (
+export const PatternBox = ({ showPattern = true, ...props }) => (
   <Box
     as="section"
     bg="primary.700"
-    bgImage={`url(${tile})`}
-    bgSize="1018px"
-    bgPos="top center"
     borderTop="10px solid"
     borderColor="accent.400"
+    {...(showPattern && {
+      bgImage: `url(${tile})`,
+      bgSize: "1018px",
+      bgPos: "top center"
+    })}
     {...props}
   />
 );

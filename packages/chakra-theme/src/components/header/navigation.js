@@ -22,7 +22,7 @@ const Link = styled(FrontityLink)`
   &:hover {
     &:after {
       bottom: -5px;
-      background-color: ${p=>p.theme.colors.accent[400]};
+      background-color: ${p => p.theme.colors.accent[400]};
     }
   }
 `;
@@ -57,7 +57,7 @@ const SiteMenuItem = ({ link, ...props }) => (
 );
 
 const Navigation = ({ menu, ...props }) => (
-  <Box as="nav" display={{ base: "none", lg: "block" }} {...props}>
+  <Box as="nav" width="100%" display={{ base: "none", lg: "block" }} {...props}>
     <SiteMenu>
       {menu.map(([name, link]) => (
         <SiteMenuItem key={name} link={link}>

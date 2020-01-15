@@ -27,18 +27,11 @@ const Menu = ({ state, actions }) => {
           ))}
         </Stack>
 
-        <Box
-          marginTop={10}
-          paddingY={5}
-          // borderX={{ base: 0, md: "2px solid #eca419" }}
-          // borderY={{ base: "2px solid #eca419", md: 0 }}
-        >
-          <SocialMenu
-            // justifyContent="center"
-            ml="0"
-            menu={state.theme.socialLinks}
-          />
-        </Box>
+        {state.theme.showSocialLinks && (
+          <Box marginTop={10} paddingY={5}>
+            <SocialMenu ml="0" menu={state.theme.socialLinks} />
+          </Box>
+        )}
       </MenuDrawer>
     </>
   );

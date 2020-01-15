@@ -46,7 +46,7 @@ const HomepageArchive = ({ state }) => {
 
         <Pagination mt="40px" />
       </Box>
-      <Newsletter />
+      <Newsletter showPattern={state.theme.showBackgroundPattern} />
     </Box>
   );
 };

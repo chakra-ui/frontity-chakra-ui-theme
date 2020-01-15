@@ -90,7 +90,11 @@ export const SearchResults = ({ state, libraries }) => {
 
   return (
     <Box bg="primary.100">
-      <PatternBox pb="60px" mb="-60px">
+      <PatternBox
+        showPattern={state.theme.showBackgroundPattern}
+        pb="60px"
+        mb="-60px"
+      >
         <PatternBoxInner>
           {isEmpty ? (
             <NoResultTitle query={reverseFormat(searchQuery)} />

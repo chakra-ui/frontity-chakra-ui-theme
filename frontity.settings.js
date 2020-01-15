@@ -20,9 +20,9 @@ const settings = {
             ["About Us", "/about-us/"]
           ],
           socialLinks: [
-            ["pinterest", "https://www.instagram.com/territory.supply/"],
+            ["pinterest", "https://www.pinterest.com/territory.supply/"],
             ["facebook", "https://www.instagram.com/territory.supply/"],
-            ["twitter", "https://www.pinterest.com/territorysupplyco/"]
+            ["twitter", "https://www.twitter.com/territorysupplyco/"]
           ],
           featured: {
             showOnArchive: true,

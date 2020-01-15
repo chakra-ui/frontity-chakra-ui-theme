@@ -18,6 +18,7 @@ const Archive = ({ state }) => {
       {/* If the list is a taxonomy, we render a title. */}
       {data.isTaxonomy && (
         <ArchiveHeader
+          showPattern={state.theme.showBackgroundPattern}
           taxonomy={data.taxonomy}
           title={state.source[data.taxonomy][data.id].name}
         />
@@ -26,6 +27,7 @@ const Archive = ({ state }) => {
       {/* If the list is an author, we render a title. */}
       {data.isAuthor && (
         <ArchiveHeader
+          showPattern={state.theme.showBackgroundPattern}
           taxonomy="Posts By"
           title={state.source.author[data.id].name}
         />

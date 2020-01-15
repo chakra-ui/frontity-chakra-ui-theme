@@ -44,7 +44,7 @@ const Post = ({ state, actions, libraries }) => {
   if (!data.isReady) return null;
 
   return (
-    <LightPatternBox ref={ref}>
+    <LightPatternBox showPattern={state.theme.showBackgroundPattern} ref={ref}>
       <Box pb={{ base: "2rem", lg: "50px" }}>
         <PostHeader
           mt={{ base: "20px", lg: "4rem" }}

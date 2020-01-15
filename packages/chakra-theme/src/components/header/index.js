@@ -8,7 +8,9 @@ import { SearchButton, SearchModal, SearchForm } from "../search";
 const Header = ({ state, actions }) => (
   <MainHeader>
     <Navigation menu={state.theme.menu} />
-    <SocialNav menu={state.theme.socialLinks} />
+    {state.theme.showSocialLinks && (
+      <SocialNav menu={state.theme.socialLinks} />
+    )}
     <SearchButton onClick={actions.theme.openSearchModal} />
     <SearchModal
       isOpen={state.theme.isSearchModalOpen}

@@ -14,11 +14,15 @@ const chakraTheme = {
     // State is where the packages store their default settings and other
     // relevant state. It is scoped to the "theme" namespace.
     theme: {
+      logo: "Segun Adebayo",
+      showBackgroundPattern: true,
+      showSocialLinks: false,
       menu: [],
       featured: {
         showOnArchive: false,
         showOnPost: true
       },
+
       colors: {
         primary: {
           50: "#e9f5f2",

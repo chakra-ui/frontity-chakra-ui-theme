@@ -2,6 +2,7 @@ import { Box, Flex } from "@chakra-ui/core";
 import React from "react";
 import Link from "../link";
 import Menu from "../menu";
+import { isUrl } from "../helpers";
 
 const SiteHeader = props => (
   <Box
@@ -28,26 +29,43 @@ const SiteHeaderInner = props => (
   />
 );
 
-const SiteLogo = props => (
-  <Box display="block" flexShrink="0" width="100px" {...props}>
+const Logo = ({ isImage = true, value }) =>
+  isImage ? (
+    <Box as="img" src={value} width="120px" />
+  ) : (
+    <Box
+      fontSize="2xl"
+      color="white"
+      fontFamily="heading"
+      textTransform="uppercase"
+      fontWeight="bold"
+    >
+      {value}
+    </Box>
+  );
+
+const SiteLogo = ({ isImage, src, ...props }) => (
+  <Box display="block" flexShrink="0" {...props}>
     <Link link="/">
-      <Box
-        as="img"
-        src="https://uploads-ssl.webflow.com/5be00771820599586e6bd032/5be0223588110a6dbcac2d05_image.svg"
-        width="120px"
-      />
+      <Logo isImage={isImage} value={src} />
     </Link>
   </Box>
 );
 
-const Header = ({ children, ...props }) => (
-  <SiteHeader {...props}>
-    <SiteHeaderInner>
-      <Menu />
-      <SiteLogo />
-      {children}
-    </SiteHeaderInner>
-  </SiteHeader>
-);
+const Header = ({ children, logoSrc, ...props }) => {
+  // check if the logo is a url,
+  // we assume, if it's a url, it points to an image, else it's a text
+  const logoIsImage = isUrl(logoSrc);
+
+  return (
+    <SiteHeader {...props}>
+      <SiteHeaderInner>
+        <Menu />
+        <SiteLogo isImage={logoIsImage} src={logoSrc} />
+        {children}
+      </SiteHeaderInner>
+    </SiteHeader>
+  );
+};
 
 export default Header;

@@ -6,7 +6,7 @@ const PostProgressBar = props => (
     pos="fixed"
     color="accent"
     top="70px"
-    height="6px"
+    height="4px"
     zIndex={2}
     width="100%"
     min={0}

@@ -124,3 +124,8 @@ export function formatDate(date) {
 
   return `${formatDay(day)} ${monthNames[month]}, ${year}`;
 }
+
+export function isUrl(str) {
+  var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!-/]))?/;
+  return regexp.test(str);
+}

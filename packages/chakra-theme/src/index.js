@@ -15,6 +15,8 @@ const chakraTheme = {
     // relevant state. It is scoped to the "theme" namespace.
     theme: {
       logo: "Segun Adebayo",
+      // logo:
+      //   "https://uploads-ssl.webflow.com/5be00771820599586e6bd032/5be0223588110a6dbcac2d05_image.svg",
       showBackgroundPattern: true,
       showSocialLinks: false,
       menu: [],

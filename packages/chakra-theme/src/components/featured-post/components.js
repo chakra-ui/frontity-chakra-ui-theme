@@ -2,6 +2,7 @@ import { Box, Heading, PseudoBox } from "@chakra-ui/core";
 import { styled } from "frontity";
 import React from "react";
 import Link from "../link";
+import Image from "@frontity/components/image";
 
 export const PostLink = styled(Link)`
   width: 100%;
@@ -100,7 +101,7 @@ export const SecondaryPostArticle = props => (
 
 export const PostImage = props => (
   <PseudoBox
-    as="img"
+    as={Image}
     width="900"
     height="550"
     position="absolute"

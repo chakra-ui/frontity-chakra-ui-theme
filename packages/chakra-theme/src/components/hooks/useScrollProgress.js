@@ -1,4 +1,10 @@
-import { useRef, useLayoutEffect, useEffect, useState } from "react";
+import {
+  useRef,
+  useLayoutEffect,
+  useEffect,
+  useState,
+  useCallback
+} from "react";
 
 // check if we're in a browser or server environment
 const isBrowser = typeof window !== `undefined`;
@@ -16,13 +22,15 @@ function useScrollEffect(effect) {
   // ref to keep track of timeout id
   const timeoutRef = useRef(null);
 
-  const update = () => {
+  // useCallback to keep the function reference the same
+  // as long as `effect` stays the same
+  const update = useCallback(() => {
     // get new scroll position
     const position = getScrollPosition();
 
     // run effect with current position
     effect && effect(position);
-  };
+  }, [effect]);
 
   useEnhancedEffect(() => {
     // run effect on mount

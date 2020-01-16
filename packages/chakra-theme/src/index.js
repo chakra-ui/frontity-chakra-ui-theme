@@ -14,11 +14,22 @@ const chakraTheme = {
     // State is where the packages store their default settings and other
     // relevant state. It is scoped to the "theme" namespace.
     theme: {
-      logo: "Segun Adebayo",
-      // logo:
-      //   "https://uploads-ssl.webflow.com/5be00771820599586e6bd032/5be0223588110a6dbcac2d05_image.svg",
+      /**
+       * The logo can be a text or an image url
+       * logo : "Frontity"
+       * logo: "https://uploads-ssl.webflow.com/5be00771820599586e6bd032/5be0223588110a6dbcac2d05_image.svg",
+       */
+      logo: "Frontity",
       showBackgroundPattern: true,
       showSocialLinks: false,
+      /**
+       * socialLinks: [
+            ["pinterest", "https://www.pinterest.com/territory.supply/"],
+            ["facebook", "https://www.instagram.com/territory.supply/"],
+            ["twitter", "https://www.twitter.com/territorysupplyco/"]
+          ],
+       */
+      socialLinks: [],
       menu: [],
       featured: {
         showOnArchive: false,
@@ -60,11 +71,6 @@ const chakraTheme = {
   // Frontity like libraries.
   actions: {
     theme: {
-      init: ({ libraries }) => {
-        processors.forEach(processor => {
-          libraries.html2react.processors.push(processor);
-        });
-      },
       openMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = true;
       },
@@ -83,7 +89,7 @@ const chakraTheme = {
     html2react: {
       // Add a processor to html2react so it processes the <img> tags
       // inside the content HTML. You can add your own processors too.
-      processors: [image]
+      processors: [image, ...processors]
     }
   }
 };

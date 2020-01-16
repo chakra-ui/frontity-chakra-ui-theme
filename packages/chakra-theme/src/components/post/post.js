@@ -11,6 +11,7 @@ import PostHeader from "./post-header";
 import PostProgressBar from "./post-progressbar";
 
 const Post = ({ state, actions, libraries }) => {
+  // TODO: Try to use the formatPost helper
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
 

@@ -3,65 +3,44 @@ import { useRef, useLayoutEffect, useEffect, useState } from "react";
 const isBrowser = typeof window !== `undefined`;
 const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
 
-function getScrollPosition({ element, useWindow }) {
+function getScrollPosition() {
   if (!isBrowser) return { x: 0, y: 0 };
-
-  const target = element ? element.current : document.body;
-  const position = target.getBoundingClientRect();
-
-  return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
-    : { x: position.left, y: position.top };
+  return { x: window.scrollX, y: window.scrollY };
 }
 
-function useScrollPosition(
-  effect,
-  element,
-  deps = [],
-  useWindow = true,
-  wait = 200
-) {
-  const position = useRef(getScrollPosition({ useWindow }));
+function useScrollEffect(effect) {
+  const scrollPos = useRef(getScrollPosition());
 
-  let throttleTimeout = null;
+  let timeoutId = null;
 
-  useEnhancedEffect(() => {
-    callBack();
-  }, []);
-
-  const callBack = () => {
-    const currPos = getScrollPosition({ element, useWindow });
-    effect({ prevPos: position.current, currPos });
-    position.current = currPos;
-    throttleTimeout = null;
+  const update = () => {
+    const currPos = getScrollPosition();
+    effect && effect(currPos);
+    scrollPos.current = currPos;
+    timeoutId = null;
   };
 
   useEnhancedEffect(() => {
+    update();
     const handleScroll = () => {
-      if (wait) {
-        if (throttleTimeout === null) {
-          throttleTimeout = setTimeout(callBack, wait);
-        }
-      } else {
-        callBack();
-      }
+      if (timeoutId == null) timeoutId = setTimeout(update, 200);
     };
-
     window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, deps);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
 }
 
 function useScrollProgress() {
   const ref = useRef(null);
   const [progress, setProgress] = useState(0);
 
-  useScrollPosition(data => {
-    const { currPos } = data;
-    const percent = (currPos.y / ref.current.scrollHeight) * 100;
+  useScrollEffect(scrollPos => {
+    const percent = (scrollPos.y / ref.current.scrollHeight) * 100;
     setProgress(percent);
-  }, ref.current);
+  });
 
   return [ref, progress];
 }

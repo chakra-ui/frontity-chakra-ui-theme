@@ -1,7 +1,7 @@
 import { Box, Flex } from "@chakra-ui/core";
 import React from "react";
 import Link from "../link";
-import Menu from "../menu";
+import MobileMenu from "../menu";
 import { isUrl } from "../helpers";
 
 const SiteHeader = props => (
@@ -44,28 +44,29 @@ const Logo = ({ isImage = true, value }) =>
     </Box>
   );
 
-const SiteLogo = ({ isImage, src, ...props }) => (
-  <Box display="block" flexShrink="0" {...props}>
-    <Link link="/">
-      <Logo isImage={isImage} value={src} />
-    </Link>
-  </Box>
-);
-
-const Header = ({ children, logoSrc, ...props }) => {
+//TODO: Connect sitelogo
+const SiteLogo = ({ src, ...props }) => {
   // check if the logo is a url,
   // we assume, if it's a url, it points to an image, else it's a text
-  const logoIsImage = isUrl(logoSrc);
-
+  const isImage = isUrl(src);
   return (
-    <SiteHeader {...props}>
-      <SiteHeaderInner>
-        <Menu />
-        <SiteLogo isImage={logoIsImage} src={logoSrc} />
-        {children}
-      </SiteHeaderInner>
-    </SiteHeader>
+    <Box display="block" flexShrink="0" {...props}>
+      <Link link="/">
+        <Logo isImage={isImage} value={src} />
+      </Link>
+    </Box>
   );
 };
+
+// Luis: connect SiteLogo to get the src, no prop drilling
+const Header = ({ children, logoSrc, ...props }) => (
+  <SiteHeader {...props}>
+    <SiteHeaderInner>
+      <MobileMenu />
+      <SiteLogo src={logoSrc} />
+      {children}
+    </SiteHeaderInner>
+  </SiteHeader>
+);
 
 export default Header;

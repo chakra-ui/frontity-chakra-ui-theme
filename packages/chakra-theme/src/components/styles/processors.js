@@ -16,7 +16,9 @@ function makeProcessor(tag, options) {
       node.component = options.component;
       node.props = options.props(node);
       return node;
-    }
+    },
+    // allow for overriding this processors
+    priority: 20,
   };
 }
 
@@ -54,8 +56,10 @@ const figcaption = makeProcessor("figcaption", {
   component: Box
 });
 
+// make for h1, h2, h4, h5, h6
 const h3 = makeProcessor("h3", {
   props: () => ({
+    as: "h3",
     marginTop: "40px",
     size: "xl",
     textTransform: "uppercase"

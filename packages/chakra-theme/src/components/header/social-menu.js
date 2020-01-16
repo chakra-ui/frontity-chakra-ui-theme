@@ -9,6 +9,7 @@ import {
 } from "react-icons/io";
 import Link from "../link";
 
+// warning for showSocialLinks and menu.length
 export const SocialMenu = ({ menu, ...props }) => (
   <SiteMenu spacing="30px" ml="24px" position={{ sm: "relative" }} {...props}>
     {menu.map(([name, link]) => {
@@ -45,7 +46,7 @@ const icons = {
 };
 
 const SocialNav = ({ menu, ...props }) => (
-  <Box ml="auto" as="nav" display={{ base: "none", lg: "block" }} {...props}>
+  <Box ml="auto" display={{ base: "none", lg: "block" }} {...props}>
     <SocialMenu menu={menu} />
   </Box>
 );

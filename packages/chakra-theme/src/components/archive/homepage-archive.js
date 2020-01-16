@@ -10,6 +10,7 @@ import Pagination from "./pagination";
 const HomepageArchive = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
+
   const [firstThreePosts, othersPosts] = splitPosts(state, data.items);
 
   return (

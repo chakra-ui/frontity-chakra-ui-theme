@@ -3,6 +3,7 @@ import { connect } from "frontity";
 import React from "react";
 import useSearch from "../hooks/useSearch";
 
+// A11y: Add a hidden search button
 const SearchForm = props => {
   const { form, input } = useSearch(props);
   return (

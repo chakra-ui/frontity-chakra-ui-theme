@@ -16,6 +16,7 @@ const PostPreview = ({ data, ...rest }) => {
       shadow="md"
       {...rest}
     >
+      {/* Use the frontity settings for featuredPost here */}
       {featured_media && featured_media.src && (
         <Link link={link}>
           <PostImageWithOverlay {...featured_media} />

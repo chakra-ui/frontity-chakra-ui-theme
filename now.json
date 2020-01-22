@@ -1,0 +1,10 @@
+{
+  "alias": "frontity-chakra.now.sh",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@frontity/now"
+    }
+  ]
+}

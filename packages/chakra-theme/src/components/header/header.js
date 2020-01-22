@@ -58,7 +58,6 @@ const SiteLogo = connect(({ state, ...props }) => {
   );
 });
 
-// Luis: connect SiteLogo to get the src, no prop drilling
 const Header = ({ children, ...props }) => (
   <SiteHeader {...props}>
     <SiteHeaderInner>

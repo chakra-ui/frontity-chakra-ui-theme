@@ -21,6 +21,7 @@ export function getMediaAttributes(state, id) {
   const srcSet = getSrcSet(media);
 
   return {
+    id,
     alt: media.title.rendered,
     src: media.source_url,
     srcSet
@@ -42,6 +43,12 @@ export function getPostTags(state, post) {
   const allTags = state.source.tag;
   const tags = post.tags && post.tags.map(tagId => allTags[tagId]);
   return tags.filter(Boolean);
+}
+
+export function getPostData(state) {
+  const data = state.source.get(state.router.link);
+  const post = state.source[data.type][data.id];
+  return { ...post, isReady: data.isReady, isPage: data.isPage };
 }
 
 export function formatPostData(state, post) {

@@ -9,27 +9,14 @@ import AuthorBio from "./author-bio";
 import FeaturedMedia from "./featured-media";
 import PostHeader from "./post-header";
 import PostProgressBar from "./post-progressbar";
+import { getPostData, formatPostData } from "../helpers";
 
 const Post = ({ state, actions, libraries }) => {
-  // TODO: Try to use the formatPost helper
-  // Get information about the current URL.
-  const data = state.source.get(state.router.link);
-
-  // Get the data of the post.
-  const post = state.source[data.type][data.id];
-
-  // Get the data of the author.
-  const author = state.source.author[post.author];
-
-  // Get a human readable date.
-  // const date = new Date(post.date);
+  const postData = getPostData(state);
+  const post = formatPostData(state, postData);
 
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
-
-  const allCategories = state.source.category;
-  const categories =
-    post.categories && post.categories.map(catId => allCategories[catId]);
 
   // Once the post has loaded in the DOM, prefetch both the
   // home posts and the list component so if the user visits
@@ -42,7 +29,7 @@ const Post = ({ state, actions, libraries }) => {
   const [ref, scroll] = useScrollProgress();
 
   // Load the post, but only if the data is ready.
-  if (!data.isReady) return null;
+  if (!postData.isReady) return null;
 
   return (
     <LightPatternBox showPattern={state.theme.showBackgroundPattern} ref={ref}>
@@ -50,20 +37,20 @@ const Post = ({ state, actions, libraries }) => {
         <PostHeader
           mt={{ base: "20px", lg: "4rem" }}
           px={{ base: "32px", md: "0" }}
-          categories={categories}
-          heading={post.title.rendered}
-          author={author}
-          date={post.date}
-          isPage={data.isPage}
+          categories={post.categories}
+          heading={post.title}
+          author={post.author}
+          date={post.publishDate}
+          isPage={postData.isPage}
         />
       </Box>
 
-      {!data.isPage && <PostProgressBar value={scroll} />}
+      {!postData.isPage && <PostProgressBar value={scroll} />}
 
       {/* Look at the settings to see if we should include the featured image */}
       <Section bg="white" pb="80px" size="lg">
         {post.featured_media != null && (
-          <FeaturedMedia id={post.featured_media} />
+          <FeaturedMedia id={post.featured_media.id} />
         )}
 
         {/* Render the content using the Html2React component so the HTML is processed
@@ -74,17 +61,17 @@ const Post = ({ state, actions, libraries }) => {
           size="md"
           pt="50px"
         >
-          <Html2React html={post.content.rendered} />
+          <Html2React html={post.content} />
         </Content>
 
         <Divider borderBottom="1px solid" my="80px" />
 
         <Section px={{ base: "32px", md: "0" }}>
           <AuthorBio
-            image={author.avatar_urls["96"]}
-            name={author.name}
-            description={author.description}
-            link={author.link}
+            image={post.author.avatar_urls["96"]}
+            name={post.author.name}
+            description={post.author.description}
+            link={post.author.link}
           />
         </Section>
       </Section>

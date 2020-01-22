@@ -23,7 +23,7 @@ const Link = ({
     );
 
   // Check if the link is an external or internal link
-  const isExternal = link.startsWith("http");
+  const isExternal = link && link.startsWith("http");
 
   // Prefetch the link's content when it mounts and autoPreFetch is set to `true`
   useEffect(() => {

@@ -32,7 +32,7 @@ export function getPostCategories(state, post) {
   const allCategories = state.source.category;
   const categories =
     post.categories && post.categories.map(catId => allCategories[catId]);
-  return categories.filter(Boolean);
+  return categories ? categories.filter(Boolean) : [];
 }
 
 export function getPostAuthor(state, post) {
@@ -42,7 +42,7 @@ export function getPostAuthor(state, post) {
 export function getPostTags(state, post) {
   const allTags = state.source.tag;
   const tags = post.tags && post.tags.map(tagId => allTags[tagId]);
-  return tags.filter(Boolean);
+  return tags ? tags.filter(Boolean) : [];
 }
 
 export function getPostData(state) {

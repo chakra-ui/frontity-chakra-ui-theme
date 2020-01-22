@@ -129,3 +129,16 @@ export function isUrl(str) {
   var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!-/]))?/;
   return regexp.test(str);
 }
+
+export function debounce(fn) {
+  let queued = null;
+  return [
+    (...args) => {
+      if (queued) cancelAnimationFrame(queued);
+      queued = requestAnimationFrame(fn.bind(fn, ...args));
+    },
+    () => {
+      cancelAnimationFrame(queued);
+    }
+  ];
+}

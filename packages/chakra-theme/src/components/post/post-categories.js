@@ -41,7 +41,10 @@ export const PostCategories = ({
     >
       {limitCategories.map(category => (
         <PostCategory marginTop="8px" color={color} key={category.id}>
-          <Link link={category.link}>{category.name}</Link>
+          <Link
+            link={category.link}
+            dangerouslySetInnerHTML={{ __html: category.name }}
+          />
         </PostCategory>
       ))}
     </Stack>

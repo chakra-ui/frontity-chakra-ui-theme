@@ -5,6 +5,7 @@ import {
   useState,
   useCallback
 } from "react";
+import { debounce } from "../helpers";
 
 // check if we're in a browser or server environment
 const isBrowser = typeof window !== `undefined`;
@@ -19,9 +20,6 @@ function getScrollPosition() {
 }
 
 function useScrollEffect(effect) {
-  // ref to keep track of timeout id
-  const timeoutRef = useRef(null);
-
   // useCallback to keep the function reference the same
   // as long as `effect` stays the same
   const update = useCallback(() => {
@@ -36,22 +34,16 @@ function useScrollEffect(effect) {
     // run effect on mount
     update();
 
-    // run effect as well scroll every 200ms
-    const handleScroll = () => {
-      timeoutRef.current = setTimeout(update, 200);
-    };
+    // performance:  debounce update function calls
+    const [debouncedUpdate, cancelUpdate] = debounce(update);
 
     // attach scroll listener
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", debouncedUpdate);
 
     return () => {
       // perf: remove the event listener
-      window.removeEventListener("scroll", handleScroll);
-
-      // perf: if timeout still exists, clear it
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      window.removeEventListener("scroll", debouncedUpdate);
+      cancelUpdate();
     };
   }, []);
 }

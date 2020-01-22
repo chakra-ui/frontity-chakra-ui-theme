@@ -32,6 +32,7 @@ export const PatternBoxInner = props => (
   />
 );
 
+// TODO: Add the logic to show this component based on if newsletter package exists
 export const Newsletter = props => (
   <PatternBox {...props}>
     <Box

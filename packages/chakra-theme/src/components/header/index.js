@@ -6,7 +6,7 @@ import SocialNav from "./social-menu";
 import { SearchButton, SearchModal, SearchForm } from "../search";
 
 const Header = ({ state, actions }) => (
-  <MainHeader logoSrc={state.theme.logo}>
+  <MainHeader>
     <Navigation menu={state.theme.menu} />
     {state.theme.showSocialLinks && (
       <SocialNav menu={state.theme.socialLinks} />

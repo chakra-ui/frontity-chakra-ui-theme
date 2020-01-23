@@ -5,7 +5,7 @@ import Archive from "./archive";
 import Footer from "./footer";
 import Header from "./header";
 import Loading from "./loading";
-import Page404 from "./page404.js";
+import Page404 from "./page404.js.js";
 import Post from "./post/post";
 import SearchResults from "./search";
 import Title from "./title";

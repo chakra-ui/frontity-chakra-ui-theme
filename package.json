@@ -28,7 +28,7 @@
     "@frontity/wp-source": "^1.4.2",
     "@frontity/tiny-router": "^1.0.17",
     "@frontity/html2react": "^1.1.14",
-    "chakra-theme": "./packages/chakra-theme"
+    "frontity-chakra-theme": "./packages/frontity-chakra-theme"
   },
   "devDependencies": {
     "@changesets/cli": "2.4.1",

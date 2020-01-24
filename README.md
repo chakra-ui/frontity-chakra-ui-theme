@@ -1,4 +1,4 @@
-# Chakra UI Frontity Theme
+# Frontity Chakra Theme
 
 ## Installation guide
 
@@ -7,12 +7,14 @@ To get start quickly with the Chakra UI theme, you can install them like other p
 To install, run this command in your terminal:
 
 ```sh
-npm install --save frontity-chakra-theme
+npm install frontity-chakra-theme
 ```
+
+Then add `frontity-chakra-theme` to your `frontity.settings.js` file
 
 ## Theme Options
 
-Chakra theme can be configures via the `frontity.settings.js` file. The theme options can be specifed in the `state.theme` property.
+Chakra theme can be configures via the `frontity.settings.js` file. The theme options can be specified in the `state.theme` property.
 
 | Key                     | Default Value | Description                                  |
 | ----------------------- | ------------- | -------------------------------------------- |
@@ -54,8 +56,30 @@ const settings = {
           ],
           // color shades to use in the blog
           colors: {
-            primary: {},
-            accent: {}
+            primary: {
+              "50": "#e9f5f2",
+              "100": "#d4dcd9",
+              "200": "#bbc3be",
+              "300": "#a1aba5",
+              "400": "#87938b",
+              "500": "#6d7972",
+              "600": "#555f58",
+              "700": "#323c34",
+              "800": "#232924",
+              "900": "#272727"
+            },
+            accent: {
+              "50": "#ede4d3",
+              "100": "#fbe3b2",
+              "200": "#f6d086",
+              "300": "#f1be58",
+              "400": "#eca419",
+              "500": "#d49212",
+              "600": "#a5710b",
+              "700": "#775105",
+              "800": "#483100",
+              "900": "#1d0f00"
+            }
           }
         }
       }
@@ -66,9 +90,7 @@ const settings = {
 export default settings;
 ```
 
-## Notes on Colors
-
-Since this theme is based on Chakra, we require that the theme colors should be color values from `50` - `900`. For example, here's what the default colors look like:
+**🚨NOTE**: Since this theme is based on Chakra, we require that the theme colors should be color values from `50` - `900`. For example, here's what the default colors look like:
 
 ```json
 // value of theme.colors
@@ -102,7 +124,7 @@ Since this theme is based on Chakra, we require that the theme colors should be 
 
 > You can use tools like Smart Swatch (https://smart-swatch.netlify.com/) or Palx (https://palx.jxnblk.com/) to generate color hues based on a single color
 
-## Addition Settings
+## Additional Settings
 
 In addition to the theme options, there are a handful of items you can customize via the `frontity` object in your site’s `frontity.settings.js`
 

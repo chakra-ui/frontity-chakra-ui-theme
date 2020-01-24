@@ -5,10 +5,11 @@ import Archive from "./archive";
 import Footer from "./footer";
 import Header from "./header";
 import Loading from "./loading";
-import Page404 from "./page404.js.js";
+import Page404 from "./page404";
 import Post from "./post/post";
 import SearchResults from "./search";
 import Title from "./title";
+import FontFace from "./styles/font-face";
 
 // Theme is the root React component of our theme. The one we will export
 // in roots.
@@ -27,6 +28,7 @@ const Theme = ({ state, libraries }) => {
         colors: { ...theme.colors, ...state.theme.colors }
       }}
     >
+      <FontFace />
       <CSSReset />
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />

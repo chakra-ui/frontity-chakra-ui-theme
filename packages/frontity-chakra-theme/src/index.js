@@ -4,7 +4,7 @@ import processors from "./components/styles/processors";
 // import { theme } from "@chakra-ui/core";
 
 const chakraTheme = {
-  name: "chakra-theme",
+  name: "frontity-chakra-theme",
   roots: {
     // In Frontity, any package can add React components to the site.
     // We use roots for that, scoped to the "theme" namespace.

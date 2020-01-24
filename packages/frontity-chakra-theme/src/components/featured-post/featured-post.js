@@ -2,7 +2,6 @@ import React from "react";
 import {
   PostContent,
   PostImage,
-  PostLink,
   PostOverlay,
   PostTitle,
   PrimaryPostArticle,
@@ -14,12 +13,12 @@ import PostCategories from "../post/post-categories";
 import Link from "../link";
 
 export const PrimaryPostPreview = ({ data, ...props }) => {
-  const { title, categories, link, featured_media } = data;
+  const { title, categories, featured_media } = data;
 
   return (
     <PrimaryPostArticle bgImage={generateGradient()} role="group" {...props}>
       <PostOverlay />
-      <PostLink link={link} />
+      {/* <PostLink link={link} /> */}
       <PostImage {...featured_media} />
       <PostContent>
         <PostTitle>{title}</PostTitle>
@@ -51,7 +50,9 @@ export const SecondaryPostPreview = ({ data, ...props }) => {
 export const FeaturedPostSection = ({ data, ...props }) => (
   <Flex as="section" direction={{ base: "column", lg: "row" }} {...props}>
     <Box width={{ base: "100%", lg: "65%" }} flexGrow="1">
-      <PrimaryPostPreview data={data[0]} />
+      <Link link={data[0].link}>
+        <PrimaryPostPreview data={data[0]} />
+      </Link>
     </Box>
     <Flex
       direction={{ base: "row", lg: "column" }}

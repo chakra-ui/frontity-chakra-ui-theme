@@ -9,7 +9,7 @@ const settings = {
   },
   packages: [
     {
-      name: "chakra-theme",
+      name: "frontity-chakra-theme",
       state: {
         theme: {
           menu: [

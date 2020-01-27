@@ -7,7 +7,7 @@ import { Newsletter } from "../newsletter";
 import ArchiveItem from "./archive-item";
 import Pagination from "./pagination";
 
-const HomepageArchive = ({ state }) => {
+const HomepageArchive = ({ state, libraries }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 
@@ -47,7 +47,9 @@ const HomepageArchive = ({ state }) => {
 
         <Pagination mt="40px" />
       </Box>
-      <Newsletter showPattern={state.theme.showBackgroundPattern} />
+      {libraries.newsletter && (
+        <Newsletter showPattern={state.theme.showBackgroundPattern} />
+      )}
     </Box>
   );
 };

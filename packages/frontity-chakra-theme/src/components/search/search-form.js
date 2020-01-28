@@ -22,10 +22,10 @@ const SearchForm = props => {
         placeholder="Type and Hit Enter"
         variant="flushed"
         size="lg"
-        fontSize="32px"
+        fontSize={{ base: "24px", md: "32px" }}
         height="auto"
         focusBorderColor="primary.400"
-        py={3}
+        py={{ base: 1, md: 3 }}
         {...input}
       />
       <Icon

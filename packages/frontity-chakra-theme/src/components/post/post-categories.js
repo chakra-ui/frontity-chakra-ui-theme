@@ -1,4 +1,4 @@
-import { Box, PseudoBox } from "@chakra-ui/core";
+import { Box, PseudoBox, Flex } from "@chakra-ui/core";
 import React from "react";
 import Link from "../link";
 
@@ -32,16 +32,16 @@ export const PostCategories = ({
       : categories;
 
   return (
-    <Box mt="12px" {...props}>
+    <Flex flexWrap="wrap" mt="12px" {...props}>
       {limitCategories.map(category => (
-        <PostCategory color={color} key={category.id} mr="8px" mb="4px">
+        <PostCategory color={color} key={category.id} mr="6px" mb="6px">
           <Link
             link={category.link}
             dangerouslySetInnerHTML={{ __html: category.name }}
           />
         </PostCategory>
       ))}
-    </Box>
+    </Flex>
   );
 };
 

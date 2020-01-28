@@ -35,7 +35,7 @@ const Footer = ({ state }) => (
         fontFamily="heading"
         textTransform="uppercase"
       >
-        © 2019 Frontity
+        © {new Date().getFullYear()} Frontity
       </FooterSectionItem>
 
       <FooterSectionItem borderColor="accent.400">

@@ -14,7 +14,13 @@ const PostHeader = ({
   ...props
 }) => (
   <Box textAlign="center" {...props}>
-    {categories && <PostCategories color="black" categories={categories} />}
+    {categories && (
+      <PostCategories
+        color="black"
+        categories={categories}
+        justifyContent="center"
+      />
+    )}
     <Heading
       fontWeight="bold"
       size="2xl"

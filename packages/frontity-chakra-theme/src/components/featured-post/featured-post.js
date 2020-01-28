@@ -24,7 +24,7 @@ export const PrimaryPostPreview = ({ data, ...props }) => {
       <PostContent>
         <Link link={link}>
           <PostTitle>{title}</PostTitle>
-          <PostCategories categories={categories} />
+          <PostCategories categories={categories} justifyContent="center" />
         </Link>
       </PostContent>
     </PrimaryPostArticle>
@@ -40,7 +40,7 @@ export const SecondaryPostPreview = ({ data, ...props }) => {
         <PostOverlay />
         <PostImage {...featured_media} />
         <PostContent padding="40px" textAlign="left" mt="0">
-          <PostCategories justify="flex-start" categories={categories} />
+          <PostCategories justifyContent="flex-start" categories={categories} />
           <PostTitle as="h2" mt="auto" pt="40px" fontSize="1.65rem">
             {title}
           </PostTitle>

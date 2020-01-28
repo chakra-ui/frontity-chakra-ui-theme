@@ -34,7 +34,11 @@ const PostHeader = ({
       </Text>
     )}
     {/* Don't show the date if we're on a page type */}
-    {!isPage && date && <Text fontSize="lg">{formatDate(date)}</Text>}
+    {!isPage && date && (
+      <Text fontSize="md" mt="12px">
+        {formatDate(date)}
+      </Text>
+    )}
   </Box>
 );
 

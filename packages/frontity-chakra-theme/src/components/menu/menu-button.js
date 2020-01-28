@@ -11,6 +11,7 @@ const MenuButton = forwardRef((props, ref) => (
     justifyContent="center"
     flexShrink="0"
     mr={{ base: "auto", lg: "0" }}
+    ml={{ base: "12px", sm: "0" }}
     {...props}
   >
     <Box size={10} color="accent.400" as={IoIosMenu} />

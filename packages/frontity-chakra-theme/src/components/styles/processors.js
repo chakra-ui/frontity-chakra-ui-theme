@@ -18,7 +18,7 @@ function makeProcessor(tag, options) {
       return node;
     },
     // allow for overriding this processors
-    priority: 20,
+    priority: 20
   };
 }
 
@@ -37,7 +37,7 @@ const paragraph = makeProcessor("p", {
     const hasParent = Boolean(node.parent);
     return {
       marginTop: hasParent ? "0" : "10px",
-      fontSize: "lg",
+      fontSize: { base: "md", md: "lg" },
       lineHeight: "tall"
     };
   },
@@ -61,7 +61,7 @@ const h3 = makeProcessor("h3", {
   props: () => ({
     as: "h3",
     marginTop: "40px",
-    size: "xl",
+    fontSize: { base: "lg", md: "xl" },
     textTransform: "uppercase"
   }),
   component: Heading

@@ -13,18 +13,19 @@ import PostCategories from "../post/post-categories";
 import Link from "../link";
 
 export const PrimaryPostPreview = ({ data, ...props }) => {
-  const { title, categories, featured_media } = data;
+  const { title, categories, featured_media, link } = data;
 
   return (
-    <PrimaryPostArticle bgImage={generateGradient()} role="group" {...props}>
-      <PostOverlay />
-      {/* <PostLink link={link} /> */}
-      <PostImage {...featured_media} />
-      <PostContent>
-        <PostTitle>{title}</PostTitle>
-        <PostCategories categories={categories} />
-      </PostContent>
-    </PrimaryPostArticle>
+    <Link size="100%" link={link} display="block" flex="1" {...props}>
+      <PrimaryPostArticle bgImage={generateGradient()} role="group">
+        <PostOverlay />
+        <PostImage {...featured_media} />
+        <PostContent>
+          <PostTitle>{title}</PostTitle>
+          <PostCategories categories={categories} />
+        </PostContent>
+      </PrimaryPostArticle>
+    </Link>
   );
 };
 
@@ -50,12 +51,10 @@ export const SecondaryPostPreview = ({ data, ...props }) => {
 export const FeaturedPostSection = ({ data, ...props }) => (
   <Flex as="section" direction={{ base: "column", lg: "row" }} {...props}>
     <Box width={{ base: "100%", lg: "65%" }} flexGrow="1">
-      <Link link={data[0].link}>
-        <PrimaryPostPreview data={data[0]} />
-      </Link>
+      <PrimaryPostPreview data={data[0]} />
     </Box>
     <Flex
-      direction={{ base: "row", lg: "column" }}
+      direction={{ base: "column", md: "row", lg: "column" }}
       width={{ base: "100%", lg: "35%" }}
       flexGrow="1"
     >

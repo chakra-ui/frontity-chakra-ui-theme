@@ -22,7 +22,7 @@ const SiteHeader = props => (
 const SiteHeaderInner = props => (
   <Flex
     align="center"
-    width="92%"
+    width={{ base: "auto", sm: "92%" }}
     mx="auto"
     height={{ sm: "70px" }}
     maxW="1550px"

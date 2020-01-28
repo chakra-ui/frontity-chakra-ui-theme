@@ -24,7 +24,10 @@ const Theme = ({ state, libraries }) => {
     <ThemeProvider
       theme={{
         ...theme,
-        fonts: { ...theme.fonts, heading: "Kelson" },
+        fonts: {
+          ...theme.fonts,
+          heading: "Kelson, system-ui, Helvetica, sans-serif"
+        },
         colors: { ...theme.colors, ...state.theme.colors }
       }}
     >
@@ -42,7 +45,11 @@ const Theme = ({ state, libraries }) => {
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
-      <Box as="main" mt="70px" minH="calc(100vh - 320px)">
+      <Box
+        as="main"
+        mt={{ base: "40px", md: "70px" }}
+        minH="calc(100vh - 320px)"
+      >
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||
           (data.isArchive && <Archive />) ||

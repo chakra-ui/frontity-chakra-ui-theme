@@ -5,7 +5,7 @@ import { FeaturedPostSection } from "../featured-post/featured-post";
 import { formatPostData, splitPosts } from "../helpers";
 import { Newsletter } from "../newsletter";
 import ArchiveItem from "./archive-item";
-import Pagination from "./pagination";
+import Pagination, { PaginationButton } from "./pagination";
 
 const HomepageArchive = ({ state, libraries }) => {
   // Get the data of the current list.
@@ -45,7 +45,9 @@ const HomepageArchive = ({ state, libraries }) => {
           })}
         </SimpleGrid>
 
-        <Pagination mt="40px" />
+        <PaginationButton mt="40px" link="/page/2">
+          More posts
+        </PaginationButton>
       </Box>
       {libraries.newsletter && (
         <Newsletter showPattern={state.theme.showBackgroundPattern} />

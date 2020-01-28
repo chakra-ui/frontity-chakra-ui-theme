@@ -4,7 +4,7 @@ import Link from "../link";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import { Box, Stack } from "@chakra-ui/core";
 
-const PaginationLink = styled(Link)`
+export const PaginationButton = styled(Link)`
   width: 100%;
   display: flex;
   align-items: center;
@@ -37,10 +37,10 @@ export const PrevLink = ({
   ...props
 }) => (
   <Box width="100%" {...props}>
-    <PaginationLink link={link} aria-label={label} aria-disabled={isDisabled}>
+    <PaginationButton link={link} aria-label={label} aria-disabled={isDisabled}>
       <Box width="40px" height="auto" as={IoIosArrowRoundBack} />
       <span>Older posts</span>
-    </PaginationLink>
+    </PaginationButton>
   </Box>
 );
 
@@ -51,10 +51,10 @@ export const NextLink = ({
   ...props
 }) => (
   <Box width="100%" {...props}>
-    <PaginationLink link={link} aria-label={label} aria-disabled={isDisabled}>
+    <PaginationButton link={link} aria-label={label} aria-disabled={isDisabled}>
       <span>Newer posts</span>
       <Box width="40px" height="auto" as={IoIosArrowRoundForward} />
-    </PaginationLink>
+    </PaginationButton>
   </Box>
 );
 
@@ -84,8 +84,8 @@ const Pagination = ({ state, actions, libraries, ...props }) => {
 
   return (
     <Stack direction="row" spacing="40px" {...props}>
-      <PrevLink link={nextPageLink} isDisabled={isTherePreviousPage} />
-      <NextLink link={prevPageLink} isDisabled={isThereNextPage} />
+      <PrevLink link={nextPageLink} isDisabled={!isTherePreviousPage} />
+      <NextLink link={prevPageLink} isDisabled={!isThereNextPage} />
     </Stack>
   );
 };

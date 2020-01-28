@@ -1,6 +1,6 @@
 import { PseudoBox } from "@chakra-ui/core";
 import { connect } from "frontity";
-import React, { useEffect } from "react";
+import React from "react";
 import { omitConnectProps } from "./helpers";
 
 const Link = ({
@@ -24,13 +24,6 @@ const Link = ({
 
   // Check if the link is an external or internal link
   const isExternal = link && link.startsWith("http");
-
-  // Prefetch the link's content when it mounts and autoPreFetch is set to `true`
-  useEffect(() => {
-    if (!isExternal) {
-      if (state.theme.autoPreFetch === "all") actions.source.fetch(link);
-    }
-  }, []);
 
   const onClick = event => {
     // Do nothing if it's an external link
@@ -64,7 +57,7 @@ const Link = ({
       target={isExternal ? "_blank" : undefined}
       onMouseEnter={event => {
         // Prefetch the link's content when the user hovers on the link
-        if (state.theme.autoPreFetch === "hover") actions.source.fetch(link);
+        if (!isExternal) actions.source.fetch(link);
         if (props.onMouseEnter) props.onMouseEnter(event);
       }}
       {...omitConnectProps(props)}

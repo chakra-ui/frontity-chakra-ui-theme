@@ -1,4 +1,4 @@
-import { PseudoBox, Stack } from "@chakra-ui/core";
+import { Box, PseudoBox } from "@chakra-ui/core";
 import React from "react";
 import Link from "../link";
 
@@ -32,22 +32,16 @@ export const PostCategories = ({
       : categories;
 
   return (
-    <Stack
-      direction="row"
-      justify="center"
-      mt="12px"
-      flexWrap="wrap"
-      {...props}
-    >
+    <Box mt="12px" {...props}>
       {limitCategories.map(category => (
-        <PostCategory marginTop="8px" color={color} key={category.id}>
+        <PostCategory color={color} key={category.id} mr="8px" mb="4px">
           <Link
             link={category.link}
             dangerouslySetInnerHTML={{ __html: category.name }}
           />
         </PostCategory>
       ))}
-    </Stack>
+    </Box>
   );
 };
 

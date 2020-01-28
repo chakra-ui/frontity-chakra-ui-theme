@@ -16,16 +16,18 @@ export const PrimaryPostPreview = ({ data, ...props }) => {
   const { title, categories, featured_media, link } = data;
 
   return (
-    <Link size="100%" link={link} display="block" flex="1" {...props}>
-      <PrimaryPostArticle bgImage={generateGradient()} role="group">
-        <PostOverlay />
+    <PrimaryPostArticle bgImage={generateGradient()} role="group" {...props}>
+      <PostOverlay />
+      <Link link={link}>
         <PostImage {...featured_media} />
-        <PostContent>
+      </Link>
+      <PostContent>
+        <Link link={link}>
           <PostTitle>{title}</PostTitle>
           <PostCategories categories={categories} />
-        </PostContent>
-      </PrimaryPostArticle>
-    </Link>
+        </Link>
+      </PostContent>
+    </PrimaryPostArticle>
   );
 };
 

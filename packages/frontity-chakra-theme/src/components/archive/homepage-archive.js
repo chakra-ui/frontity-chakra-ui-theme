@@ -5,7 +5,7 @@ import { FeaturedPostSection } from "../featured-post/featured-post";
 import { formatPostData, splitPosts } from "../helpers";
 import { Newsletter } from "../newsletter";
 import ArchiveItem from "./archive-item";
-import Pagination, { PaginationButton } from "./pagination";
+import { PaginationButton } from "./pagination";
 
 const HomepageArchive = ({ state, libraries }) => {
   // Get the data of the current list.

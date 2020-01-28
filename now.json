@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "alias": "frontity-chakra",
   "builds": [
     {
       "src": "package.json",

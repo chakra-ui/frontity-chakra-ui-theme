@@ -10,8 +10,7 @@ const Archive = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 
-  const isHomePage = state.router.link === "/";
-  if (isHomePage) return <HomepageArchive />;
+  if (data.isHome) return <HomepageArchive />;
 
   return (
     <Box bg="accent.50" as="section">

@@ -30,6 +30,8 @@ const Link = ({
     if (isExternal || isDisabled) return;
 
     event.preventDefault();
+    event.stopPropagation();
+
     // Set the router to the new url.
     actions.router.set(link);
 

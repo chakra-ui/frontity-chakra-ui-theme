@@ -62,8 +62,8 @@ const Pagination = ({ state, actions, libraries, ...props }) => {
   const { totalPages } = state.source.get(state.router.link);
   const { path, page, query } = libraries.source.parse(state.router.link);
 
-  const isThereNextPage = page < totalPages;
-  const isTherePreviousPage = page > 1;
+  const isThereNextPage = page > 1;
+  const isTherePreviousPage = page < totalPages;
 
   const nextPageLink = libraries.source.stringify({
     path,

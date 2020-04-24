@@ -1,4 +1,3 @@
-//eslint-disable-next-line
 import React from "react";
 import { Callout, Text, Box, Heading, PseudoBox } from "@chakra-ui/core";
 import Link from "../link";
@@ -12,9 +11,13 @@ function makeProcessor(tag, options) {
   return {
     name: tag,
     test: node => node.component === tag,
-    process: node => {
+    processor: node => {
+      const classNames = node.props.className; //save it for later
+      const css = node.props.css; //save it for later
       node.component = options.component;
       node.props = options.props(node);
+      node.props.className = classNames; //Add classNames, to empover Gutenberg editor
+      node.props.css = css; //Add css from Gutenberg, so Editors can style
       return node;
     },
     // allow for overriding this processors

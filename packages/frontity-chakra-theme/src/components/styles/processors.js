@@ -10,8 +10,8 @@ import Link from "../link";
 function makeProcessor(tag, options) {
   return {
     name: tag,
-    test: node => node.component === tag,
-    processor: node => {
+    test: ({ node }) => node.component === tag,
+    processor: ({ node }) => {
       const classNames = node.props.className; //save it for later
       const css = node.props.css; //save it for later
       node.component = options.component;
@@ -35,7 +35,7 @@ const blockquote = makeProcessor("blockquote", {
 });
 
 const paragraph = makeProcessor("p", {
-  props: node => {
+  props: ({ node }) => {
     // we don't want to add marginTop if the paragraph is nested in another component
     const hasParent = Boolean(node.parent);
     return {
@@ -87,7 +87,7 @@ const PostLink = ({ children, href, rel, ...props }) => (
 );
 
 const a = makeProcessor("a", {
-  props: node => node.props,
+  props: ({ node }) => node.props,
   component: PostLink
 });
 

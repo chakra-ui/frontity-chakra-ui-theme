@@ -3,6 +3,7 @@ import React from "react";
 import Link from "../link";
 import PostCategories from "./post-categories";
 import { formatDate } from "../helpers";
+import { decode } from "frontity";
 
 const PostHeader = ({
   heading,
@@ -35,7 +36,7 @@ const PostHeader = ({
       <Text fontSize="lg">
         by{" "}
         <Link fontWeight="bold" color="accent.400" link={author.link}>
-          {author.name}
+          {decode(author.name)}
         </Link>
       </Text>
     )}

@@ -12,12 +12,8 @@ function makeProcessor(tag, options) {
     name: tag,
     test: ({ node }) => node.component === tag,
     processor: ({ node }) => {
-      const classNames = node.props.className; //save it for later
-      const css = node.props.css; //save it for later
-      node.component = options.component;
-      node.props = options.props(node);
-      node.props.className = classNames; //Add classNames, to empover Gutenberg editor
-      node.props.css = css; //Add css from Gutenberg, so Editors can style
+      node.component = options.component || node.tag;
+      node.props = { ...options.props({ node }), ...node.props };
       return node;
     },
     // allow for overriding this processors

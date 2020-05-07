@@ -1,4 +1,3 @@
-//eslint-disable-next-line
 import React from "react";
 import { Callout, Text, Box, Heading, PseudoBox } from "@chakra-ui/core";
 import Link from "../link";
@@ -11,10 +10,10 @@ import Link from "../link";
 function makeProcessor(tag, options) {
   return {
     name: tag,
-    test: node => node.component === tag,
-    process: node => {
-      node.component = options.component;
-      node.props = options.props(node);
+    test: ({ node }) => node.component === tag,
+    processor: ({ node }) => {
+      node.component = options.component || node.tag;
+      node.props = { ...options.props({ node }), ...node.props };
       return node;
     },
     // allow for overriding this processors
@@ -32,7 +31,7 @@ const blockquote = makeProcessor("blockquote", {
 });
 
 const paragraph = makeProcessor("p", {
-  props: node => {
+  props: ({ node }) => {
     // we don't want to add marginTop if the paragraph is nested in another component
     const hasParent = Boolean(node.parent);
     return {
@@ -84,7 +83,7 @@ const PostLink = ({ children, href, rel, ...props }) => (
 );
 
 const a = makeProcessor("a", {
-  props: node => node.props,
+  props: ({ node }) => node.props,
   component: PostLink
 });
 

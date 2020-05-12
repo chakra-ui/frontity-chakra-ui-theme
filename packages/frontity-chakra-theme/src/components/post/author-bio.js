@@ -1,6 +1,7 @@
 import { Avatar, Box, Text, Flex } from "@chakra-ui/core";
 import React from "react";
 import Link from "../link";
+import { decode } from "frontity";
 
 const AuthorBio = ({ image, description, name, link }) => (
   <Flex maxWidth="700px" my={4} direction={{ base: "column", md: "row" }}>
@@ -15,7 +16,7 @@ const AuthorBio = ({ image, description, name, link }) => (
           color="accent.400"
           _hover={{ textDecoration: "underline" }}
         >
-          {name}
+          {decode(name)}
         </Link>
       </Text>
       {description && (

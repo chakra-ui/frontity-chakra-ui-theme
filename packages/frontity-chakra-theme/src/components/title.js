@@ -16,13 +16,13 @@ const Title = ({ state }) => {
     const taxonomyCapitalized =
       taxonomy.charAt(0).toUpperCase() + taxonomy.slice(1);
     // 3. Render the proper title.
-    title = `${taxonomyCapitalized}: ${name} - ${state.frontity.title}`;
+    title = `${taxonomyCapitalized}: ${decode(name)} - ${state.frontity.title}`;
   } else if (data.isAuthor) {
     // Add titles to authors, like "Author: Jon Snow - Blog Name".
     // 1. Get the author entity from the state to get its name.
-    const { name } = decode(state.source.author[data.id]);
+    const { name } = state.source.author[data.id];
     // 2. Render the proper title.
-    title = `Author: ${name} - ${state.frontity.title}`;
+    title = `Author: ${decode(name)} - ${state.frontity.title}`;
   } else if (data.isPostType) {
     // Add titles to posts and pages, using the title and ending with the Blog Name.
     // 1. Get the post entity from the state and get its title.

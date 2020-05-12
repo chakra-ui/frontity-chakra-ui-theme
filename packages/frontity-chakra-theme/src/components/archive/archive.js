@@ -5,6 +5,7 @@ import ArchiveHeader from "./archive-header";
 import ArchiveItem from "./archive-item";
 import HomepageArchive from "./homepage-archive";
 import Pagination from "./pagination";
+import { decode } from "frontity";
 
 const Archive = ({ state }) => {
   // Get the data of the current list.
@@ -19,7 +20,7 @@ const Archive = ({ state }) => {
         <ArchiveHeader
           showPattern={state.theme.showBackgroundPattern}
           taxonomy={data.taxonomy}
-          title={state.source[data.taxonomy][data.id].name}
+          title={decode(state.source[data.taxonomy][data.id].name)}
         />
       )}
 
@@ -28,7 +29,7 @@ const Archive = ({ state }) => {
         <ArchiveHeader
           showPattern={state.theme.showBackgroundPattern}
           taxonomy="Posts By"
-          title={state.source.author[data.id].name}
+          title={decode(state.source.author[data.id].name)}
         />
       )}
 

@@ -10,7 +10,9 @@ To install, run this command in your terminal:
 npm install frontity-chakra-theme
 ```
 
-Then add `frontity-chakra-theme` to your `frontity.settings.js` file
+Then add `frontity-chakra-theme` to your `frontity.settings.js` file.
+
+If you want to modify this package, you need to install it as a local package. You can do so by following this guide: [How to install a local package in Frontity](https://docs.frontity.org/guides/install-a-new-package#local-packages).
 
 ## Theme Options
 

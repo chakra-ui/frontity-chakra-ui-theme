@@ -1,5 +1,9 @@
 # Frontity Chakra Theme
 
+A Frontity theme made with the Chakra UI library.
+
+You can try it out in codesandbox: https://githubbox.com/chakra-ui/frontity-chakra-ui-theme
+
 ## Installation guide
 
 To get start quickly with the Chakra UI theme, you can install them like other published packages in Node using `npm` or `yarn`.

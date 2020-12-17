@@ -1,9 +1,9 @@
-import { Box, PseudoBox } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 import { IoIosMenu } from "react-icons/io";
 
 const MenuButton = forwardRef((props, ref) => (
-  <PseudoBox
+  <Box
     ref={ref}
     as="button"
     display={{ base: "flex", lg: "none" }}
@@ -15,7 +15,7 @@ const MenuButton = forwardRef((props, ref) => (
     {...props}
   >
     <Box size={10} color="accent.400" as={IoIosMenu} />
-  </PseudoBox>
+  </Box>
 ));
 
 export default MenuButton;

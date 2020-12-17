@@ -1,4 +1,4 @@
-import { Avatar, Box, Text, Flex } from "@chakra-ui/core";
+import { Avatar, Box, Text, Flex } from "@chakra-ui/react";
 import React from "react";
 import Link from "../link";
 

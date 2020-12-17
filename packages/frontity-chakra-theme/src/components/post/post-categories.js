@@ -1,9 +1,9 @@
-import { Box, PseudoBox, Flex } from "@chakra-ui/core";
+import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import Link from "../link";
 
 export const PostCategory = props => (
-  <PseudoBox
+  <Box
     transition="background-color ease 0.25s"
     px="5px"
     border="2px solid"

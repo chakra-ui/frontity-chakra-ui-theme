@@ -23,16 +23,19 @@
   "homepage": "https://github.com/chakra-ui/frontity-chakra-ui-theme#readme",
   "prettier": {},
   "dependencies": {
-    "frontity": "^1.4.2",
-    "@frontity/core": "^1.4.0",
-    "@frontity/wp-source": "^1.4.2",
-    "@frontity/tiny-router": "^1.0.17",
-    "@frontity/html2react": "^1.1.14",
-    "frontity-chakra-theme": "./packages/frontity-chakra-theme"
-  },
-  "devDependencies": {
-    "@changesets/cli": "2.4.1",
-    "eslint": "6.7.2",
-    "eslint-plugin-react": "7.17.0"
+    "@chakra-ui/react": "1.0.0",
+    "@emotion/react": "^11.1.2",
+    "@emotion/styled": "^11.0.0",
+    "@frontity/components": "^1.6.0",
+    "@frontity/core": "^1.9.1",
+    "@frontity/hooks": "1.1.13",
+    "@frontity/html2react": "^1.5.0",
+    "@frontity/tiny-router": "^1.2.4",
+    "@frontity/wp-source": "^1.10.0",
+    "emotion-theming": "10.0.19",
+    "framer-motion": "^3.0.0",
+    "frontity": "^1.13.0",
+    "frontity-chakra-theme": "./packages/frontity-chakra-theme",
+    "react-icons": "^4.1.0"
   }
 }

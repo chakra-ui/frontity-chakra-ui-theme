@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 import Image from "@frontity/components/image";
 import { connect } from "frontity";
 import React from "react";

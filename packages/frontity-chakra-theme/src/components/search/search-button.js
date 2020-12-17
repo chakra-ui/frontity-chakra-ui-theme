@@ -1,9 +1,9 @@
-import { Box, PseudoBox } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 import React from "react";
 import { IoIosSearch } from "react-icons/io";
 
 const SearchButton = props => (
-  <PseudoBox
+  <Box
     aria-label="Search this site"
     as="button"
     display="flex"
@@ -18,7 +18,7 @@ const SearchButton = props => (
     {...props}
   >
     <Box size={6} color="primary.700" as={IoIosSearch} />
-  </PseudoBox>
+  </Box>
 );
 
 export default SearchButton;

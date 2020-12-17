@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/core";
+import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import Link from "../link";
 import MobileMenu from "../menu";
@@ -34,16 +34,16 @@ const Logo = ({ isImage = true, src }) =>
   isImage ? (
     <Box as="img" src={src} width="120px" />
   ) : (
-    <Box
-      fontSize="2xl"
-      color="white"
-      fontFamily="heading"
-      textTransform="uppercase"
-      fontWeight="bold"
-    >
-      {src}
-    </Box>
-  );
+      <Box
+        fontSize="2xl"
+        color="white"
+        fontFamily="heading"
+        textTransform="uppercase"
+        fontWeight="bold"
+      >
+        {src}
+      </Box>
+    );
 
 const SiteLogo = connect(({ state, ...props }) => {
   // check if the logo is a url,

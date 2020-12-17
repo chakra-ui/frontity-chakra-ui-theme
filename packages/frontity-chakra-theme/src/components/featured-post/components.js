@@ -1,4 +1,4 @@
-import { Box, Heading, PseudoBox } from "@chakra-ui/core";
+import { Box, Heading } from "@chakra-ui/react";
 import { styled } from "frontity";
 import React from "react";
 import Link from "../link";
@@ -40,7 +40,7 @@ export const PostTitle = props => (
 );
 
 export const PostOverlay = props => (
-  <PseudoBox
+  <Box
     pointerEvents="none"
     zIndex={1}
     size="100%"
@@ -100,7 +100,7 @@ export const SecondaryPostArticle = props => (
 );
 
 export const PostImage = props => (
-  <PseudoBox
+  <Box
     as={Image}
     width="900"
     height="550"

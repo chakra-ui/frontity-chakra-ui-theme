@@ -1,5 +1,5 @@
 /**@jsx jsx */
-import { Box, CircularProgress } from "@chakra-ui/core";
+import { Box, CircularProgress } from "@chakra-ui/react";
 import { jsx } from "@emotion/core";
 
 const Loading = () => (

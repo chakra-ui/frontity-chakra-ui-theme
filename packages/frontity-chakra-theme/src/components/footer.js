@@ -1,4 +1,4 @@
-import { Box, PseudoBox, SimpleGrid } from "@chakra-ui/core";
+import { Box, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import { SocialMenu } from "./header/social-menu";
 import { connect } from "frontity";
@@ -24,7 +24,7 @@ const FooterSectionGroup = props => (
 );
 
 const FooterSectionItem = props => (
-  <PseudoBox padding="24px" color="white" textAlign="center" {...props} />
+  <Box padding="24px" color="white" textAlign="center" {...props} />
 );
 
 const Footer = ({ state }) => (

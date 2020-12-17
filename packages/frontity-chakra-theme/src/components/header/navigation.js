@@ -1,4 +1,4 @@
-import { Box, PseudoBox, Stack } from "@chakra-ui/core";
+import { Box, Stack } from "@chakra-ui/react";
 import { styled } from "frontity";
 import React from "react";
 import FrontityLink from "../link";
@@ -41,7 +41,7 @@ export const SiteMenu = props => (
 );
 
 const SiteMenuItem = ({ link, ...props }) => (
-  <PseudoBox
+  <Box
     as="li"
     color="white"
     fontSize={{ base: "sm", lg: "md" }}
@@ -53,7 +53,7 @@ const SiteMenuItem = ({ link, ...props }) => (
     {...props}
   >
     <Link link={link}>{props.children}</Link>
-  </PseudoBox>
+  </Box>
 );
 
 const Navigation = ({ menu, ...props }) => (

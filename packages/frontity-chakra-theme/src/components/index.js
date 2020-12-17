@@ -1,4 +1,4 @@
-import { Box, CSSReset, theme, ThemeProvider } from "@chakra-ui/core";
+import { Box, ChakraProvider, theme } from "@chakra-ui/react";
 import { connect, Head } from "frontity";
 import React from "react";
 import Archive from "./archive";
@@ -21,18 +21,16 @@ const Theme = ({ state, libraries }) => {
   const isSearch = Boolean(parse.query["s"]);
 
   return (
-    <ThemeProvider
-      theme={{
-        ...theme,
-        fonts: {
-          ...theme.fonts,
-          heading: "Kelson, system-ui, Helvetica, sans-serif"
-        },
-        colors: { ...theme.colors, ...state.theme.colors }
-      }}
+    <ChakraProvider theme={{
+      ...theme,
+      fonts: {
+        ...theme.fonts,
+        heading: "Kelson, system-ui, Helvetica, sans-serif"
+      },
+      colors: { ...theme.colors, ...state.theme.colors }
+    }}
     >
       <FontFace />
-      <CSSReset />
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
@@ -58,7 +56,7 @@ const Theme = ({ state, libraries }) => {
       </Box>
 
       <Footer />
-    </ThemeProvider>
+    </ChakraProvider>
   );
 };
 

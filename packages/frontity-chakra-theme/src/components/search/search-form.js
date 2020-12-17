@@ -1,4 +1,4 @@
-import { Flex, Icon, Input } from "@chakra-ui/core";
+import { Flex, Icon, Input } from "@chakra-ui/react";
 import { connect } from "frontity";
 import React from "react";
 import useSearch from "../hooks/useSearch";

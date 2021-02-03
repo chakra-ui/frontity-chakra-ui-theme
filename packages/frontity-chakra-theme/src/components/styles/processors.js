@@ -1,5 +1,5 @@
 import React from "react";
-import { Callout, Text, Box, Heading } from "@chakra-ui/react";
+import { Alert, Text, Box, Heading } from "@chakra-ui/react";
 import Link from "../link";
 
 /**
@@ -27,7 +27,7 @@ const blockquote = makeProcessor("blockquote", {
     status: "warning",
     marginY: "20px"
   }),
-  component: Callout
+  component: Alert
 });
 
 const paragraph = makeProcessor("p", {

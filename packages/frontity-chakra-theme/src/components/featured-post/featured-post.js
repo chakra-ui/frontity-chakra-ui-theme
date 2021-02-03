@@ -40,7 +40,7 @@ export const SecondaryPostPreview = ({ data, ...props }) => {
         <PostContent padding="40px" textAlign="left" mt="0">
           <PostCategories justifyContent="flex-start" categories={categories} />
           <PostTitle as="h2" mt="auto" pt="40px" fontSize="1.65rem">
-            {title}
+            {title} ss
           </PostTitle>
         </PostContent>
       </SecondaryPostArticle>

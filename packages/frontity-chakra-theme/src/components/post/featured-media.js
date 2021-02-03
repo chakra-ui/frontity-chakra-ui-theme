@@ -15,7 +15,7 @@ const FeaturedMedia = ({ state, actions, libraries, id, ...props }) => {
 
   return (
     <Box as="figure" mt={4} height="500px" {...props}>
-      <Box as={Image} size="100%" objectFit="cover" {...imgProps} />
+      <Box as={Image} boxSize="100%" objectFit="cover" {...imgProps} />
     </Box>
   );
 };

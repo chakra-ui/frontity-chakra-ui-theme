@@ -43,7 +43,7 @@ export const PostOverlay = props => (
   <Box
     pointerEvents="none"
     zIndex={1}
-    size="100%"
+    boxSize="100%"
     position="absolute"
     top="0"
     left="0"
@@ -105,7 +105,7 @@ export const PostImage = props => (
     width="900"
     height="550"
     position="absolute"
-    size="100%"
+    boxSize="100%"
     objectFit="cover"
     top="0"
     left="0"

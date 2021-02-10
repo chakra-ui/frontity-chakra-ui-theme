@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, CircularProgress } from "@chakra-ui/react";
 
 const Loading = () => (

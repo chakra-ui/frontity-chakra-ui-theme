@@ -14,7 +14,7 @@ const settings = {
         theme: {
           menu: [
             ["Home", "/"],
-            ["Natures", "/category/nature/"],
+            ["Nature", "/category/nature/"],
             ["Travel", "/category/travel/"],
             ["Japan", "/tag/japan/"],
             ["About Us", "/about-us/"]

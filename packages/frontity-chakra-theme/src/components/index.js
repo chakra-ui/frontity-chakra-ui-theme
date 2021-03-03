@@ -1,4 +1,4 @@
-import { Box, CSSReset, theme, ThemeProvider } from "@chakra-ui/core";
+import { Box, ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { connect, Head } from "frontity";
 import React from "react";
 import Archive from "./archive";
@@ -20,19 +20,17 @@ const Theme = ({ state, libraries }) => {
   // Check if the url is a search type
   const isSearch = Boolean(parse.query["s"]);
 
+  const overrides = extendTheme({
+    fonts: {
+      heading: "Kelson, system-ui, Helvetica, sans-serif"
+    },
+    colors: { ...state.theme.colors }
+  })
+
+
   return (
-    <ThemeProvider
-      theme={{
-        ...theme,
-        fonts: {
-          ...theme.fonts,
-          heading: "Kelson, system-ui, Helvetica, sans-serif"
-        },
-        colors: { ...theme.colors, ...state.theme.colors }
-      }}
-    >
+    <ChakraProvider theme={{ ...overrides }}>
       <FontFace />
-      <CSSReset />
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
@@ -58,7 +56,7 @@ const Theme = ({ state, libraries }) => {
       </Box>
 
       <Footer />
-    </ThemeProvider>
+    </ChakraProvider>
   );
 };
 

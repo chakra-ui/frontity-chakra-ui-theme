@@ -1,4 +1,4 @@
-import { Box, Divider } from "@chakra-ui/core";
+import { Box, Divider } from "@chakra-ui/react";
 import { connect, styled } from "frontity";
 import React, { useEffect } from "react";
 import List from "../archive";

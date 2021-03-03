@@ -3,7 +3,7 @@ import {
   DrawerCloseButton,
   DrawerContent,
   DrawerOverlay
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import React from "react";
 
 function MenuDrawer({ children, ...props }) {

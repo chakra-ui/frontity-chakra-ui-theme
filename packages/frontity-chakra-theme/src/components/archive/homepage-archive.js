@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid } from "@chakra-ui/core";
+import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
 import { connect } from "frontity";
 import React from "react";
 import { FeaturedPostSection } from "../featured-post/featured-post";

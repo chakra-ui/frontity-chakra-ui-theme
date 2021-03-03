@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
-import { Box, Stack } from "@chakra-ui/core";
+import { Box, Stack } from "@chakra-ui/react";
 
 export const PaginationButton = styled(Link)`
   width: 100%;
@@ -36,13 +36,13 @@ export const PrevLink = ({
   link,
   ...props
 }) => (
-  <Box width="100%" {...props}>
-    <PaginationButton link={link} aria-label={label} aria-disabled={isDisabled}>
-      <Box width="40px" height="auto" as={IoIosArrowRoundBack} />
-      <span>Older posts</span>
-    </PaginationButton>
-  </Box>
-);
+    <Box width="100%" {...props}>
+      <PaginationButton link={link} aria-label={label} aria-disabled={isDisabled}>
+        <Box width="40px" height="auto" as={IoIosArrowRoundBack} />
+        <span>Older posts</span>
+      </PaginationButton>
+    </Box>
+  );
 
 export const NextLink = ({
   isDisabled,
@@ -50,13 +50,13 @@ export const NextLink = ({
   link,
   ...props
 }) => (
-  <Box width="100%" {...props}>
-    <PaginationButton link={link} aria-label={label} aria-disabled={isDisabled}>
-      <span>Newer posts</span>
-      <Box width="40px" height="auto" as={IoIosArrowRoundForward} />
-    </PaginationButton>
-  </Box>
-);
+    <Box width="100%" {...props}>
+      <PaginationButton link={link} aria-label={label} aria-disabled={isDisabled}>
+        <span>Newer posts</span>
+        <Box width="40px" height="auto" as={IoIosArrowRoundForward} />
+      </PaginationButton>
+    </Box>
+  );
 
 const Pagination = ({ state, actions, libraries, ...props }) => {
   const { totalPages } = state.source.get(state.router.link);

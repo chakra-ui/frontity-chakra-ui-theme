@@ -1,11 +1,11 @@
-import { Avatar, Box, Text, Flex } from "@chakra-ui/core";
+import { Avatar, Box, Text, Flex } from "@chakra-ui/react";
 import React from "react";
 import Link from "../link";
 
 const AuthorBio = ({ image, description, name, link }) => (
   <Flex maxWidth="700px" my={4} direction={{ base: "column", md: "row" }}>
     <Avatar size="xl" src={image} />
-    <Box size={6} flexShrink="0" />
+    <Box boxSize={6} flexShrink="0" />
     <Box fontSize={{ base: "md", md: "lg" }}>
       <Text>
         by{" "}

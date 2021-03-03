@@ -8,7 +8,7 @@ import {
   SecondaryPostArticle
 } from "./components";
 import generateGradient from "./genarate-gradient";
-import { Flex, Box } from "@chakra-ui/core";
+import { Flex, Box } from "@chakra-ui/react";
 import PostCategories from "../post/post-categories";
 import Link from "../link";
 

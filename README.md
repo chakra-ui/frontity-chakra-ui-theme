@@ -52,45 +52,45 @@ const settings = {
             ["Home", "/"],
             ["Portfolio", "/portfolio"],
             ["About", "/about"],
-            ["Contact", "/contact"]
+            ["Contact", "/contact"],
           ],
           // the social links
           socialLinks: [
             ["pinterest", "https://www.pinterest.com/frontity/"],
             ["facebook", "https://www.instagram.com/frontity/"],
-            ["twitter", "https://www.twitter.com/frontity/"]
+            ["twitter", "https://www.twitter.com/frontity/"],
           ],
           // color shades to use in the blog
           colors: {
             primary: {
-              "50": "#e9f5f2",
-              "100": "#d4dcd9",
-              "200": "#bbc3be",
-              "300": "#a1aba5",
-              "400": "#87938b",
-              "500": "#6d7972",
-              "600": "#555f58",
-              "700": "#323c34",
-              "800": "#232924",
-              "900": "#272727"
+              50: "#e9f5f2",
+              100: "#d4dcd9",
+              200: "#bbc3be",
+              300: "#a1aba5",
+              400: "#87938b",
+              500: "#6d7972",
+              600: "#555f58",
+              700: "#323c34",
+              800: "#232924",
+              900: "#272727",
             },
             accent: {
-              "50": "#ede4d3",
-              "100": "#fbe3b2",
-              "200": "#f6d086",
-              "300": "#f1be58",
-              "400": "#eca419",
-              "500": "#d49212",
-              "600": "#a5710b",
-              "700": "#775105",
-              "800": "#483100",
-              "900": "#1d0f00"
-            }
-          }
-        }
-      }
-    }
-  ]
+              50: "#ede4d3",
+              100: "#fbe3b2",
+              200: "#f6d086",
+              300: "#f1be58",
+              400: "#eca419",
+              500: "#d49212",
+              600: "#a5710b",
+              700: "#775105",
+              800: "#483100",
+              900: "#1d0f00",
+            },
+          },
+        },
+      },
+    },
+  ],
 };
 
 export default settings;
@@ -141,9 +141,9 @@ const settings = {
     frontity: {
       url: "your website url",
       title: "Your website title",
-      description: "Your website description"
-    }
-  }
+      description: "Your website description",
+    },
+  },
 };
 ```
 

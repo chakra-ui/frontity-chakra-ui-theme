@@ -1,5 +1,5 @@
 import React from "react";
-import { Callout, Text, Box, Heading, PseudoBox } from "@chakra-ui/core";
+import { Alert, Text, Box, Heading } from "@chakra-ui/react";
 import Link from "../link";
 
 /**
@@ -27,7 +27,7 @@ const blockquote = makeProcessor("blockquote", {
     status: "warning",
     marginY: "20px"
   }),
-  component: Callout
+  component: Alert
 });
 
 const paragraph = makeProcessor("p", {
@@ -67,7 +67,7 @@ const h3 = makeProcessor("h3", {
 });
 
 const PostLink = ({ children, href, rel, ...props }) => (
-  <PseudoBox
+  <Box
     as="span"
     fontWeight="medium"
     color="accent.400"
@@ -79,7 +79,7 @@ const PostLink = ({ children, href, rel, ...props }) => (
     <Link rel={rel} link={href}>
       {children}
     </Link>
-  </PseudoBox>
+  </Box>
 );
 
 const a = makeProcessor("a", {

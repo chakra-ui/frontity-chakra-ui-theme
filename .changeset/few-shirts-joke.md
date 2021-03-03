@@ -1,5 +1,5 @@
 ---
-"frontity-chakra-theme": minor
+"frontity-chakra-theme": major
 ---
 
-Update Frontity and Chakra to their latest releases.
+Update Chakra to v1 and Frontity to its latest version.

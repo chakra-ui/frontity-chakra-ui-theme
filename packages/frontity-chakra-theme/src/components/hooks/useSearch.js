@@ -1,9 +1,7 @@
 import { useRef } from "react";
 
-const useSearch = ({ state, actions, libraries }) => {
-  const parse = libraries.source.parse(state.router.link);
-  const searchQuery = parse.query["s"];
-  const { closeSearchModal } = actions.theme;
+const useSearch = ({ state, actions }) => {
+  const data = state.source.get(state.router.link);
 
   // Keep a reference to the input so we can grab it's value on form submission
   const inputRef = useRef();
@@ -27,7 +25,7 @@ const useSearch = ({ state, actions, libraries }) => {
       window.scrollTo(0, 0);
 
       // Close the search modal
-      closeSearchModal();
+      actions.theme.closeSearchModal();
     }
   };
 
@@ -38,7 +36,7 @@ const useSearch = ({ state, actions, libraries }) => {
       onSubmit
     },
     input: {
-      defaultValue: searchQuery,
+      defaultValue: data.searchQuery.replace(/\+/g, " "),
       ref: inputRef
     }
   };

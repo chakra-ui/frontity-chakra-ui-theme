@@ -72,21 +72,11 @@ const SearchForm = connect(props => {
   );
 });
 
-export const SearchResults = ({ state, libraries }) => {
-  const currentPath = state.router.link;
+export const SearchResults = ({ state }) => {
+  const data = state.source.get(state.router.link);
 
   // Get the total pages that match the current path/url
-  const { total } = state.source.data[currentPath];
-  const isEmpty = total === 0;
-
-  // Parse to current url to get the search query
-  const parse = libraries.source.parse(state.router.link);
-
-  // Parse returns an object whose query string is stored in "s"
-  const searchQuery = parse.query["s"];
-
-  // Since we formatted the query string in the search modal, let's reverse the formatting
-  const reverseFormat = query => query.replace("+", " ");
+  const isEmpty = data.total === 0;
 
   return (
     <Box bg="primary.100">
@@ -97,10 +87,13 @@ export const SearchResults = ({ state, libraries }) => {
       >
         <PatternBoxInner>
           {isEmpty ? (
-            <NoResultTitle query={reverseFormat(searchQuery)} />
+            <NoResultTitle query={data.searchQuery.replace(/\+/g, " ")} />
           ) : (
-              <SearchResultTitle query={searchQuery} resultCount={total} />
-            )}
+            <SearchResultTitle
+              query={data.searchQuery.replace(/\+/g, " ")}
+              resultCount={data.total}
+            />
+          )}
         </PatternBoxInner>
       </PatternBox>
 
@@ -115,8 +108,8 @@ export const SearchResults = ({ state, libraries }) => {
           </Box>
         </NoResultContent>
       ) : (
-          <Archive />
-        )}
+        <Archive />
+      )}
     </Box>
   );
 };

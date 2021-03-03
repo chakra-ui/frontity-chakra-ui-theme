@@ -34,8 +34,8 @@
     "frontity-chakra-theme": "./packages/frontity-chakra-theme"
   },
   "devDependencies": {
-    "@changesets/cli": "2.14.1",
-    "eslint": "7.21.0",
-    "eslint-plugin-react": "7.22.0"
+    "@changesets/cli": "^2.14.1",
+    "eslint": "^7.21.0",
+    "eslint-plugin-react": "^7.22.0"
   }
 }

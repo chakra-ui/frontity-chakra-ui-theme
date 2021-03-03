@@ -1,6 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import Link from "../link";
+import { decode } from "frontity";
 
 export const PostCategory = props => (
   <Box
@@ -37,7 +38,7 @@ export const PostCategories = ({
         <PostCategory color={color} key={category.id} mr="6px" mb="6px">
           <Link
             link={category.link}
-            dangerouslySetInnerHTML={{ __html: category.name }}
+            dangerouslySetInnerHTML={{ __html: decode(category.name) }}
           />
         </PostCategory>
       ))}

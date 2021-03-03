@@ -14,12 +14,9 @@ import FontFace from "./styles/font-face";
 
 // Theme is the root React component of our theme. The one we will export
 // in roots.
-const Theme = ({ state, libraries }) => {
+const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
-  const parse = libraries.source.parse(state.router.link);
-  // Check if the url is a search type
-  const isSearch = Boolean(parse.query["s"]);
 
   const overrides = extendTheme({
     fonts: {

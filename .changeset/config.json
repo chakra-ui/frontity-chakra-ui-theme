@@ -1,8 +1,11 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@0.3.0/schema.json",
-  "changelog": "@changesets/cli/changelog",
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "chakra-ui/frontity-chakra-ui-theme" }
+  ],
   "commit": false,
   "linked": [],
-  "access": "restricted",
+  "access": "public",
   "baseBranch": "master"
 }

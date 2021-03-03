@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 import Image from "@frontity/components/image";
 import { connect } from "frontity";
 import React from "react";
@@ -15,7 +15,7 @@ const FeaturedMedia = ({ state, actions, libraries, id, ...props }) => {
 
   return (
     <Box as="figure" mt={4} height="500px" {...props}>
-      <Box as={Image} size="100%" objectFit="cover" {...imgProps} />
+      <Box as={Image} boxSize="100%" objectFit="cover" {...imgProps} />
     </Box>
   );
 };

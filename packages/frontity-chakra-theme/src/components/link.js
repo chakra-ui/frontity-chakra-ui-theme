@@ -1,4 +1,4 @@
-import { PseudoBox } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 import { connect } from "frontity";
 import React from "react";
 import { omitConnectProps } from "./helpers";
@@ -49,7 +49,7 @@ const Link = ({
   };
 
   return (
-    <PseudoBox
+    <Box
       as="a"
       href={isDisabled ? undefined : link}
       onClick={onClick}
@@ -65,7 +65,7 @@ const Link = ({
       {...omitConnectProps(props)}
     >
       {children}
-    </PseudoBox>
+    </Box>
   );
 };
 

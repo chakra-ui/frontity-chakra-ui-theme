@@ -1,4 +1,4 @@
-import { Heading, Text } from "@chakra-ui/core";
+import { Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import { PatternBox, PatternBoxInner } from "../styles/pattern-box";
 

@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Input, Text, Stack } from "@chakra-ui/core";
+import { Box, Button, Heading, Input, Text, Stack } from "@chakra-ui/react";
 import { connect } from "frontity";
 import React from "react";
 import Archive from "../archive";
@@ -65,7 +65,7 @@ const SearchForm = connect(props => {
         rounded="0"
         {...input}
       />
-      <Button type="submit" rounded="0" variantColor="accent" size="lg">
+      <Button type="submit" rounded="0" colorScheme="accent" size="lg">
         Search
       </Button>
     </Stack>
@@ -99,8 +99,8 @@ export const SearchResults = ({ state, libraries }) => {
           {isEmpty ? (
             <NoResultTitle query={reverseFormat(searchQuery)} />
           ) : (
-            <SearchResultTitle query={searchQuery} resultCount={total} />
-          )}
+              <SearchResultTitle query={searchQuery} resultCount={total} />
+            )}
         </PatternBoxInner>
       </PatternBox>
 
@@ -115,8 +115,8 @@ export const SearchResults = ({ state, libraries }) => {
           </Box>
         </NoResultContent>
       ) : (
-        <Archive />
-      )}
+          <Archive />
+        )}
     </Box>
   );
 };

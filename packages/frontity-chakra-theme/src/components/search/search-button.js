@@ -1,9 +1,9 @@
-import { Box, PseudoBox } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 import React from "react";
 import { IoIosSearch } from "react-icons/io";
 
 const SearchButton = props => (
-  <PseudoBox
+  <Box
     aria-label="Search this site"
     as="button"
     display="flex"
@@ -12,13 +12,13 @@ const SearchButton = props => (
     transition="background-color ease 0.25s"
     _hover={{ bg: "white" }}
     flexShrink="0"
-    size="46px"
+    boxSize="46px"
     bg="accent.400"
     ml={{ base: "auto", lg: "3rem" }}
     {...props}
   >
-    <Box size={6} color="primary.700" as={IoIosSearch} />
-  </PseudoBox>
+    <Box boxSize={6} color="primary.700" as={IoIosSearch} />
+  </Box>
 );
 
 export default SearchButton;

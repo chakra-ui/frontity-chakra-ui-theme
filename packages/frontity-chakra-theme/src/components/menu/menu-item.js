@@ -1,4 +1,4 @@
-import { PseudoBox, Box } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 import React from "react";
 import Link from "../link";
 
@@ -26,7 +26,7 @@ const MenuItem = ({ index, children, mb, link, ...rest }) => (
       padding="12px"
       link={link}
     >
-      <PseudoBox
+      <Box
         as="span"
         pos="absolute"
         top="50%"
@@ -36,8 +36,8 @@ const MenuItem = ({ index, children, mb, link, ...rest }) => (
         lineHeight="1.23"
       >
         {index}
-      </PseudoBox>
-      <PseudoBox
+      </Box>
+      <Box
         paddingLeft={10}
         letterSpacing="-0.004em"
         lineHeight="1.39"
@@ -46,7 +46,7 @@ const MenuItem = ({ index, children, mb, link, ...rest }) => (
         cursor="pointer"
       >
         {children}
-      </PseudoBox>
+      </Box>
     </Link>
   </Box>
 );

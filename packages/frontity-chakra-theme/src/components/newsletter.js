@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, Text, PseudoBox, Flex } from "@chakra-ui/core";
+import { Box, Heading, Text, Flex } from "@chakra-ui/react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import tile from "../assets/pattern-tile-green.svg";
 
@@ -58,7 +58,7 @@ export const Newsletter = props => (
 );
 
 const SubscribeInput = props => (
-  <PseudoBox
+  <Box
     as="input"
     width="100%"
     display="block"
@@ -74,7 +74,7 @@ const SubscribeInput = props => (
 );
 
 const SubscribeButton = props => (
-  <PseudoBox
+  <Box
     as="button"
     transition="background-color ease .25s"
     bg="white"
@@ -104,7 +104,7 @@ const SubscribeButton = props => (
       height="auto"
       as={IoIosArrowRoundForward}
     />
-  </PseudoBox>
+  </Box>
 );
 
 const SubscribeForm = props => (

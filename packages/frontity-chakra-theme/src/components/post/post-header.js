@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from "@chakra-ui/core";
+import { Box, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import Link from "../link";
 import PostCategories from "./post-categories";

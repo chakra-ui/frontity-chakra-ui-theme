@@ -1,4 +1,4 @@
-import { Modal, ModalCloseButton, ModalContent } from "@chakra-ui/core";
+import { Modal, ModalCloseButton, ModalContent } from "@chakra-ui/react";
 import React from "react";
 
 const SearchModal = props => (

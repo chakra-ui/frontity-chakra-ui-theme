@@ -1,4 +1,4 @@
-import { Box, PseudoBox, VisuallyHidden } from "@chakra-ui/core";
+import { Box, VisuallyHidden } from "@chakra-ui/react";
 import React from "react";
 import { SiteMenu } from "./navigation";
 import {
@@ -22,7 +22,7 @@ export const SocialMenu = ({ menu, ...props }) => (
 );
 
 const SocialMenuItem = ({ icon, label, link, ...props }) => (
-  <PseudoBox
+  <Box
     color="accent.400"
     transition="all 0.3s"
     _hover={{ color: "white" }}
@@ -32,10 +32,10 @@ const SocialMenuItem = ({ icon, label, link, ...props }) => (
     {...props}
   >
     <Link link={link}>
-      <Box as={icon} size="24px" />
+      <Box as={icon} boxSize="24px" />
     </Link>
     <VisuallyHidden>{label}</VisuallyHidden>
-  </PseudoBox>
+  </Box>
 );
 
 const icons = {

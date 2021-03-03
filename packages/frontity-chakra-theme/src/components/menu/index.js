@@ -1,4 +1,4 @@
-import { Stack, Box } from "@chakra-ui/core";
+import { Stack, Box } from "@chakra-ui/react";
 import { connect } from "frontity";
 import React, { useRef } from "react";
 import MenuButton from "./menu-button";

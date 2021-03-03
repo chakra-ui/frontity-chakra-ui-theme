@@ -1,4 +1,4 @@
-import { Box, PseudoBox } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 import React from "react";
 import Section from "./section";
 import tileGreen from "../../assets/pattern-tile-green.svg";
@@ -40,7 +40,7 @@ export const PatternBoxInner = props => (
 
 export const LightPatternBox = React.forwardRef(
   ({ showPattern = true, ...props }, ref) => (
-    <PseudoBox
+    <Box
       ref={ref}
       bg="accent.50"
       pt="40px"

@@ -1,6 +1,4 @@
-/**@jsx jsx */
-import { Box, CircularProgress } from "@chakra-ui/core";
-import { jsx } from "@emotion/core";
+import { Box, CircularProgress } from "@chakra-ui/react";
 
 const Loading = () => (
   <Box

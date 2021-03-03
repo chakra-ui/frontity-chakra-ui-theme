@@ -1,5 +1,6 @@
 import { Box, ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { connect, Head } from "frontity";
+import Switch from "@frontity/components/switch";
 import React from "react";
 import Archive from "./archive";
 import Footer from "./footer";
@@ -25,8 +26,7 @@ const Theme = ({ state, libraries }) => {
       heading: "Kelson, system-ui, Helvetica, sans-serif"
     },
     colors: { ...state.theme.colors }
-  })
-
+  });
 
   return (
     <ChakraProvider theme={{ ...overrides }}>
@@ -48,11 +48,13 @@ const Theme = ({ state, libraries }) => {
         mt={{ base: "40px", md: "70px" }}
         minH="calc(100vh - 320px)"
       >
-        {(data.isFetching && <Loading />) ||
-          (isSearch && <SearchResults />) ||
-          (data.isArchive && <Archive />) ||
-          (data.isPostType && <Post />) ||
-          (data.is404 && <Page404 />)}
+        <Switch>
+          <Loading when={data.isFetching} />
+          <SearchResults when={data.isSearch} />
+          <Archive when={data.isArchive} />
+          <Post when={data.isPostType} />
+          <Page404 when={data.is404} />
+        </Switch>
       </Box>
 
       <Footer />

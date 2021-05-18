@@ -1,5 +1,11 @@
 # frontity-chakra-theme
 
+## 1.0.3
+
+### Patch Changes
+
+- [`d0b6381`](https://github.com/chakra-ui/frontity-chakra-ui-theme/commit/d0b6381a8553da27dfa60b85eae0fbd46df8026d) [#32](https://github.com/chakra-ui/frontity-chakra-ui-theme/pull/32) Thanks [@luisherranz](https://github.com/luisherranz)! - Fix search hook bug.
+
 ## 1.0.2
 
 ### Patch Changes

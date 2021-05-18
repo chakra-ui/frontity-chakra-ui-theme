@@ -36,7 +36,7 @@ const useSearch = ({ state, actions }) => {
       onSubmit
     },
     input: {
-      defaultValue: data.searchQuery.replace(/\+/g, " "),
+      defaultValue: data.searchQuery && data.searchQuery.replace(/\+/g, " "),
       ref: inputRef
     }
   };
